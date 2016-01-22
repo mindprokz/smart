@@ -26,34 +26,93 @@
 	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+	<link rel="stylesheet" href="fonts/arsenal/arsenal.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.8/angular-animate.min.js"></script>
+	<script src="js/controller.js"></script>
 
 </head>
 
-<body>
+<body ng-app="kazyna_app" ng-controller="kazyna_main">
 	<!-- Здесь пишем код -->
-
+<div id="catalog">
+	<div class="content clear">
+		<div class="menu">
+			<div class="content_menu">
+				<h3 data-text="Категории" class="gradient_text">Категории</h3>
+				<h4 data-text="выберите категорию" class="gradient_text">выберите категорию</h4>
+				<div class="line"></div>
+			</div>
+			<div ng-repeat="iter in catalog_filter" class="category_elem {{iter.active}}" ng-click="main_filter_func($index)">
+				<div class="content_menu">
+					<img ng-src="{{'img/icon_catalog/'+iter.src+'.png'}}" alt="">
+					<h2>{{iter.name}}</h2>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+		<div class="window">
+			<h3 class="header">Примеры готовой продукции</h3>
+			<div class="info">
+				<div class="border">
+					<div class="border1">
+						<div class="border2">
+							<div class="post_content clear">
+								<div class="image">
+									<img ng-src="{{catalog_window.src_big}}" alt="image">
+									<img src="img/zoom.png" alt="zoom">
+								</div>
+								<div class="text">
+									<h3>Описание</h3>
+									<p>{{catalog_window.content}}</p>
+									<h3>Вес: <span>{{catalog_window.weight}}</span></h3>
+									<h3>Вставки / Камни: <span>{{catalog_window.stones}}</span></h3>
+									<h3>Размеры в наличии:<span>{{catalog_window.size}}</span></h3>
+									<h2>Цена: <span>{{catalog_window.price}}</span></h2>
+								</div>
+							</div>
+							<div class="thumbnails clear">
+								<div class="arrow_left" ng-click="previous_button()"></div>
+								<div class="content_catalog">
+									<div class="wrapper" style="left: {{'-' + filter_begin * width + 'px'}};">
+										<div ng-repeat="thumb in catalog_thumnail | filter : filter_param " class="catalog_elem_thumb" ng-click="thumbnail_click($index)">
+											<img ng-src="{{thumb.src_thumb}}" alt="thumbnail">
+											<div class="frame"></div>
+										</div>
+									</div>
+								</div>
+								<div class="arrow_right" ng-click="next_button()"></div>
+							</div>
+							<h3 class="watched">Вы просмотрели: {{length_watch[0] +' из '+ length_watch[1]}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!--     Пример формы обратной связи          -->
-	<div class="main">
-      <h3>Внимание</h3>
-      <p>Оставьте ваши контактные данные и наш консультант<br/>свяжется с вами в течении 30 секунд</p>
+	<!--<div class="main">-->
+      <!--<h3>Внимание</h3>-->
+      <!--<p>Оставьте ваши контактные данные и наш консультант<br/>свяжется с вами в течении 30 секунд</p>-->
 
-		<form id="application" action="mail.php" method="POST" name=" application ">
-			<input name="name" id="applicationName" maxlength="20" placeholder="Введите ваше имя" required />
-			<input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Введите ваш E-mail" required/>
-			<input name="telephone" type="Tel" id="applicationTelephone" maxlength="20" placeholder="Введите ваш телефон" required />
-			<input type="submit">
-			<div id="app"> Отправить </div>
-		</form>
-	</div>
-	<div id="mail" class="not_visible_mail">
-	</div>
-	<div class="hidden"></div>
-	<!--[if lt IE 9]>
-	<script src="libs/html5shiv/es5-shim.min.js"></script>
-	<script src="libs/html5shiv/html5shiv.min.js"></script>
-	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-	<script src="libs/respond/respond.min.js"></script>
-	<![endif]-->
+		<!--<form id="application" action="mail.php" method="POST" name=" application ">-->
+			<!--<input name="name" id="applicationName" maxlength="20" placeholder="Введите ваше имя" required />-->
+			<!--<input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Введите ваш E-mail" required/>-->
+			<!--<input name="telephone" type="Tel" id="applicationTelephone" maxlength="20" placeholder="Введите ваш телефон" required />-->
+			<!--<input type="submit">-->
+			<!--<div id="app"> Отправить </div>-->
+		<!--</form>-->
+	<!--</div>-->
+	<!--<div id="mail" class="not_visible_mail">-->
+	<!--</div>-->
+	<!--<div class="hidden"></div>-->
+	<!--&lt;!&ndash;[if lt IE 9]>-->
+	<!--<script src="libs/html5shiv/es5-shim.min.js"></script>-->
+	<!--<script src="libs/html5shiv/html5shiv.min.js"></script>-->
+	<!--<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>-->
+	<!--<script src="libs/respond/respond.min.js"></script>-->
+	<!--<![endif]&ndash;&gt;-->
 
 	<!-- Load CSS (remove/comment after release) -->
 	<script>

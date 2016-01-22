@@ -47,4 +47,255 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none; }
 
+.content {
+  width: 1170px;
+  margin: auto; }
+  @media only screen and (min-width: 320px) {
+    .content {
+      width: 320px; } }
+  @media only screen and (min-width: 1024px) {
+    .content {
+      width: 1024px; } }
+  @media only screen and (min-width: 1230px) {
+    .content {
+      width: 1170px; } }
+
+#catalog {
+  background: url(../img/background/catalog.jpg) no-repeat;
+  background-size: cover;
+  padding-top: 55px;
+  padding-bottom: 80px; }
+  #catalog .menu {
+    float: left;
+    width: 315px;
+    padding-top: 45px;
+    padding-bottom: 116px;
+    background: url(../img/back_catalog.jpg) no-repeat;
+    font-family: Arsenal;
+    font-weight: bold; }
+    @media only screen and (min-width: 320px) {
+      #catalog .menu {
+        display: none !important; } }
+    @media only screen and (min-width: 1024px) {
+      #catalog .menu {
+        display: block !important; } }
+    #catalog .menu .content_menu {
+      width: 220px;
+      margin: auto; }
+    #catalog .menu h3 {
+      font-size: 22pt;
+      font-weight: bold; }
+    #catalog .menu h2 {
+      float: right;
+      padding-top: 10px;
+      color: #fff;
+      font-family: Arsenal;
+      font-size: 14pt;
+      width: 165px; }
+    #catalog .menu .line {
+      width: 100%;
+      height: 2px;
+      background: url(../img/line.png) no-repeat;
+      margin-top: 10px; }
+    #catalog .menu .category_elem {
+      padding-top: 10px;
+      width: 273px;
+      margin: auto; }
+      #catalog .menu .category_elem:hover {
+        background: url(../img/hover_catalog.jpg) no-repeat;
+        background-size: cover;
+        cursor: pointer; }
+    #catalog .menu .active {
+      background: url(../img/hover_catalog.jpg) no-repeat;
+      background-size: cover;
+      cursor: pointer; }
+    #catalog .menu .gradient_text {
+      background: #f2efdf;
+      background: -moz-linear-gradient(top, #f2efdf 0%, #c0ad61 100%);
+      background: -webkit-linear-gradient(top, #f2efdf 0%, #c0ad61 100%);
+      background: linear-gradient(to bottom, #f2efdf 0%, #c0ad61 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2efdf', endColorstr='#c0ad61',GradientType=0 );
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      position: relative; }
+      #catalog .menu .gradient_text:before {
+        background: none;
+        content: attr(data-text);
+        position: absolute;
+        text-shadow: 2px 3px 1px rgba(0, 0, 0, 0.2);
+        top: 0; }
+  #catalog .window {
+    position: relative; }
+    @media only screen and (min-width: 320px) {
+      #catalog .window {
+        width: 300px;
+        margin: auto; } }
+    @media only screen and (min-width: 1024px) {
+      #catalog .window {
+        width: 625px;
+        float: left;
+        margin-left: 30px; } }
+    @media only screen and (min-width: 1230px) {
+      #catalog .window {
+        width: 800px;
+        float: left;
+        margin-left: 50px; } }
+    #catalog .window .header {
+      background: #f2efdf;
+      background: -moz-linear-gradient(top, #f2efdf 0%, #c0ad61 100%);
+      background: -webkit-linear-gradient(top, #f2efdf 0%, #c0ad61 100%);
+      background: linear-gradient(to bottom, #f2efdf 0%, #c0ad61 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2efdf', endColorstr='#c0ad61',GradientType=0 );
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      position: relative;
+      font-weight: bold;
+      font-size: 31pt;
+      padding-bottom: 40px; }
+      #catalog .window .header:before {
+        background: none;
+        content: attr(data-text);
+        position: absolute;
+        text-shadow: 2px 3px 1px rgba(0, 0, 0, 0.2);
+        top: 0; }
+    #catalog .window .info {
+      width: 100%;
+      padding: 10px;
+      background: #fff; }
+      #catalog .window .info .border {
+        border: 1px solid #e9c34d; }
+        #catalog .window .info .border .border1 {
+          border: 1px solid #f3dfa0; }
+          #catalog .window .info .border .border1 .border2 {
+            border: 1px solid #eac758;
+            padding: 20px; }
+          #catalog .window .info .border .border1 .post_content .image {
+            border: 2px solid #d9d9d9;
+            float: left;
+            overflow: hidden;
+            position: relative; }
+            @media only screen and (min-width: 1024px) {
+              #catalog .window .info .border .border1 .post_content .image {
+                width: 310px; } }
+            @media only screen and (min-width: 1230px) {
+              #catalog .window .info .border .border1 .post_content .image {
+                width: 340px; } }
+            #catalog .window .info .border .border1 .post_content .image img[alt="image"] {
+              max-width: 100%;
+              max-height: 100%;
+              height: auto;
+              width: auto; }
+            #catalog .window .info .border .border1 .post_content .image img[alt="zoom"] {
+              position: absolute;
+              right: 10px;
+              bottom: 5px;
+              opacity: 0.5;
+              cursor: pointer;
+              transition: opacity 0.3s ease; }
+              #catalog .window .info .border .border1 .post_content .image img[alt="zoom"]:hover {
+                opacity: 1; }
+          #catalog .window .info .border .border1 .post_content .text {
+            padding-left: 15px;
+            float: left; }
+            @media only screen and (min-width: 1024px) {
+              #catalog .window .info .border .border1 .post_content .text {
+                width: 249px; } }
+            @media only screen and (min-width: 1230px) {
+              #catalog .window .info .border .border1 .post_content .text {
+                width: 385px; } }
+            #catalog .window .info .border .border1 .post_content .text h3 {
+              color: #8a0017;
+              font-family: Arsenal, sans-serif;
+              font-size: 15pt; }
+              #catalog .window .info .border .border1 .post_content .text h3 span {
+                color: #3d3d3d;
+                font-size: 13pt; }
+            #catalog .window .info .border .border1 .post_content .text h2 {
+              color: #8a0017;
+              font-size: 18pt; }
+              #catalog .window .info .border .border1 .post_content .text h2 span {
+                color: #3d3d3d; }
+          @media only screen and (min-width: 320px) {
+            #catalog .window .info .border .border1 .thumbnails {
+              display: none !important; } }
+          @media only screen and (min-width: 1024px) {
+            #catalog .window .info .border .border1 .thumbnails {
+              display: block !important; } }
+          #catalog .window .info .border .border1 .thumbnails .arrow_left {
+            float: left;
+            background: url(../img/arrows.png) no-repeat 0 0;
+            width: 20px;
+            height: 31px;
+            cursor: pointer;
+            margin-top: 55px; }
+            #catalog .window .info .border .border1 .thumbnails .arrow_left:hover {
+              background-position: -20px 0; }
+          #catalog .window .info .border .border1 .thumbnails .content_catalog {
+            float: left; }
+            @media only screen and (min-width: 1024px) {
+              #catalog .window .info .border .border1 .thumbnails .content_catalog {
+                width: 519px;
+                overflow: hidden; } }
+            @media only screen and (min-width: 1230px) {
+              #catalog .window .info .border .border1 .thumbnails .content_catalog {
+                width: 694px;
+                overflow: hidden; } }
+            @media only screen and (min-width: 1024px) {
+              #catalog .window .info .border .border1 .thumbnails .content_catalog .wrapper {
+                width: 1000px;
+                position: relative;
+                transition: left 0.3s ease; } }
+            #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb {
+              position: relative;
+              width: 153px;
+              height: 120px;
+              cursor: pointer;
+              float: left;
+              margin: 10px 10px;
+              overflow: hidden; }
+              #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb:hover > .frame {
+                background: url(../img/frame_catalog_hover.png) no-repeat; }
+              #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb img[alt="thumbnail"] {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); }
+              #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb .frame {
+                width: 100%;
+                height: 100%;
+                background: url(../img/frame_catalog.png) no-repeat; }
+              #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb .active {
+                background: url(../img/frame_catalog_hover.png) no-repeat; }
+            #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb.ng-enter {
+              transition: all linear 1s;
+              opacity: 0; }
+            #catalog .window .info .border .border1 .thumbnails .content_catalog .catalog_elem_thumb.ng-enter-active {
+              opacity: 1; }
+          #catalog .window .info .border .border1 .thumbnails .arrow_right {
+            float: left;
+            background: url(../img/arrows.png) no-repeat -40px 0;
+            width: 20px;
+            height: 31px;
+            cursor: pointer;
+            margin-top: 55px; }
+            #catalog .window .info .border .border1 .thumbnails .arrow_right:hover {
+              background-position: -60px 0; }
+          #catalog .window .info .border .border1 .watched {
+            font-family: Arsenal, sans-serif;
+            color: #3f3d3d;
+            font-size: 13pt;
+            text-align: center; }
+            @media only screen and (min-width: 320px) {
+              #catalog .window .info .border .border1 .watched {
+                display: none !important; } }
+            @media only screen and (min-width: 1024px) {
+              #catalog .window .info .border .border1 .watched {
+                display: block !important; } }
+
 /*# sourceMappingURL=style.css.map */
