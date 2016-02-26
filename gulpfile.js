@@ -1,41 +1,69 @@
 'use strict'
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	autoprefixer = require('gulp-autoprefixer'),
 	uglify = require('gulp-uglify'),
-	//sass = require('gulp-sass'),
+	sass = require('gulp-ruby-sass'),
 	livereload = require('gulp-livereload'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+    bs = require("browser-sync").create(),
+    babel = require('gulp-babel'); 
+
+gulp.task('Server Start', function(){
+	bs.init({
+	    server : './'
+	})
+	bs.watch('production/*.html').on('change', bs.reload);
+	bs.watch('production/css/style.min.css').on('change', bs.reload);
+	bs.watch('production/js/*.js').on('change', bs.reload);
+});
 
 // task for change html
 gulp.task('html',function(){
-	gulp.src('index.html');
+	gulp.src('production/index.html');
+});
+
+gulp.task('sass', function () {
+  return sass('production/css/style.sass')
+    .on('error', sass.logError)
+    .pipe(autoprefixer('last 10 version'))
+    .pipe(rename('production/style.min.css'))
+    .pipe(gulp.dest('production/css'));
 });
 
 // task for css
 gulp.task('css', function () {
-	gulp.src('css/style.css')
-    //.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	gulp.src('production/css/style.css')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer('last 10 version'))
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('css/'));
+    .pipe(rename('production/style.min.css'))
+    .pipe(gulp.dest('production/css/'));
 });
 
 // task for JS 
 gulp.task('js', function() {
-  return gulp.src('js/*.js')
+  return gulp.src('production/js/common.js')
     .pipe(uglify())
-    .pipe(rename('common.min.js'))
-    .pipe(gulp.dest('js/'));
+    .pipe(rename('production/common.min.js'))
+    .pipe(gulp.dest('production/js/'));
+});
+
+gulp.task('ecma2015', function() {
+  return gulp.src('production/js/controller.js')
+    //.pipe(babel({presets: ['es2015']}))
+    .pipe(uglify())
+    .pipe(rename('production/controller.min.js'))
+    .pipe(gulp.dest('production/js/'));
 });
 
 // taks for watch change files
 gulp.task('watch', function(){
-	gulp.watch('css/style.css', ['css']);
-	gulp.watch('index.html', ['html']);
-	gulp.watch('js/*.js', ['js']);
+	gulp.watch('production/css/style.sass', ['sass']);
+	gulp.watch('production/index.html', ['html']);
+	gulp.watch('production/js/common.js', ['js']);
+    gulp.watch('production/js/controller.js', ['ecma2015']);
 });
 
 // default task
-gulp.task('default', ['html','css','js','watch']);
+gulp.task('default', ['html', 'sass', 'js', 'ecma2015', 'watch']);
