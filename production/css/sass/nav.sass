@@ -1,0 +1,184 @@
+.nav.top_style
+	background: rgb(30,87,153)
+	background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(26,104,178,1) 67%, rgba(7,163,228,1) 67%, rgba(7,163,228,1) 67%, rgba(7,163,228,1) 100%)
+	background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(26,104,178,1) 67%,rgba(7,163,228,1) 67%,rgba(7,163,228,1) 67%,rgba(7,163,228,1) 100%)
+	background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(26,104,178,1) 67%,rgba(7,163,228,1) 67%,rgba(7,163,228,1) 67%,rgba(7,163,228,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#07a3e4',GradientType=0 )
+	position: fixed
+	top: 0
+	width: 100%
+	z-index: 101
+	& .container
+		position: relative
+
+.nav.margin_style
+	background: rgb(30,87,153)
+	background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(26,104,178,1) 60%, rgba(7,163,228,1) 60%, rgba(7,163,228,1) 60%, rgba(7,163,228,1) 100%)
+	background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(26,104,178,1) 60%,rgba(7,163,228,1) 60%,rgba(7,163,228,1) 60%,rgba(7,163,228,1) 100%)
+	background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(26,104,178,1) 60%,rgba(7,163,228,1) 60%,rgba(7,163,228,1) 60%,rgba(7,163,228,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#07a3e4',GradientType=0 )
+	
+
+.top_style
+	height: 140px
+	transition: all .3s ease
+	img[alt="logotype"]
+		height: 141px
+		transition: all .3s ease
+	h1 
+		color: #ffffff
+		position: absolute
+		left: 228px
+		top: 12px
+		font-size: 20pt
+		font-weight: 300
+		width: 370px
+		line-height: 26pt
+		text-transform: uppercase
+		transition: left .3s ease, font-size .01s ease-in
+	.lang 
+		position: absolute
+		top: 12px
+		left: 740px
+		transition: left .3s ease
+		.lang_wrap
+			position: relative
+		.lang_elem
+			padding: 7px
+			border-radius: 50%
+			cursor: pointer
+			color: #ffffff
+			font-size: 10pt
+			font-weight: 300
+			text-align: center
+			border: 1px solid rgba(0,0,0,0)
+			&.active
+				border: 1px solid #fff
+	.en
+		position: absolute
+		top: 37px
+		left: 0
+		transition: top .3s ease, left .3s ease
+	.numbers
+		position: absolute
+		top: 12px
+		right: 22px
+		transition: top .3s ease, right .3s ease
+		h3
+			font-size: 20pt
+			color: #fff
+			font-weight: 300
+			transition: font-size .3s ease
+			span
+				font-weight: 700
+		h4 
+			font-size: 17pt
+			color: #fff
+			font-weight: 300
+			line-height: 22pt	
+			transition: font-size .3s ease, line-height .3s ease
+			span
+				border-bottom: 1px dotted #fff	
+	nav 
+		position: absolute
+		bottom: 0
+		left: 220px
+		transition: left .3s ease
+		a
+			float: left
+			padding: 20px 10px 9px 10px
+			color: #fff	
+			font-weight: 300
+			font-size: 13.7pt
+			text-transform: uppercase
+			border-bottom: 4px solid rgba(0,0,0,0)
+			transition: color .2s linear, padding .3s ease
+			&:hover
+				color: #0a5292
+				border-bottom: 4px solid #fff	
+
+
+
+.margin_style
+	height: 93px
+	img[alt="logotype"]
+		height: 93px
+	h1
+		font-size: 15pt
+		left: 160px
+		width: 480px
+	.lang 
+		left: 700px	
+	.en
+		position: absolute
+		top: 0px
+		left: 40px	
+	.numbers
+		top: 4px
+		right: 75px	
+		h3
+			font-size: 15pt
+			font-weight: 300
+		h4 
+			font-size: 13pt
+			line-height: 13pt	
+	nav 
+		left: 150px		
+		a 
+			padding: 13px 10px 4px 10px
+.drop_down
+	margin-top: 15px
+	max-height: 36px
+	font-weight: 300
+	color: #fff
+	font-size: 15px
+	overflow: hidden
+	transition: max-height .5s ease
+	&:after
+		content : '.'
+		display : table
+		clear : both
+		visibility: hidden
+	header
+		padding: 7px 10px 7px 20px
+		border: 1px solid #4d9dbf
+		border-radius: 17px	
+		background: rgba(0,0,0,0)
+		display: inline-block
+		margin-bottom: 15px
+		cursor: pointer
+		transition: margin-bottom .1s ease .5s, border .1s ease .5s, border-radius .1s ease .5s, background .1s ease .5s
+		span
+			margin-right: 15px
+		&:after
+			content: ''
+			width: 14px
+			height: 11px
+			background: url(../img/sprite/sprite.png) no-repeat -304px -13px
+			float: right
+			margin-top: 4px
+	.list_block
+		border-radius: 0 0 17px 17px
+		width: 199px
+		overflow: hidden
+		position: relative
+		z-index: 1000
+		.list_elem
+			background: #4d9dbf	
+			padding: 10px 10px 10px 20px
+			cursor: pointer
+			transition: background .3s ease
+			&:hover
+				background: #71b1cc	
+.drop_down:hover
+	height: auto
+	max-height: 500px
+	header
+		border-radius: 17px	17px 0 0
+		background: #4d9dbf
+		margin-bottom: 0px
+		border-bottom: 15px solid #4d9dbf
+		transition: none
+		&:after
+			background: url(../img/sprite/sprite.png) no-repeat -304px -23px
+

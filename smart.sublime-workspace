@@ -1,0 +1,726 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lang",
+				"language"
+			],
+			[
+				"list",
+				"list:s	list-style-type:square"
+			],
+			[
+				"te",
+				"test_search.png	w:231 h:128"
+			],
+			[
+				"lo",
+				"logos/"
+			],
+			[
+				"bdrz",
+				"bdrz	border-radius"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"pos",
+				"pos:r	position:relative"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"bg_",
+				"bg_plit.jpg	w:1366 h:665"
+			],
+			[
+				"slid",
+				"slider_test.jpg	w:428 h:226"
+			],
+			[
+				"op",
+				"open_modal"
+			],
+			[
+				"tes",
+				"test_modal.jpg	w:431 h:328"
+			],
+			[
+				"an",
+				"angular.min.js"
+			],
+			[
+				"new",
+				"newFlakeWay"
+			],
+			[
+				"get",
+				"getBezierCurve"
+			],
+			[
+				"lst",
+				"list	list-style-type"
+			],
+			[
+				"ta",
+				"target	Attr"
+			],
+			[
+				"qu",
+				"querySelector"
+			],
+			[
+				"check",
+				"check_mail"
+			],
+			[
+				"che",
+				"check_number"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"cur",
+				"cur:d	cursor:default"
+			],
+			[
+				"50px",
+				"50px"
+			],
+			[
+				"holi",
+				"holidays_inner"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"di",
+				"d:ib	display:inline-block"
+			],
+			[
+				"bool",
+				"bool_open_modal"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"set",
+				"setAttribute"
+			],
+			[
+				"show",
+				"showPeople"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"lan",
+				"lang_active"
+			],
+			[
+				"tr",
+				"transition"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"fsi",
+				"font-size"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"inli",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "production/index.html",
+			"settings":
+			{
+				"buffer_size": 22704,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "production/js/controller.js",
+			"settings":
+			{
+				"buffer_size": 2569,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "production/css/sass/main.sass",
+			"settings":
+			{
+				"buffer_size": 22292,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "production/css/sass/animation.sass",
+			"settings":
+			{
+				"buffer_size": 211,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/SASS Build/SASS - Compressed.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/SASS Build/SASS - Compressed.sublime-build",
+					""
+				],
+				[
+					"Packages/SASS Build/SASS.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/SASS Build/SASS - Compressed.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 163.0,
+		"last_filter": "package control: in",
+		"selected_items":
+		[
+			[
+				"package control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: l",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 424.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/bower_components",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/js"
+	],
+	"file_history":
+	[
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/sass/nav.sass",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/инструменты.txt",
+		"/C/Users/Merrick/Desktop/work/m.txt",
+		"/C/Users/Merrick/Desktop/cordova/test/konkurs/index.html",
+		"/C/Users/Merrick/Desktop/cordova/need.txt",
+		"/C/Users/Merrick/Photoshop2015/Plug-ins/Generator/com.madebysource.csshat2/node_modules/octopus-converter/lib/photoshop-generator.js",
+		"/C/Users/Merrick/Desktop/правка/правки.txt",
+		"/C/Users/Merrick/Desktop/work/mp/production/reviews.html",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/js/common.js",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/Ссылка на карту.txt",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/sass/button.sass",
+		"/C/Users/Merrick/Desktop/ui-slider-master/demo/index.html",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/sass/main.sass",
+		"/C/Users/Merrick/Desktop/work/goldencity/js/controller.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/project_file.sublime-project",
+		"/C/Users/Merrick/Desktop/J5/index.js",
+		"/C/Users/Merrick/Desktop/konkurs-master/index.html",
+		"/C/Users/Merrick/Desktop/konkurs-master/css/main.css",
+		"/C/Users/Merrick/Desktop/work/доступы.txt",
+		"/C/Users/Merrick/Desktop/work/goldencity/mail.php",
+		"/C/Users/Merrick/Desktop/index.html",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/gulpfile.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/css/style.sass",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/js/Polyfill_array_from.js",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/nav.sass",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/main.sass",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/font.sass",
+		"/C/Users/Merrick/Desktop/work/goldencity/css/font/font.css",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/bower_components/nav/nav.js",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/bower_components/nav/nav.min.js",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/js/nav.js",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/js/controller.js",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/index.php",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/css/style.sass",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/gulpfile.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/gulpfile.js",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/index.html",
+		"/C/Users/Merrick/Desktop/work/SmartRealty/production/css/style.sass",
+		"/C/Users/Merrick/Desktop/work/optimizeHTML/.gitignore",
+		"/C/Users/Merrick/Desktop/work/optimizeHTML/package.json",
+		"/C/Users/Merrick/Desktop/work/optimizeHTML/gulpfile.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/index.php",
+		"/C/Users/Merrick/Desktop/work/goldencity/js/common.js",
+		"/C/Users/Merrick/Desktop/index.php",
+		"/C/Users/Merrick/Downloads/Novy_textovy_dokument (3).txt",
+		"/C/Users/Merrick/Downloads/Novy_textovy_dokument (1).txt",
+		"/C/Users/Merrick/Desktop/work/goldencity/frame/frame.html",
+		"/C/Users/Merrick/Desktop/main.css",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.910/Новый текстовый документ.txt",
+		"/C/Users/Merrick/Desktop/work/goldencity/metabox_add.php",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.615/описание.txt",
+		"/C/Users/Merrick/Downloads/Novy_textovy_dokument.txt",
+		"/C/Users/Merrick/Desktop/doctor/index.php",
+		"/C/Users/Merrick/Desktop/doctor/css/main.css",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.082/Новый текстовый документ.txt",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.992/описание.txt",
+		"/C/Users/Merrick/Desktop/work/goldencity/bower_components/fancybox/source/jquery.fancybox.css",
+		"/C/Users/Merrick/Desktop/work/goldencity/test.json",
+		"/C/Users/Merrick/Desktop/work/goldencity/style.css",
+		"/C/Users/Merrick/Desktop/work/goldencity/index.html",
+		"/C/Users/Merrick/Desktop/leeson_blog/canvas/snow/index.html",
+		"/C/Users/Merrick/Desktop/work/goldencity/metabox_create.php",
+		"/C/Users/Merrick/Desktop/work/goldencity/.gitignore",
+		"/C/Users/Merrick/Desktop/work/goldencity/functions.php",
+		"/C/Users/Merrick/Desktop/6.1 Media-responsive_design/Extra_Media_Files/fonts/fonts-master/ofl/ekmukta/DESCRIPTION.en_us.html",
+		"/C/Users/Merrick/Desktop/6.1 Media-responsive_design/Extra_Media_Files/fonts/fonts-master/ofl/ekmukta/METADATA.json",
+		"/C/Users/Merrick/Desktop/work/goldencity/js/controller.min.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/js/common.min.js",
+		"/C/Users/Merrick/Desktop/work/goldencity/package.json",
+		"/C/Users/Merrick/Desktop/work/goldencity/css/style.min.css",
+		"//mindproserver/WebDevelop/index.js",
+		"/C/Users/Merrick/Desktop/chat/server.js",
+		"/C/Users/Merrick/Desktop/chat/main.js",
+		"/C/Users/Merrick/Desktop/chat/server/appChat.js",
+		"/C/Users/Merrick/Desktop/chat/app.js",
+		"//mindproserver/WebDevelop/chat/index.html",
+		"//mindproserver/WebDevelop/chat/readme.txt",
+		"/C/Users/Merrick/Desktop/chat/style.css",
+		"/C/Users/Merrick/Desktop/chat/index.html",
+		"/C/Users/Merrick/Desktop/chat/index.js",
+		"/C/Users/Merrick/Desktop/index.js",
+		"/C/Users/Merrick/Desktop/leeson_blog/canvas/ready.html",
+		"/C/Users/Merrick/Desktop/leeson_blog/canvas/index.html",
+		"/C/Users/Merrick/Desktop/work/goldencity/css/style.css",
+		"/C/Users/Merrick/Desktop/work/goldencity/bower_components/normalize-css/normalize.css",
+		"/C/Users/Merrick/Desktop/work/goldencity/css/mail.sass",
+		"/C/Users/Merrick/Desktop/work/test/gulpfile.js",
+		"/C/Users/Merrick/Desktop/work/test/css/style.sass",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DRa0.624/out.xml",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DRa0.266/in.php",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DRa0.944/Пример решения/03-access/index.php",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.416/access_log",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.504/access_log",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.912/out.txt",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.197/in.txt",
+		"/C/Users/Merrick/AppData/Local/Temp/Rar$DIa0.558/known_passwords.txt",
+		"/C/Users/Merrick/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Merrick/Desktop/work/vavilon/css/style.sass",
+		"/C/Users/Merrick/Desktop/work/test/package.json",
+		"/C/Users/Merrick/Desktop/work/merrick.github.io/index.html",
+		"/C/Users/Merrick/Downloads/index.php",
+		"/C/Users/Merrick/Desktop/work/kirpich/js/common.js",
+		"/C/Users/Merrick/Desktop/work/kirpich/index.html",
+		"/C/Users/Merrick/Desktop/leeson_blog/node/lesson1/indes.js",
+		"/C/Users/Merrick/Desktop/leeson_blog/node/lesson1/node_modules/db/index.js",
+		"/C/Users/Merrick/Desktop/work/DG Technology/index.html",
+		"/C/Users/Merrick/Desktop/leeson_blog/node/lesson1/db/index.js",
+		"/C/Users/Merrick/Desktop/work/vavilon/index.html",
+		"/C/Users/Merrick/Desktop/work/MDG_CRM/mail.php",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/Установи.txt",
+		"/C/Users/Merrick/Desktop/work/vavilon/css/style.css",
+		"/C/Users/Merrick/Desktop/work/MDG_CRM/index.html",
+		"/C/Users/Merrick/Desktop/leeson_blog/html/Lesson_3 - Tag, .html/Новый текстовый документ.txt",
+		"/C/Users/Merrick/Desktop/work/vavilon/css/style.min.css",
+		"/C/Users/Merrick/Desktop/work/DG Technology/js/common.js",
+		"/C/Users/Merrick/Desktop/leeson_blog/html/Lesson_2 - history/текст.txt",
+		"/C/Users/Merrick/Desktop/work/kazyna_gold/.idea/workspace.xml",
+		"/C/Users/Merrick/Desktop/leeson_blog/html/Lesson_2 - Tag, .html/текст.txt",
+		"/C/Users/Merrick/Desktop/leeson_blog/html/lesson_1 - structure file/index.html",
+		"/C/Users/Merrick/Desktop/style.css",
+		"/C/Users/Merrick/Desktop/work/catering/js/common.js",
+		"/C/Users/Merrick/Desktop/work/realty.mindpro.kz/sites/all/themes/MindProSim/js/pjax2.js",
+		"/C/Users/Merrick/Downloads/mindpro (1).txt",
+		"/C/Users/Merrick/Downloads/key_ID_Any_PLATFORM_Any.txt",
+		"/C/Users/Merrick/Desktop/for_bogdan.txt",
+		"/C/Users/Merrick/Desktop/work/realty.mindpro.kz/update.php",
+		"/C/Users/Merrick/Desktop/work/realty.mindpro.kz/sites/all/themes/MindProSim/template.php",
+		"/C/Users/Merrick/Desktop/work/realty.mindpro.kz/sites/all/themes/MindProSim/MindProSim.info"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"test.json",
+			"index.html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"article",
+			"10px",
+			".image",
+			"post_content",
+			"#stone",
+			"from",
+			"отделка",
+			"#slider",
+			"Срок",
+			"port_elem",
+			".wrap_img",
+			"<img",
+			"form",
+			"right_arrow ",
+			"oform_block_2",
+			"button",
+			"info_elem",
+			"wrap_img",
+			"#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span",
+			".list_item",
+			"IMAGE_BG",
+			"fancybox",
+			".section1",
+			".section1 img[alt=\"background\"]",
+			"'",
+			".list-movie",
+			"content2",
+			"913",
+			"elem1",
+			"AnimateVideo",
+			"AnimateSlog",
+			".attr-menus",
+			"attr-menus",
+			"AnimateSlog",
+			"SlideMenu",
+			"'",
+			"',",
+			"'",
+			"',",
+			"'",
+			"name",
+			".menu-contact_logo",
+			"sales",
+			"form",
+			"read_more_button",
+			"HEAD ",
+			"Завод",
+			"camera",
+			"mesh",
+			"opacityAnimated",
+			"submit_button"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"",
+			"<option>",
+			"</option>",
+			"<option>",
+			"</option>",
+			"<option>",
+			"camera2",
+			"mesh2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "production/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1835,
+								1844
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 531.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "production/js/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1954,
+								1954
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "production/css/sass/main.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20109,
+								20109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4446.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "production/css/sass/animation.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 123.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "smart.sublime-project",
+	"replace":
+	{
+		"height": 82.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 117.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
