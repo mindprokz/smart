@@ -1,1 +1,4 @@
-Simple Local Avatars - локальный аватар
+﻿Simple Local Avatars - локальный аватар
+
+https://wpcafe.org/tutorials/sozdaem-kastomnuyu-formu-registratsii-polzovateley-na-wordpress/ - форма регистрации
+http://webislife.ru/ajax-avtorizatsiya-v-wordpress-bez-plaginov/ - форма авторизации

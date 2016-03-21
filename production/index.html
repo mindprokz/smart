@@ -37,167 +37,76 @@
 <div class="nav top_style">
 	<div class="container">
 			<img src="img/logo.jpg" alt="logotype">
-			<h1>Агентство элитной недвижимости В Астане</h1>
+			<h1>{{mainObj.header.slogan}}</h1>
 			<div class="lang">
 				<div class="lang_wrap">
-					<div class="ru lang_elem">RU</div>
-					<div class="en lang_elem">EN</div>
+					<div class="ru lang_elem" ng-click="lang.setLang('rus')">RU</div>
+					<div class="en lang_elem" ng-click="lang.setLang('eng')">EN</div>
 				</div>
 			</div>
 			<div class="numbers">
 				<h3>8 (777) <span>123-45-67</span></h3>
-				<h4><span>Заказать звонок</span></h4>
+				<h4><span>{{mainObj.header.number}}</span></h4>
 			</div>
 			<nav>
-				<a href="">Главная</a>
-				<a href="">Клиенты</a>
-				<a href="">Каталог</a>
-				<a href="">Рекомендации</a>
-				<a href="">Советы</a>
-				<a href="">Сотрудничество</a>
-				<a href="">Сервис</a>
-				<a href="">Контакты</a>
+				<a href="#main">{{mainObj.header.menu1}}</a>
+				<a href="#clients">{{mainObj.header.menu2}}</a>
+				<a href="#catalog">{{mainObj.header.menu3}}</a>
+				<a href="#recomend">{{mainObj.header.menu4}}</a>
+				<a href="#service">{{mainObj.header.menu5}}</a>
+				<a href="#sotr">{{mainObj.header.menu6}}</a>
+				<a href="#advise">{{mainObj.header.menu7}}</a>
+				<a href="#contact">{{mainObj.header.menu8}}</a>
 			</nav>
 	</div>
 </div>
 
 <section id="main">
+	<a name="main"></a>
 	<img src="img/UARk_logo.png" alt="UARC_logo">
 	<div class="container">
-		<div class="wrap_button"><div class="button_main button_watch"><span>Посмотрите видео</span></div></div>
-		<h4>Я хочу</h4>
+		<div class="wrap_button"><div class="button_main button_watch"><span>{{mainObj.mainPage.mainButton}}</span></div></div>
+		<h4>{{mainObj.mainPage.header}}</h4>
 		<div class="navigation_button">
-			<a href="">Купить</a>
-			<a href="">Арендовать</a>
-			<a href="">Продать</a>
-			<a href="">Сдать</a>
+			<a href="">{{mainObj.mainPage.button1}}</a>
+			<a href="">{{mainObj.mainPage.button2}}</a>
+			<a href="">{{mainObj.mainPage.button3}}</a>
+			<a href="">{{mainObj.mainPage.button4}}</a>
 		</div>
 	</div>
 </section>
 
 <section id="spec">
-	<header><h2>Спецпредложения</h2></header>
+	<header><h2>{{mainObj.specPage.header}}</h2></header>
 	<div class="container">
 		<div class="spec_block">
-			<div class="spec_block_mod">
+			<div ng-repeat="specs in spec" class="spec_block_mod">
 				<div class="sticker_wrap">
 					<div class="sticker_blue">
 						<div class="triangle"></div>
-						<span>Продажа</span>
+						<span>{{mainObj.specPage.sale}}</span>
 					</div>
 				</div>
 				<div class="wrap_thumb"><img src="img/test_spec.jpg" alt=""></div>
 				<h3>Empire State Building</h3>
 				<p>С другой стороны укрепление и развитие структуры требуют от нас анализа условий активизации. </p>
 				<ul>
-					<li><span>Комнаты:</span> 3</li>
-					<li><span>Площадь:</span> 143м<sup>2</sup></li>
-					<li><span>Цена:</span> 24 345 000 ₸</li>
+					<li><span>{{mainObj.specPage.floor}}:</span> 3</li>
+					<li><span>{{mainObj.specPage.square}}:</span> 143м<sup>2</sup></li>
+					<li><span>{{mainObj.specPage.price}}:</span> 24 345 000 ₸</li>
 				</ul>
-				<div class="read_more">Подробнее</div>
-			</div>
-			<div class="spec_block_mod">
-				<div class="sticker_wrap">
-					<div class="sticker_blue">
-						<div class="triangle"></div>
-						<span>Продажа</span>
-					</div>
-				</div>
-				<div class="wrap_thumb"><img src="img/test_spec.jpg" alt=""></div>
-				<h3>Empire State Building</h3>
-				<p>С другой стороны укрепление и развитие структуры требуют от нас анализа условий активизации. </p>
-				<ul>
-					<li><span>Комнаты:</span> 3</li>
-					<li><span>Площадь:</span> 143м<sup>2</sup></li>
-					<li><span>Цена:</span> 24 345 000 ₸</li>
-				</ul>
-				<div class="read_more">Подробнее</div>
-			</div>
-			<div class="spec_block_mod">
-				<div class="sticker_wrap">
-					<div class="sticker_green">
-						<div class="triangle"></div>
-						<span>Аренда</span>
-					</div>
-				</div>
-				<div class="wrap_thumb"><img src="img/test_spec.jpg" alt=""></div>
-				<h3>Empire State Building</h3>
-				<p>С другой стороны укрепление и развитие структуры требуют от нас анализа условий активизации. </p>
-				<ul>
-					<li><span>Комнаты:</span> 3</li>
-					<li><span>Площадь:</span> 143м<sup>2</sup></li>
-					<li><span>Цена:</span> 24 345 000 ₸</li>
-				</ul>
-				<div class="read_more">Подробнее</div>
-			</div>
-			<div class="spec_block_mod">
-				<div class="sticker_wrap">
-					<div class="sticker_blue">
-						<div class="triangle"></div>
-						<span>Продажа</span>
-					</div>
-				</div>
-				<div class="wrap_thumb"><img src="img/test_spec.jpg" alt=""></div>
-				<h3>Empire State Building</h3>
-				<p>С другой стороны укрепление и развитие структуры требуют от нас анализа условий активизации. </p>
-				<ul>
-					<li><span>Комнаты:</span> 3</li>
-					<li><span>Площадь:</span> 143м<sup>2</sup></li>
-					<li><span>Цена:</span> 24 345 000 ₸</li>
-				</ul>
-				<div class="read_more">Подробнее</div>
+				<div class="read_more">{{mainObj.specPage.more}}</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <section id="clients">
-	<h2>Наши клиенты</h2>
+	<a name="clients"></a>
+	<h2>{{mainObj.clientPage.header}}</h2>
 	<div class="container">
 		<div class="clients_block">
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
-				<h3>Компания «Smart Energy»</h3>
-				<div class="img_wrap">
-					<img src="img/logos/boinc.jpg" alt="">
-				</div>
-			</div>
-			<div class="clients_elem">
+			<div ng-repeat="partners in partner" class="clients_elem">
 				<h3>Компания «Smart Energy»</h3>
 				<div class="img_wrap">
 					<img src="img/logos/boinc.jpg" alt="">
@@ -208,202 +117,72 @@
 </section>
 
 <section id="catalog" ng-controller="sliderDemoCtrl">
-	<h2>Каталог квартир</h2>
+	<a name="catalog"></a>
+	<h2>{{mainObj.catalogPage.header}}</h2>
 	<div class="container">
 		<div class="configure">
 			<div class="left_block">
 				<div class="wrap_1">
 					<div class="drop_down">
-						<header><span>Купить</span></header>
+						<header><span>{{mainObj.catalogPage.menu1_1}}</span></header>
 						<div class="list_block">
-							<div class="list_elem">Дом</div>
-							<div class="list_elem">Офис</div>
-							<div class="list_elem">Земельный участок</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu1_1}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu1_2}}</div>
 						</div>
 					</div>
 				</div>	
 				<div class="wrap_2">
 					<div class="drop_down">
-						<header><span>Квартиру</span></header>
+						<header><span>{{mainObj.catalogPage.menu2_1}}</span></header>
 						<div class="list_block">
-							<div class="list_elem">Дом</div>
-							<div class="list_elem">Офис</div>
-							<div class="list_elem">Земельный участок</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu2_1}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu2_2}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu2_3}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu2_4}}</div>
 						</div>
 					</div>
 				</div>	
 				<div class="wrap_3">
 					<div class="drop_down">
-						<header><span>Любой комнатности</span></header>
+						<header><span>{{mainObj.catalogPage.menu3_1}}</span></header>
 						<div class="list_block">
-							<div class="list_elem">Дом</div>
-							<div class="list_elem">Офис</div>
-							<div class="list_elem">Земельный участок</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu3_1}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu3_2}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu3_3}}</div>
+							<div class="list_elem">{{mainObj.catalogPage.menu3_4}}</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right_block">
-				<h5>Площадь</h5>
+				<h5>{{mainObj.specPage.square}}</h5>
                 <div class="sliderExample">
                     <div ui-slider="{range: true}" min="0" max="2000" step="1" use-decimals ng-model="sliderExample9"></div>
                     <input type="text" ng-model="sliderExample9[0]"><input type="text" ng-model="sliderExample9[1]" class="second">
                 </div>
-                <h5 class="second">Цена</h5>
+                <h5 class="second">{{mainObj.specPage.price}}</h5>
                 <div class="price">
-                	<input type="text" placeholder="от">
+                	<input type="text" placeholder="{{mainObj.catalogPage.from}}">
                 	<div class="line"></div>
-                	<input type="text" placeholder="до">
+                	<input type="text" placeholder="{{mainObj.catalogPage.to}}">
                 	<div class="val active">₸</div>
                 	<div class="val">$</div>
                 </div>
 			</div>
 		</div>
 		<div class="search_result">
-			<header class="main"><span>Найдено:</span> 23 объекта недвижимости</header>
+			<header class="main"><span>{{mainObj.catalogPage.search}}:</span> 23 {{mainObj.catalogPage.search_content}}</header>
 			<div class="content_seach">
-				<article>
+				<article ng-repeat="stack in catalog_search">
 					<header>МФК «Водный»</header>
 					<div class="wrap_img"><img src="img/test_search.png"></div>
 					<div class="info">
 						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
+							<li><span>{{mainObj.specPage.floor}}:</span> 3</li>
+							<li><span>{{mainObj.specPage.square}}:</span> 81.8 м<sup>2</sup></li>
+							<li><span>{{mainObj.specPage.price}}:</span> от 19 328 400 тг</li>
 						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
-					</div>		
-				</article>
-				<article>
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
-					<div class="info">
-						<ul>
-							<li><span>Комнаты:</span> 3</li>
-							<li><span>Площадь:</span> 81.8 м<sup>2</sup></li>
-							<li><span>Цена:</span> от 19 328 400 тг</li>
-						</ul>
-						<button>Подробнее</button>
+						<button>{{mainObj.specPage.more}}</button>
 					</div>		
 				</article>
 			</div>
@@ -412,30 +191,28 @@
 </section>
 
 <section id="qual">
-	<h2>Преимущества</h2>
+	<h2>{{mainObj.qualityPage.header}}</h2>
 	<div class="container">
 		<div class="first_column">
 			<div class="icon_elem">
 				<div class="icon icon_1"></div>
 				<div class="text">
-					<h3>Мультиязычные менеджеры</h3>
-					<p>Английский, немецкий, японский язык</p>
+					<h3>{{mainObj.qualityPage.icons1.header}}</h3>
+					<p>{{mainObj.qualityPage.icons1.content}}</p>
 				</div>
 			</div>
 			<div class="icon_elem icon_elem_margin">
 				<div class="icon icon_2"></div>
 				<div class="text">
-					<h3>База квартир</h3>
-					<p>Более 5000 вариантов в базе квартир </p>
+					<h3>{{mainObj.qualityPage.icons2.header}}</h3>
+					<p>{{mainObj.qualityPage.icons2.content}}</p>
 				</div>
 			</div>
 			<div class="icon_elem icon_elem_margin">
 				<div class="icon icon_3"></div>
 				<div class="text">
-					<h3>Help-line</h3>
-					<p>Англоговорящий администратор
-						Информация о любых товарах
-						и услугах г.Астаны</p>
+					<h3>{{mainObj.qualityPage.icons3.header}}</h3>
+					<p>{{mainObj.qualityPage.icons3.content}}</p>
 				</div>
 			</div>
 		</div>
@@ -443,36 +220,35 @@
 			<div class="icon_elem">
 				<div class="icon icon_4"></div>
 				<div class="text">
-					<h3>Юридическая чистота</h3>
-					<p>— Скрининг документов <br>
-						— Полный пакет документов</p>
+					<h3>{{mainObj.qualityPage.icons4.header}}</h3>
+					<p>{{mainObj.qualityPage.icons4.content}} <br>
+						{{mainObj.qualityPage.icons4.content2}}</p>
 				</div>
 			</div>
 			<div class="icon_elem icon_elem_margin_2">
 				<div class="icon icon_5"></div>
 				<div class="text">
-					<h3>Ознакомительные программы</h3>
-					<p>— Знакомство с городом <br>
-						— Культурные и социальные экскурсии</p>
+					<h3>{{mainObj.qualityPage.icons5.header}}</h3>
+					<p>{{mainObj.qualityPage.icons5.content}}<br>
+						{{mainObj.qualityPage.icons5.content2}}</p>
 				</div>
 			</div>
 			<div class="icon_elem icon_elem_margin_2">
 				<div class="icon icon_6"></div>
 				<div class="text">
-					<h3>Сервис служба</h3>
-					<p>— Решение бытовых проблем <br>
-						— Оплата ком.услуг <br>
-						— Решение правовых вопросов <br>
-						    с арендаторами</p>
+					<h3>{{mainObj.qualityPage.icons6.header}}</h3>
+					<p>{{mainObj.qualityPage.icons6.content}}<br>
+						{{mainObj.qualityPage.icons6.content2}}<br>
+						{{mainObj.qualityPage.icons6.content3}}</p>
 				</div>
 			</div>
 		</div>
 		<div class="third_column">
 			<form action="">
-				<h4>Получить бесплатную <br> <span>консультацию</span></h4>
-				<input type="text" placeholder="Имя">
-				<input type="text" placeholder="Телефон">
-				<input type="text" placeholder="E-mail">
+				<h4>{{mainObj.form.headers.header1}} <br> <span>{{mainObj.form.headers.header2}}</span></h4>
+				<input type="text" placeholder="{{mainObj.form.placeholders.name}}">
+				<input type="text" placeholder="{{mainObj.form.placeholders.telephone}}">
+				<input type="text" placeholder="{{mainObj.form.placeholders.mail}}">
 				<button>Отправить</button>
 			</form>
 		</div>
@@ -480,16 +256,17 @@
 </section>
 
 <section id="recom">
-	<h2>Рекомендации</h2>
+	<a name="recomend"></a>
+	<h2>{{mainObj.recomendPage.header}}</h2>
 	<div class="container">
-		<p class="main">С помощью <span>Smart Realtor</span> более 30 посольств и иностранных компаний нашли уютный и безопасный дом в Астане для своих сотрудников.</p>
+		<p class="main">{{mainObj.recomendPage.main_content_part1}} <span>Smart Realtor</span> {{mainObj.recomendPage.main_content_part2}}</p>
 		<div class="first_column">
-			<h3>Обращение директора</h3>
+			<h3>{{mainObj.recomendPage.header_director}}</h3>
 			<div class="wrap_img"><img src="img/example._video.jpg" alt=""></div>
-			<p>Разнообразный и богатый опыт начало повседневной работы по формированию позиции в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка, а также укрепление и развитие структуры требуют от нас анализа направлений прогрессивного развития. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности позволяет оценить значение соответствующий условий активизации.Значимость этих проблем настолько очевидна, что рамки и место обучения кадров позволяет оценить значение модели развития.</p>
+			<p>{{mainObj.recomendPage.content}}</p>
 		</div>
 		<div class="second_column">
-			<h3>Отзывы клиентов</h3>
+			<h3>{{mainObj.recomendPage.header_clients}}</h3>
 			<div class="reviews">
 				<div class="wrap_rev"><img src="img/example._rev.jpg" alt=""></div>
 				<div class="wrap_rev"><img src="img/example._rev.jpg" alt=""></div>
@@ -504,76 +281,87 @@
 	</div>
 </section>
 <section id="service">
-	<h2>Сервис</h2>
+	<a name="service"></a>
+	<h2>{{mainObj.servicePage.header}}</h2>
 	<div class="container">
 		<img src="img/background/service.png" alt="background">
 		<div class="handy">
 			<img src="img/handy_logo.png" alt="">
-			<p>— Техническая поддержка компании <span>Smart Realtor</span></p>
+			<p>— {{mainObj.servicePage.subHeader}}<span>Smart Realtor</span></p>
 		</div>
 		<div class="info">
-			<h3>У нас есть инструменты, навыки, и время для тех случайных работ которые Вы планировали сделать.</h3>
+			<h3>{{mainObj.servicePage.listHeader}}</h3>
 			<div class="wrap">
 				<ul class="column_first">
-					<li>Малярные работы</li>
-					<li>Сантехнические работы</li>
-					<li>Услуги плотника</li>
-					<li>Услуги электрика</li>
-					<li>Химчистка ковров и мягкой мебели</li>
-					<li>Оплата ком. услуг</li>
-					<li>Устранение плесени</li>
+					<li>{{mainObj.servicePage.listElem1}}</li>
+					<li>{{mainObj.servicePage.listElem2}}</li>
+					<li>{{mainObj.servicePage.listElem3}}</li>
+					<li>{{mainObj.servicePage.listElem4}}</li>
+					<li>{{mainObj.servicePage.listElem5}}</li>
+					<li>{{mainObj.servicePage.listElem6}}</li>
+					<li>{{mainObj.servicePage.listElem7}}</li>
 				</ul>
 				<ul class="column_second">
-					<li>Замена лампочек</li>
-					<li>Ремонт бытовой техники</li>
-					<li>Ремонт окон</li>
-					<li>Услуги садовника</li>
-					<li>Сборка мебели</li>
-					<li>Установка и настройка интернета</li>
-					<li>Установка и ремонт спутникового ТВ</li>
-					<li>Установка ролл-штор</li>
+					<li>{{mainObj.servicePage.listElem8}}</li>
+					<li>{{mainObj.servicePage.listElem9}}</li>
+					<li>{{mainObj.servicePage.listElem10}}</li>
+					<li>{{mainObj.servicePage.listElem11}}</li>
+					<li>{{mainObj.servicePage.listElem12}}</li>
+					<li>{{mainObj.servicePage.listElem13}}</li>
+					<li>{{mainObj.servicePage.listElem14}}</li>
+					<li>{{mainObj.servicePage.listElem15}}</li>
 				</ul>
 			</div>
-			<p>Не бывает  неважной работы. <br><span>Позвоните что бы получить бесплатную смету.</span></p>
+			<p>{{mainObj.servicePage.sloganTop}}<br><span>{{mainObj.servicePage.sloganBot}}</span></p>
 			<h4><span class="adress">+7 (701) <span>123-45-67</span></span> <a href="fix@smartrealty.kz">fix@smartrealty.kz</a></h4>
 			<form action="">
-				<h3>Оставить заявку</h3>
-				<input type="text">
-				<input type="text">
-				<input type="text">
-				<button>ОТПРАВИТЬ</button>
+				<h3>{{mainObj.form.headers.header3}}</h3>
+				<input type="text" placeholder="{{mainObj.form.placeholders.name}}">
+				<input type="text" placeholder="{{mainObj.form.placeholders.telephone}}">
+				<input type="text" placeholder="{{mainObj.form.placeholders.mail}}">
+				<button>{{mainObj.form.placeholders.send}}</button>
 			</form>
-			<h4 class="slogan">Восстановить. <br> Построить. <br> <span>Починить.</span></h4>
+			<h4 class="slogan">
+				{{mainObj.servicePage.wordSlogan1}}<br> 
+				{{mainObj.servicePage.wordSlogan2}} <br> 
+				<span>{{mainObj.servicePage.wordSlogan3}}</span>
+			</h4>
 		</div>
 	</div>
 </section>
 <section id="sotr">
-	<h2>Сотрудничество</h2>
+	<a name="sotr"></a>
+	<h2>{{mainObj.sotrPage.header}}</h2>
 	<div class="container">
 		<div class="first_column">
-			<h3>О компании</h3>
-			<p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки форм развития.</p>
-			<p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в формировании новых предложений</p>
-			<p>Равным образом дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки систем массового участия.</p>
+			<h3>{{mainObj.sotrPage.subHeader}}</h3>
+			<p>{{mainObj.sotrPage.content1}}</p>
+			<p>{{mainObj.sotrPage.content2}}</p>
+			<p>{{mainObj.sotrPage.content3}}</p>
 		</div>
 		<div class="second_column">
 			<div class="wrapper">
-				<h4>Узнай сколько стоит твоя квартира <br> <span class="bold">БЕСПЛАТНО</span> <span class="and">И</span> <span class="thin" >БЫСТРО</span></h4>
+				<h4>{{mainObj.sotrPage.planeHeader1}} <br> 
+					<span class="bold">{{mainObj.sotrPage.planeHeader2}}</span> 
+					<span class="and">{{mainObj.sotrPage.planeHeader3}}</span> 
+					<span class="thin" >{{mainObj.sotrPage.planeHeader4}}</span>
+				</h4>
 				<div class="icon"></div>
-				<div class="wrap_button"><div class="button_main"><span>УЗНАТЬ СТОИМОСТЬ</span></div></div>
+				<div class="wrap_button"><div class="button_main"><span>{{mainObj.sotrPage.button}}</span></div></div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <section id="advise">
-	<h2>Советы</h2>
+	<a name="advise"></a>
+	<h2>{{mainObj.bonus.header}}</h2>
 	<div class="container">
 		<div class="first_column">
-			<p class="text">— Мы готовы предоставить вам любую полезную информацию,	касающуюся проживания в г.Астана и Казахстане.</p>
-			<p class="text">— Правовая, экономическая и информационная помощь для наших клиентов. </p>
+			<p class="text">{{mainObj.bonus.content1}}</p>
+			<p class="text">{{mainObj.bonus.content2}}</p>
 			<img src="img/confetti.png" alt="confeti">
-			<p class="label"><span class="first">Получить полезную <br></span><span  class="second">информацию <br></span> <span  class="third">бонусом!</span></p>
+			<p class="label"><span  class="second">{{mainObj.bonus.button1}} <br></span> <span  class="third">{{mainObj.bonus.button2}}</span></p>
 		</div>
 		<div class="second_colimn">
 			<div class="wrap">
@@ -584,13 +372,14 @@
 </section>
 
 <div id="map">
+	<a name="contact"></a>
 	<div id="map_canvas"></div>
 	<div class="first_column">
 		<div class="wrap">
-			<h3>Астана <br> Макетный проспект, 23 A</h3>
+			<h3>{{mainObj.contacts.adress1}} <br> {{mainObj.contacts.adress2}}</h3>
 			<h4>8 (800) <span>123-45-67</span></h4>
 			<h5>9:00 - 19:00 — Cб-Вс 10:00 - 15:00 </h5>
-			<button>Написать нам</button>
+			<button>{{mainObj.contacts.button}}</button>
 			<div class="social">
 				<div class="icon_social icon_social_1"></div>
 				<div class="icon_social icon_social_2"></div>

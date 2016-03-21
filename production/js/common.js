@@ -1,15 +1,9 @@
 $(document).ready(function() {
-
-	//Цели для Яндекс.Метрики и Google Analytics
-	$(".count_element").on("click", (function() {
-		ga("send", "event", "goal", "goal");
-		yaCounterXXXXXXXX.reachGoal("goal");
-		return true;
-	}));
+	$('a[href^="#"]').on('click', function () {
+		$('html, body').animate({ scrollTop:  $('a[name="'+this.hash.slice(1)+'"]').offset().top - 93 }, 1000 );
+		return false;
+	});
 	
-	//$('#app').on('click',function() {
-    //
-	//});
 	//Аякс отправка форм
 	//Документация: http://api.jquery.com/jquery.ajax/
 	$("#application").submit(function() {

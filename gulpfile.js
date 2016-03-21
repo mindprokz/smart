@@ -40,6 +40,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('production/js/'));
 });
 
+/* 
 gulp.task('ecma2015', function() {
   return gulp.src('production/js/controller.js')
     .pipe(babel({presets: ['es2015']}))
@@ -47,14 +48,14 @@ gulp.task('ecma2015', function() {
     .pipe(rename('production/controller.min.js'))
     .pipe(gulp.dest('production/js/'));
 });
-
+*/
 // taks for watch change files
 gulp.task('watch', function(){
 	gulp.watch('production/css/sass/*.sass', ['sass']);
 	gulp.watch('production/index.html', ['html']);
 	gulp.watch('production/js/common.js', ['js']);
-    gulp.watch('production/js/controller.js', ['ecma2015']);
+    gulp.watch('production/js/controller.js', ['js']);
 });
 
 // default task
-gulp.task('default', ['html', 'sass', 'js', 'ecma2015', 'watch', 'Server Start']);
+gulp.task('default', ['html', 'sass', 'js', 'watch', 'Server Start']);
