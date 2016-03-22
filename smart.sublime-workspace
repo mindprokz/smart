@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"комн",
+				"комнатности"
+			],
+			[
 				"lang",
 				"language"
 			],
@@ -179,7 +183,7 @@
 			"file": "production/index.html",
 			"settings":
 			{
-				"buffer_size": 16966,
+				"buffer_size": 17798,
 				"line_ending": "Windows"
 			}
 		},
@@ -187,7 +191,7 @@
 			"file": "production/js/controller.js",
 			"settings":
 			{
-				"buffer_size": 9226,
+				"buffer_size": 10178,
 				"line_ending": "Windows"
 			}
 		},
@@ -195,7 +199,7 @@
 			"file": "production/lang/ru.json",
 			"settings":
 			{
-				"buffer_size": 4785,
+				"buffer_size": 4801,
 				"line_ending": "Windows"
 			}
 		},
@@ -203,7 +207,7 @@
 			"file": "production/lang/en.json",
 			"settings":
 			{
-				"buffer_size": 4782,
+				"buffer_size": 4798,
 				"line_ending": "Windows"
 			}
 		},
@@ -211,23 +215,15 @@
 			"file": "production/css/sass/main.sass",
 			"settings":
 			{
-				"buffer_size": 22292,
+				"buffer_size": 22293,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "production/css/sass/animation.sass",
+			"file": "production/css/sass/nav.sass",
 			"settings":
 			{
-				"buffer_size": 211,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "production/js/common.js",
-			"settings":
-			{
-				"buffer_size": 5950,
+				"buffer_size": 4661,
 				"line_ending": "Unix"
 			}
 		}
@@ -309,10 +305,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Merrick/Desktop/smart/production"
+		"/home/merrick/Рабочий стол/Work/smart/production"
 	],
 	"file_history":
 	[
+		"/home/merrick/Рабочий стол/Work/smart/production/js/common.js",
+		"/home/merrick/Рабочий стол/Work/smart/production/css/sass/animation.sass",
 		"/C/Users/Merrick/Desktop/smart/production/lang/en.json",
 		"/C/Users/Merrick/Desktop/smart/production/lang/ru.json",
 		"/C/Users/Merrick/Desktop/smart/gulpfile.js",
@@ -438,13 +436,11 @@
 		"/C/Users/Merrick/Desktop/style.css",
 		"/C/Users/Merrick/Desktop/work/catering/js/common.js",
 		"/C/Users/Merrick/Desktop/work/realty.mindpro.kz/sites/all/themes/MindProSim/js/pjax2.js",
-		"/C/Users/Merrick/Downloads/mindpro (1).txt",
-		"/C/Users/Merrick/Downloads/key_ID_Any_PLATFORM_Any.txt",
-		"/C/Users/Merrick/Desktop/for_bogdan.txt"
+		"/C/Users/Merrick/Downloads/mindpro (1).txt"
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -461,6 +457,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"menu1_3",
+			"menu1_3menu1_3",
+			".drop_down",
+			"drop_down",
 			"Объект",
 			"article",
 			"10px",
@@ -538,7 +538,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -547,27 +547,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16966,
+						"buffer_size": 17798,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12368,
-								12368
+								6535,
+								6535
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2561.0,
+						"translation.y": 2109.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -576,15 +576,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9226,
+						"buffer_size": 10178,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7151,
-								7155
+								7599,
+								7599
 							]
 						],
 						"settings":
@@ -594,10 +594,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4136.0,
+						"translation.y": 1197.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -606,26 +606,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4785,
+						"buffer_size": 4801,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4785,
-								4785
+								668,
+								668
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
-						"translation.x": 46278.0,
+						"translation.x": 6610.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -634,22 +634,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4782,
+						"buffer_size": 4798,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								102,
-								102
+								679,
+								679
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
-						"translation.x": 0.0,
+						"translation.x": 5282.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -662,44 +662,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22292,
+						"buffer_size": 22293,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "production/css/sass/animation.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 211,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								346,
+								346
 							]
 						],
 						"settings":
@@ -715,32 +686,32 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "production/js/common.js",
+					"buffer": 5,
+					"file": "production/css/sass/nav.sass",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5950,
+						"buffer_size": 4661,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								172,
-								172
+								3402,
+								3402
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": -0.0,
-						"translation.y": 0.0,
+						"translation.y": 1960.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

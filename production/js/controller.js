@@ -40,7 +40,6 @@ app.controller('sliderDemoCtrl', function ($scope, $log, colorpicker) {
     }
   };
 
-  $scope.sliderExample9 = [0, 2000];
 
   $scope.colorpicker = {
     red: 255,
@@ -97,6 +96,7 @@ app.controller('main', function ($scope, $http) {
       header: 'Каталог квартир',
       menu1_1: 'Купить',
       menu1_2: 'Снять в аренду',
+      menu1_3: 'Все',
       menu2_1: 'Квартиру',
       menu2_2: 'Дом',
       menu2_3: 'Офис',
@@ -224,6 +224,42 @@ app.controller('main', function ($scope, $http) {
 
   // Массив объектов для каталога квартир, каждый объект отдельная квартира
   $scope.catalog_search = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+  // Переменные для фильтрации квартир
+  $scope.dropDown1Filter = 'Все';
+  $scope.dropDown2Filter = 'Все';
+  $scope.dropDown3Filter = 'Любой комнатности';
+  $scope.sliderExample9 = [0, 2000];
+  // value - фильтр который меняет значение dropdowns
+  $scope.changeValueFilter = function (value, dropDown) {
+    switch (dropDown){
+      case 1: 
+        if (value.length < 7) {
+          $scope.dropDown1Filter = value;
+        } else {
+          $scope.dropDown1Filter = value.slice(0,5)+ '..';
+        }  
+        break;
+
+      case 2: 
+        if (value.length < 7) {
+          $scope.dropDown2Filter = value;
+        } else {
+          $scope.dropDown2Filter = value.slice(0,6)+ '..';
+        }  
+        break;
+
+      case 3: 
+        $scope.dropDown3Filter = value;
+        break;
+
+      default:  
+        $scope.dropDown1Filter = 'Все';
+        $scope.dropDown2Filter = 'Все';
+        $scope.dropDown3Filter = 'Любой комнатности';
+        break; 
+    }     
+  }
 
 
   $http.get('lang/ru.json')
