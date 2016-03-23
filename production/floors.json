@@ -1,0 +1,68 @@
+[
+	{
+		"name": "МФК «Водный»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 2,
+		"square": 181.8,
+		"type_sale": "Снять в аренду",
+		"type": "Офис",
+		"price": 193285
+	},
+	{
+		"name": "МФК «Вный»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 3,
+		"square": 21.8,
+		"type_sale": "Снять в аренду",
+		"type": "Квартира",
+		"price": 932840
+	},
+	{
+		"name": "МФК «одный»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 1,
+		"square": 31.8,
+		"type_sale": "Купить",
+		"type": "Дом",
+		"price": 328400
+	},
+	{
+		"name": "МФК «Вой»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 3,
+		"square": 61.8,
+		"type_sale": "Купить",
+		"type": "Дом",
+		"price": 533284
+	},
+	{
+		"name": "МФК «Воднй»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 2,
+		"square": 281.8,
+		"type_sale": "Купить",
+		"type": "Дом",
+		"price": 693284
+	},
+	{
+		"name": "МФК «Водный»",
+		"images": {
+			"thumbnail": "img/test_search.png"
+		},
+		"floor": 1,
+		"square": 101.8,
+		"type_sale": "Снять в аренду",
+		"type": "Земельный участок",
+		"price": 132840
+	}
+]

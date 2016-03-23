@@ -124,34 +124,34 @@
 			<div class="left_block">
 				<div class="wrap_1">
 					<div class="drop_down">
-						<header><span>{{dropDown1Filter}}</span></header>
+						<header><span>{{dropDown1FilterView}}</span></header>
 						<div class="list_block">
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu1_3, 1)">{{mainObj.catalogPage.menu1_3}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu1_1, 1)">{{mainObj.catalogPage.menu1_1}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu1_2, 1)">{{mainObj.catalogPage.menu1_2}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Все', 1)">{{mainObj.catalogPage.menu1_3}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Купить', 1)">{{mainObj.catalogPage.menu1_1}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Снять в аренду', 1)">{{mainObj.catalogPage.menu1_2}}</div>
 						</div>
 					</div>
 				</div>	
 				<div class="wrap_2">
 					<div class="drop_down">
-						<header><span>{{dropDown2Filter}}</span></header>
+						<header><span>{{dropDown2FilterView}}</span></header>
 						<div class="list_block">
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu1_3, 2)">{{mainObj.catalogPage.menu1_3}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu2_1, 2)">{{mainObj.catalogPage.menu2_1}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu2_2, 2)">{{mainObj.catalogPage.menu2_2}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu2_3, 2)">{{mainObj.catalogPage.menu2_3}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu2_4, 2)">{{mainObj.catalogPage.menu2_4}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Все', 2)">{{mainObj.catalogPage.menu1_3}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Квартира', 2)">{{mainObj.catalogPage.menu2_1}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Дом', 2)">{{mainObj.catalogPage.menu2_2}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Офис', 2)">{{mainObj.catalogPage.menu2_3}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Земельный участок', 2)">{{mainObj.catalogPage.menu2_4}}</div>
 						</div>
 					</div>
 				</div>	
 				<div class="wrap_3">
 					<div class="drop_down">
-						<header><span>{{dropDown3Filter}}</span></header>
+						<header><span>{{dropDown3FilterView}}</span></header>
 						<div class="list_block">
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu3_1, 3)">{{mainObj.catalogPage.menu3_1}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu3_2, 3)">{{mainObj.catalogPage.menu3_2}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu3_3, 3)">{{mainObj.catalogPage.menu3_3}}</div>
-							<div class="list_elem" ng-click="changeValueFilter(mainObj.catalogPage.menu3_4, 3)">{{mainObj.catalogPage.menu3_4}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('Все', 3)">{{mainObj.catalogPage.menu3_1}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('1-а комнатные', 3)">{{mainObj.catalogPage.menu3_2}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('2-х комнатные', 3)">{{mainObj.catalogPage.menu3_3}}</div>
+							<div class="list_elem" ng-click="changeValueFilter('3-х комнатные', 3)">{{mainObj.catalogPage.menu3_4}}</div>
 						</div>
 					</div>
 				</div>
@@ -159,30 +159,31 @@
 			<div class="right_block">
 				<h5>{{mainObj.specPage.square}}</h5>
                 <div class="sliderExample">
-                    <div ui-slider="{range: true}" min="0" max="2000" step="1" use-decimals ng-model="sliderExample9"></div>
-                    <input type="text" ng-model="sliderExample9[0]"><input type="text" ng-model="sliderExample9[1]" class="second">
+                    <div ui-slider="{range: true}" min="0" max="{{sliderMax}}" step="1" use-decimals ng-model="sliderExample9"></div>
+                    <input id="sliderFrom" type="text" ng-model="sliderExample9[0]"><input id="sliderTo" type="text" ng-model="sliderExample9[1]" class="second">
                 </div>
                 <h5 class="second">{{mainObj.specPage.price}}</h5>
                 <div class="price">
-                	<input type="text" placeholder="{{mainObj.catalogPage.from}}">
+                	<input type="text" placeholder="{{mainObj.catalogPage.from}}" ng-model="price[0]">
                 	<div class="line"></div>
-                	<input type="text" placeholder="{{mainObj.catalogPage.to}}">
-                	<div class="val active">₸</div>
-                	<div class="val">$</div>
+                	<input type="text" placeholder="{{mainObj.catalogPage.to}}" ng-model="price[1]">
+                	<div id="tenge" class="val active" ng-click="coefChange('#tenge', 1, 'тг')">₸</div>
+                	<div id="dollar" class="val" ng-click="coefChange('#dollar', coef.coef_dol, '$')">$</div>
                 </div>
 			</div>
 		</div>
 		<div class="search_result">
-			<header class="main"><span>{{mainObj.catalogPage.search}}:</span> 23 {{mainObj.catalogPage.search_content}}</header>
+			<header class="main"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search.length}} {{mainObj.catalogPage.search_content}}</header>
 			<div class="content_seach">
-				<article ng-repeat="stack in catalog_search">
-					<header>МФК «Водный»</header>
-					<div class="wrap_img"><img src="img/test_search.png"></div>
+				<article ng-repeat="stack in catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange">
+					<header>{{stack.name}}</header>
+					<div class="{{stack.length}}"></div>
+					<div class="wrap_img"><img ng-src="{{stack.images.thumbnail}}"></div>
 					<div class="info">
 						<ul>
-							<li><span>{{mainObj.specPage.floor}}:</span> 3</li>
-							<li><span>{{mainObj.specPage.square}}:</span> 81.8 м<sup>2</sup></li>
-							<li><span>{{mainObj.specPage.price}}:</span> от 19 328 400 тг</li>
+							<li><span>{{mainObj.specPage.floor}}:</span> {{stack.floor}}</li>
+							<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
+							<li><span>{{mainObj.specPage.price}}:</span> {{ (stack.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
 						</ul>
 						<button>{{mainObj.specPage.more}}</button>
 					</div>		

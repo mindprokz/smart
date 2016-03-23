@@ -223,37 +223,68 @@ app.controller('main', function ($scope, $http) {
   $scope.partner = [1,2,3,4,5,6,7,8];
 
   // Массив объектов для каталога квартир, каждый объект отдельная квартира
-  $scope.catalog_search = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  $scope.catalog_search = [];
 
-  // Переменные для фильтрации квартир
+  // Переменные для отображения в меню квартир, обрезаются в функции changeValueFilter если больше 7 символов
+  $scope.dropDown1FilterView = 'Все';
+  $scope.dropDown2FilterView = 'Все';
+  $scope.dropDown3FilterView = 'Любой комнатности';
+
+  // Переменный для фильтрации квартир
   $scope.dropDown1Filter = 'Все';
   $scope.dropDown2Filter = 'Все';
-  $scope.dropDown3Filter = 'Любой комнатности';
-  $scope.sliderExample9 = [0, 2000];
+  $scope.dropDown3Filter = 'Все';
+
+  $scope.sliderMax = '';
+  $scope.sliderExample9 = [0, $scope.sliderMax];
+  $scope.sliderValues = [0, $scope.sliderMax];
+
+  $scope.price = [0];
+  $scope.coef = {
+    active: 1,
+    coef_dol: 350,
+    cur: 'тг'
+
+  };
   // value - фильтр который меняет значение dropdowns
   $scope.changeValueFilter = function (value, dropDown) {
     switch (dropDown){
+
       case 1: 
         if (value.length < 7) {
+          $scope.dropDown1FilterView = value;
           $scope.dropDown1Filter = value;
         } else {
-          $scope.dropDown1Filter = value.slice(0,5)+ '..';
+          $scope.dropDown1FilterView = value.slice(0,5)+ '..';
+          $scope.dropDown1Filter = value;
         }  
         break;
 
       case 2: 
         if (value.length < 7) {
+          $scope.dropDown2FilterView = value;
           $scope.dropDown2Filter = value;
         } else {
-          $scope.dropDown2Filter = value.slice(0,6)+ '..';
+          $scope.dropDown2FilterView = value.slice(0,6)+ '..';
+          $scope.dropDown2Filter = value;
         }  
         break;
 
       case 3: 
-        $scope.dropDown3Filter = value;
+        if (value === 'Все') {
+          $scope.dropDown3FilterView = 'Любой комнатности';
+          $scope.dropDown3Filter = value;
+        } else {
+          $scope.dropDown3FilterView = value;
+          $scope.dropDown3Filter = value[0];
+          console.log(value[0]);
+        }
         break;
 
       default:  
+        $scope.dropDown1FilterView = 'Все';
+        $scope.dropDown2FilterView = 'Все';
+        $scope.dropDown3FilterView = 'Любой комнатности';
         $scope.dropDown1Filter = 'Все';
         $scope.dropDown2Filter = 'Все';
         $scope.dropDown3Filter = 'Любой комнатности';
@@ -261,12 +292,62 @@ app.controller('main', function ($scope, $http) {
     }     
   }
 
-
-  $http.get('lang/ru.json')
+  $http.get('floors.json')
     .then(function (value) {
-      //$scope.mainObj = value.data;
-      console.log(JSON.stringify($scope.mainObj));
-    });
+       $scope.catalog_search = value.data;
+       var maxS = [],
+            maxP = [];
+       for (var i = 0; i < value.data.length; i++) {
+         maxS[i] = value.data[i].square;
+         maxP[i] = value.data[i].price;
+       };
+       $scope.sliderExample9[1] = Math.max.apply(null, maxS);
+       $scope.sliderMax = Math.max.apply(null, maxS);
+       $scope.price[1] = Math.max.apply(null, maxP);
+    }); 
+
+  $scope.typeView = function (elem) {
+    if ($scope.dropDown1Filter === 'Все') return true;
+
+    if ($scope.dropDown1Filter === elem.type_sale) return true;
+
+    return false;
+  }
+
+  $scope.type = function (elem) {
+    if ($scope.dropDown2Filter === 'Все') return true;
+
+    if ($scope.dropDown2Filter === elem.type) return true;
+
+    return false;
+  }
+
+  $scope.quantityRoom = function (elem) {
+    if ($scope.dropDown3Filter === 'Все') return true;
+
+    if ($scope.dropDown3Filter === elem.floor.toString()) return true;
+
+    return false;
+  } 
+
+  $scope.squareRange = function (elem) {
+    $scope.sliderValues[0] = document.querySelector('#sliderFrom').value;
+    $scope.sliderValues[1] = document.querySelector('#sliderTo').value;
+    if (elem.square >= $scope.sliderValues[0] && elem.square <= $scope.sliderValues[1]) return true;
+    return false;
+  }  
+
+  $scope.priceRange = function (elem) {
+    if (elem.price >= $scope.price[0] && elem.price <= $scope.price[1]) return true;
+    return false;
+  } 
+
+  $scope.coefChange = function (elemId, coef, cur) {
+    document.querySelector('#catalog .configure .price .val.active').classList.remove('active');
+    document.querySelector(elemId).classList.add('active');
+    $scope.coef.active = coef;
+    $scope.coef.cur = cur;
+  }
 
   // переключатель для языков в меню 
   var changeLangIcon = function (argum) {
