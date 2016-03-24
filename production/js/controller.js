@@ -246,6 +246,35 @@ app.controller('main', function ($scope, $http) {
     cur: 'тг'
 
   };
+  // Модальные окна
+  $scope.auth = {
+    show: false,
+    close: function () {
+      $scope.auth.show = false;
+    },
+  };
+
+  // Провека языка
+  $scope.lang = {
+    language: localStorage.getItem('language'), 
+    show: false,
+    close: function () {
+      $scope.lang.show = false;
+    },
+  };
+
+  $scope.info = {
+    show: true,
+    name: 'Квартал «Новая земля»',
+    floor: '3',
+    square: '75',
+    price: '25000000',
+    content: 'Квартал «Новая Земля» это 6 монолитных корпусов переменной этажности 17-22. Отделка наружных стен - вентилируемые фасады с облицовкой керамогранитом. Витражное остекление балконов и лоджий, панорамное остекление верхних этажей, качественная отделка входных групп. ',
+
+    close: function () {
+      $scope.info.show = false;
+    },
+  }
   // value - фильтр который меняет значение dropdowns
   $scope.changeValueFilter = function (value, dropDown) {
     switch (dropDown){
@@ -358,15 +387,6 @@ app.controller('main', function ($scope, $http) {
       document.querySelector('.lang_wrap .en').classList.add('active'); 
       document.querySelector('.lang_wrap .ru').classList.remove('active');
     }  
-  };
-
-  $scope.auth = {
-    show: false,
-  };
-  // Провека языка
-  $scope.lang = {
-    language: localStorage.getItem('language'), 
-    show: false,
   };
 
   $scope.lang.setLang = function (arg) {

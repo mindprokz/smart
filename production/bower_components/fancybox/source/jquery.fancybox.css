@@ -38,12 +38,6 @@
 	z-index: 8030;
 }
 
-.fancybox-opened .fancybox-skin {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
 .fancybox-outer, .fancybox-inner {
 	position: relative;
 }
@@ -98,13 +92,13 @@
 }
 
 .fancybox-close {
-	position: absolute;
-	top: -18px;
-	right: -18px;
-	width: 36px;
-	height: 36px;
-	cursor: pointer;
-	z-index: 8040;
+    background: url("../../../img/sprite/sprite.png") no-repeat -355px -54px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    cursor: pointer;
 }
 
 .fancybox-nav {

@@ -403,7 +403,7 @@
 <div ng-if="auth.show" class="auth modal">
 	<div class="wrap">
 		<div class="window">
-			<div class="closer"></div>
+			<div class="closer" ng-click="auth.close()"></div>
 			<h3>Авторизация</h3>
 			<form action="">
 				<input type="text"><input type="text">
@@ -427,6 +427,57 @@
 					<div class="icon_lan"></div>
 					<div class="but">English</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-if="info.show" class="info modal">
+	<div class="wrap">
+		<div class="window">
+			<div class="closer" ng-click="info.close()"></div>
+			<div class="column_first">
+				<a class="fancybox first" rel="gallery1" href="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_b.jpg">
+					<img class="first" src="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_m.jpg">
+				</a>
+				<div class="lenta">
+					<a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" >
+						<img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg">
+					</a>
+					<a class="fancybox" rel="gallery1" href="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg">
+						<img src="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_m.jpg">
+					</a>
+					<a class="fancybox last" rel="gallery1" href="http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg">
+						<img src="http://farm1.staticflickr.com/291/18653638823_a86b58523c_m.jpg">
+					</a>
+					<a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" >
+						<img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg">
+					</a>
+					<a class="fancybox" rel="gallery1" href="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg">
+						<img src="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_m.jpg">
+					</a>
+					<a class="fancybox last" rel="gallery1" href="http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg">
+						<img src="http://farm1.staticflickr.com/291/18653638823_a86b58523c_m.jpg">
+					</a>
+				</div>				
+			</div>
+			<div class="second_column">
+				<h4>{{info.name}}</h4>
+				<ul>
+					<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
+					<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
+					<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ (info.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
+				</ul>
+				<p>{{info.content}}</p>
+				<form action="">
+					<h5>Обратная связь</h5>
+					<div class="column_first">
+						<input type="text" placeholder="{{mainObj.form.placeholders.name}}">
+						<input type="text" placeholder="{{mainObj.form.placeholders.telephone}}">
+						<input type="text" placeholder="{{mainObj.form.placeholders.mail}}">
+					</div>
+					<textarea name="" id="" cols="30" rows="5" placeholder="Комментарии"></textarea>
+					<button>Отправить</button>
+				</form>
 			</div>
 		</div>
 	</div>

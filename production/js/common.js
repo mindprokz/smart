@@ -3,7 +3,12 @@ $(document).ready(function() {
 		$('html, body').animate({ scrollTop:  $('a[name="'+this.hash.slice(1)+'"]').offset().top - 93 }, 1000 );
 		return false;
 	});
-	
+	$(".fancybox").fancybox({
+		maxWidth	: 700,
+		maxHeight	: 500,		
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});	
 	//Аякс отправка форм
 	//Документация: http://api.jquery.com/jquery.ajax/
 	$("#application").submit(function() {

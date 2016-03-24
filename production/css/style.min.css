@@ -1435,6 +1435,112 @@ footer {
       -webkit-border-radius: 11px;
               border-radius: 11px;
       padding: 0 30px; }
+      .modal .wrap .window:after {
+        content: ".";
+        display: table;
+        clear: both;
+        visibility: hidden; }
+      .modal .wrap .window .column_first {
+        width: 310px;
+        float: left;
+        padding-top: 25px; }
+        .modal .wrap .window .column_first .lenta {
+          margin-left: -8px;
+          width: 318px;
+          height: 233px;
+          overflow: hidden; }
+          .modal .wrap .window .column_first .lenta:after {
+            content: ".";
+            display: table;
+            clear: both;
+            visibility: hidden; }
+        .modal .wrap .window .column_first a[rel="gallery1"] {
+          border: 1px solid #e1e1e1;
+          width: 95px;
+          height: 95px;
+          margin: 6px;
+          display: block;
+          position: relative;
+          overflow: hidden;
+          float: left; }
+          .modal .wrap .window .column_first a[rel="gallery1"].first {
+            width: 100%;
+            height: 215px;
+            float: none;
+            margin: 0;
+            margin-bottom: 15px; }
+          .modal .wrap .window .column_first a[rel="gallery1"].last {
+            margin-right: 0; }
+          .modal .wrap .window .column_first a[rel="gallery1"] img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%; }
+      .modal .wrap .window .second_column {
+        float: left;
+        width: 500px;
+        padding-left: 38px;
+        padding-top: 25px; }
+        .modal .wrap .window .second_column h4 {
+          color: #2d2c2c;
+          font-weight: 700;
+          font-size: 22px;
+          text-transform: uppercase;
+          padding-bottom: 10px; }
+        .modal .wrap .window .second_column ul {
+          list-style-type: none; }
+          .modal .wrap .window .second_column ul li {
+            color: #2d2d2d;
+            font-size: 15px;
+            line-height: 30px; }
+            .modal .wrap .window .second_column ul li.last {
+              font-size: 20px;
+              line-height: 35px; }
+            .modal .wrap .window .second_column ul li span {
+              font-weight: 700; }
+        .modal .wrap .window .second_column p {
+          font-weight: 300;
+          color: #2d2c2c;
+          font-size: 16px;
+          line-height: 28px;
+          padding-top: 0px; }
+        .modal .wrap .window .second_column form {
+          padding-top: 10px; }
+          .modal .wrap .window .second_column form h5 {
+            font-weight: 300;
+            font-size: 25px;
+            color: #2d2c2c; }
+          .modal .wrap .window .second_column form .column_first {
+            width: 175px;
+            float: left;
+            padding-top: 0; }
+          .modal .wrap .window .second_column form input {
+            width: 175px;
+            height: 31px; }
+          .modal .wrap .window .second_column form textarea {
+            -webkit-border-radius: 9px;
+                    border-radius: 9px;
+            float: left;
+            padding: 10px 13px;
+            height: 119px;
+            margin-top: 12px;
+            margin-left: 25px;
+            max-height: 119px;
+            min-height: 119px;
+            max-width: 225px;
+            min-width: 225; }
+            .modal .wrap .window .second_column form textarea:focus {
+              outline: 0; }
+          .modal .wrap .window .second_column form button {
+            text-transform: uppercase;
+            width: 155px;
+            margin-left: 125px; }
+            .modal .wrap .window .second_column form button:focus {
+              outline: 0; }
     .modal .wrap .closer {
       background: url("../img/sprite/sprite.png") no-repeat -355px -54px;
       width: 30px;
@@ -1538,3 +1644,9 @@ footer {
           color: #278eb0; }
         .modal .wrap .language .eng .icon_lan {
           background-position: -115px -243px; }
+
+.info .wrap {
+  width: 900px; }
+  .info .wrap .window {
+    -webkit-border-radius: 0;
+            border-radius: 0; }
