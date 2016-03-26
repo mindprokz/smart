@@ -1,20 +1,39 @@
 [
 	{
 		"name": "МФК «Водный»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 2,
 		"square": 181.8,
 		"type_sale": "Снять в аренду",
 		"type": "Офис",
+		"content": "Квартал «Новая Земля» это 6 монолитных корпусов переменной этажности 17-22. Отделка наружных стен - вентилируемые фасады с облицовкой керамогранитом. Витражное остекление балконов и лоджий, панорамное остекление верхних этажей, качественная отделка входных групп. ",
 		"price": 193285
 	},
 	{
 		"name": "МФК «Вный»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 3,
 		"square": 21.8,
 		"type_sale": "Снять в аренду",
@@ -23,9 +42,18 @@
 	},
 	{
 		"name": "МФК «одный»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 1,
 		"square": 31.8,
 		"type_sale": "Купить",
@@ -34,9 +62,18 @@
 	},
 	{
 		"name": "МФК «Вой»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 3,
 		"square": 61.8,
 		"type_sale": "Купить",
@@ -45,9 +82,18 @@
 	},
 	{
 		"name": "МФК «Воднй»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 2,
 		"square": 281.8,
 		"type_sale": "Купить",
@@ -56,9 +102,18 @@
 	},
 	{
 		"name": "МФК «Водный»",
-		"images": {
-			"thumbnail": "img/test_search.png"
-		},
+		"thumbnail": "img/test_search.png",
+		"images": [
+	      "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg",
+	      "http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg",
+	      "http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg"
+		],
+	    "author": {
+	      "name": "Имя Фамилия",
+	      "telephone": "Телефон",
+	      "email": "test@mail.ru",
+	      "image": "img/manager.jpeg"
+	    },
 		"floor": 1,
 		"square": 101.8,
 		"type_sale": "Снять в аренду",

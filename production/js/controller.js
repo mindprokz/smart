@@ -90,7 +90,6 @@ app.controller('main', function ($scope, $http) {
     },
     clientPage: {
       header: 'Наши клиенты',
-
     },
     catalogPage: {
       header: 'Каталог квартир',
@@ -213,6 +212,9 @@ app.controller('main', function ($scope, $http) {
         comment: 'Комментарий',
         telephone: 'Телефон'
       }
+    },
+    modal : {
+      manager: ' Менеджер',
     }
   };
 
@@ -224,6 +226,24 @@ app.controller('main', function ($scope, $http) {
 
   // Массив объектов для каталога квартир, каждый объект отдельная квартира
   $scope.catalog_search = [];
+
+  // Запрос на файл квартир
+  $http.get('floors.json')
+    .then(function (value) {
+       $scope.catalog_search = value.data;
+
+       var maxS = [],
+            maxP = [];
+
+       for (var i = 0; i < value.data.length; i++) {
+         maxS[i] = value.data[i].square;
+         maxP[i] = value.data[i].price;
+       };
+
+       $scope.sliderExample9[1] = Math.max.apply(null, maxS);
+       $scope.sliderMax = Math.max.apply(null, maxS);
+       $scope.price[1] = Math.max.apply(null, maxP);
+    }); 
 
   // Переменные для отображения в меню квартир, обрезаются в функции changeValueFilter если больше 7 символов
   $scope.dropDown1FilterView = 'Все';
@@ -246,7 +266,7 @@ app.controller('main', function ($scope, $http) {
     cur: 'тг'
 
   };
-  // Модальные окна
+  // Модальное окно авторизации
   $scope.auth = {
     show: false,
     close: function () {
@@ -264,17 +284,44 @@ app.controller('main', function ($scope, $http) {
   };
 
   $scope.info = {
-    show: true,
+    show: false,
     name: 'Квартал «Новая земля»',
     floor: '3',
     square: '75',
     price: '25000000',
     content: 'Квартал «Новая Земля» это 6 монолитных корпусов переменной этажности 17-22. Отделка наружных стен - вентилируемые фасады с облицовкой керамогранитом. Витражное остекление балконов и лоджий, панорамное остекление верхних этажей, качественная отделка входных групп. ',
+    thumbnail: 'http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_b.jpg',
+    images: [
+      'http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg',
+      'http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg',
+      'http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg',
+    ],
+    author: {
+      name: 'Имя Фамилия',
+      telephone: 'Телефон',
+      email: 'test@mail.ru',
+      image: 'img/manager.jpeg',
+    },
+    change: function (index, show) {
+      var _object = $scope.catalog_search[index];
 
+      this.name = _object.name;
+      this.floor = _object.floor;
+      this.square = _object.square;
+      this.price = _object.price;
+      this.content = _object.content;
+      this.thumbnail = _object.thumbnail;
+      this.images = _object.images;
+      this.author = _object.author;
+
+      if (show) this.show = true;
+
+    },
     close: function () {
       $scope.info.show = false;
     },
   }
+
   // value - фильтр который меняет значение dropdowns
   $scope.changeValueFilter = function (value, dropDown) {
     switch (dropDown){
@@ -320,20 +367,6 @@ app.controller('main', function ($scope, $http) {
         break; 
     }     
   }
-
-  $http.get('floors.json')
-    .then(function (value) {
-       $scope.catalog_search = value.data;
-       var maxS = [],
-            maxP = [];
-       for (var i = 0; i < value.data.length; i++) {
-         maxS[i] = value.data[i].square;
-         maxP[i] = value.data[i].price;
-       };
-       $scope.sliderExample9[1] = Math.max.apply(null, maxS);
-       $scope.sliderMax = Math.max.apply(null, maxS);
-       $scope.price[1] = Math.max.apply(null, maxP);
-    }); 
 
   $scope.typeView = function (elem) {
     if ($scope.dropDown1Filter === 'Все') return true;

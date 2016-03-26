@@ -178,14 +178,14 @@
 				<article ng-repeat="stack in catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange">
 					<header>{{stack.name}}</header>
 					<div class="{{stack.length}}"></div>
-					<div class="wrap_img"><img ng-src="{{stack.images.thumbnail}}"></div>
+					<div class="wrap_img"><img ng-src="{{stack.thumbnail}}"></div>
 					<div class="info">
 						<ul>
 							<li><span>{{mainObj.specPage.floor}}:</span> {{stack.floor}}</li>
 							<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
 							<li><span>{{mainObj.specPage.price}}:</span> {{ (stack.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
 						</ul>
-						<button>{{mainObj.specPage.more}}</button>
+						<button ng-click="info.change($index, true)">{{mainObj.specPage.more}}</button>
 					</div>		
 				</article>
 			</div>
@@ -400,6 +400,7 @@
 		<img src="img/mind_logo.png" alt="">
 	</div>
 </footer>
+
 <div ng-if="auth.show" class="auth modal">
 	<div class="wrap">
 		<div class="window">
@@ -436,37 +437,22 @@
 		<div class="window">
 			<div class="closer" ng-click="info.close()"></div>
 			<div class="column_first">
-				<a class="fancybox first" rel="gallery1" href="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_b.jpg">
-					<img class="first" src="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_m.jpg">
+				<a class="fancybox first" rel="gallery1" href="{{info.thumbnail}}">
+					<img class="first" ng-src="{{info.thumbnail}}">
 				</a>
 				<div class="lenta">
-					<a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" >
-						<img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg">
-					</a>
-					<a class="fancybox" rel="gallery1" href="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg">
-						<img src="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_m.jpg">
-					</a>
-					<a class="fancybox last" rel="gallery1" href="http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg">
-						<img src="http://farm1.staticflickr.com/291/18653638823_a86b58523c_m.jpg">
-					</a>
-					<a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" >
-						<img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg">
-					</a>
-					<a class="fancybox" rel="gallery1" href="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_b.jpg">
-						<img src="http://farm1.staticflickr.com/574/22407305427_69cc6e845f_m.jpg">
-					</a>
-					<a class="fancybox last" rel="gallery1" href="http://farm1.staticflickr.com/291/18653638823_a86b58523c_b.jpg">
-						<img src="http://farm1.staticflickr.com/291/18653638823_a86b58523c_m.jpg">
+					<a ng-repeat="image in info.images" class="fancybox {{ $index == 2 ? 'last' : ''}}" rel="gallery1" href="{{info.images[$index]}}" >
+						<img ng-src="{{info.images[$index]}}">
 					</a>
 				</div>	
 				<div class="manager">
-					<h3>Менеджер</h3>
+					<h3>{{mainObj.modal.manager}}</h3>
 					<div class="photo_wrap">
-						<img src="img/manager.jpeg" alt="">
+						<img ng-src="{{info.author.image}}" alt="">
 					</div>
 					<div class="info">
-						<h4>Имя Фамилия</h4>
-						<h5>Телефон</h5>
+						<h4>{{info.author.name}}</h4>
+						<h5>{{info.author.telephone}}</h5>
 					</div>
 				</div>			
 			</div>

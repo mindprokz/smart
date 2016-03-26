@@ -1134,7 +1134,8 @@ h2 {
                 border-radius: 9px;
         background: transparent;
         margin: 4px 0;
-        padding: 10px 15px; }
+        padding: 10px 15px;
+        width: 200px; }
         #service .info form input:focus {
           outline: 0; }
       #service .info form button {
