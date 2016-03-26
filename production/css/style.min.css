@@ -1443,17 +1443,56 @@ footer {
       .modal .wrap .window .column_first {
         width: 310px;
         float: left;
-        padding-top: 25px; }
+        padding-top: 20px; }
         .modal .wrap .window .column_first .lenta {
           margin-left: -8px;
           width: 318px;
-          height: 233px;
+          height: 106px;
           overflow: hidden; }
           .modal .wrap .window .column_first .lenta:after {
             content: ".";
             display: table;
             clear: both;
             visibility: hidden; }
+        .modal .wrap .window .column_first .manager {
+          background: #F1F1F1;
+          padding-left: 15px;
+          margin-top: 25px; }
+          .modal .wrap .window .column_first .manager:after {
+            content: ".";
+            display: table;
+            clear: both;
+            visibility: hidden; }
+          .modal .wrap .window .column_first .manager h3 {
+            text-align: left;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            padding-top: 15px;
+            font-size: 15px; }
+          .modal .wrap .window .column_first .manager .photo_wrap {
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            float: left;
+            position: relative; }
+            .modal .wrap .window .column_first .manager .photo_wrap img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                      transform: translate(-50%, -50%);
+              min-width: 100%;
+              min-height: 100%;
+              max-width: 150%;
+              max-height: 150%; }
+          .modal .wrap .window .column_first .manager .info {
+            float: left;
+            margin-left: 25px; }
+            .modal .wrap .window .column_first .manager .info h4 {
+              margin-top: 10px; }
+            .modal .wrap .window .column_first .manager .info h5 {
+              margin-top: 10px; }
         .modal .wrap .window .column_first a[rel="gallery1"] {
           border: 1px solid #e1e1e1;
           width: 95px;
@@ -1484,7 +1523,7 @@ footer {
         float: left;
         width: 500px;
         padding-left: 38px;
-        padding-top: 25px; }
+        padding-top: 20px; }
         .modal .wrap .window .second_column h4 {
           color: #2d2c2c;
           font-weight: 700;
@@ -1532,7 +1571,7 @@ footer {
             max-height: 119px;
             min-height: 119px;
             max-width: 225px;
-            min-width: 225; }
+            min-width: 225px; }
             .modal .wrap .window .second_column form textarea:focus {
               outline: 0; }
           .modal .wrap .window .second_column form button {
@@ -1547,7 +1586,7 @@ footer {
       height: 30px;
       position: absolute;
       right: -40px;
-      top: -40px;
+      top: -30px;
       cursor: pointer; }
     .modal .wrap h3 {
       font-weight: 700;
