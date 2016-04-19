@@ -9,27 +9,6 @@ $(document).ready(function() {
 		openEffect	: 'none',
 		closeEffect	: 'none'
 	});	
-	//Аякс отправка форм
-	//Документация: http://api.jquery.com/jquery.ajax/
-	$("#application").submit(function() {
-		var data = {
-			name : document.querySelector('input[name="name"]').value,
-			email : document.querySelector('input[name="email"]').value,
-			telephone : document.querySelector('input[name="telephone"]').value,
-		}
-		$.ajax({
-			type: "POST",
-			url: "mail.php",
-			data: data,
-		}).done(function( value ) {
-			$('#mail')[0].innerHTML = value;
-			$('#mail').removeClass('not_visible_mail');
-			setTimeout(function() {
-				$("#form").trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
 
 	//Chrome Smooth Scroll
 	try {
@@ -43,6 +22,7 @@ $(document).ready(function() {
 
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
+	// Инициализация плавающего меню
 	new FloatMenu({ 
 		elem : document.querySelector('.nav'), 
 		height : 200,
@@ -50,12 +30,21 @@ $(document).ready(function() {
 		second_class : 'margin_style'
 	}).init();
 
+	if (window.auth) {
+		document.querySelector('input[type="file"]').addEventListener('change', function () {
+			var _sost = this.value.split('\\')[this.value.split('\\').length - 1];
+			document.getElementById('sost').textContent = _sost;
+			document.forms.resume.filename.value = _sost;
+		});
+	}
+	
 	var map;
 	// координаты карты
-	var oz = new google.maps.LatLng(51.138668,71.474600);
+	var oz = new google.maps.LatLng(51.145469, 71.388221);
 	var MY_MAPTYPE_ID = 'custom_style';
 	function initialize() {
 		// стили 
+/*
 		var featureOpts = [
 		    {
 		        "featureType": "all",
@@ -235,29 +224,32 @@ $(document).ready(function() {
 		        ]
 		    }
 		];
+*/
 		// Опции карты
 		var mapOptions = {
-				zoom: 15,
+				zoom: 14,
 				center: oz,
 				disableDefaultUI: true,
-				mapTypeControlOptions: {
-					mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-				},
-				mapTypeId: MY_MAPTYPE_ID
+//				mapTypeControlOptions: {
+//					mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+//				},
+//				mapTypeId: MY_MAPTYPE_ID
 			};
+
 	 
 		map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-		var styledMapOptions = {
+/*		var styledMapOptions = {
 				name: 'Custom Style'
 			};
-		var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
-		map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+*/
+		//var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+		//map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
 		var marker = new google.maps.Marker({
-				position: oz,
+				position: new google.maps.LatLng(51.143833, 71.415786),
 				map: map,
 				title: 'Филиал в Астане',
-				icon : 'img/marker.png',
+				icon : 'wp-content/themes/smart/img/marker.png',
 		});
 		};
 	initialize();
