@@ -30,19 +30,17 @@ $(document).ready(function() {
 		second_class : 'margin_style'
 	}).init();
 
-	if (window.auth) {
-		document.querySelector('input[type="file"]').addEventListener('change', function () {
-			var _sost = this.value.split('\\')[this.value.split('\\').length - 1];
-			document.getElementById('sost').textContent = _sost;
-			document.forms.resume.filename.value = _sost;
-		});
-	}
-	
-	var map;
+	document.querySelector('input[type="file"]').addEventListener('change', function () {
+		var _sost = this.value.split('\\')[this.value.split('\\').length - 1];
+		document.getElementById('sost').textContent = _sost;
+		document.forms.resume.filename.value = _sost;
+	});
+
+//	var map;
 	// координаты карты
-	var oz = new google.maps.LatLng(51.145469, 71.388221);
-	var MY_MAPTYPE_ID = 'custom_style';
-	function initialize() {
+//	var oz = new google.maps.LatLng(51.145469, 71.388221);
+//	var MY_MAPTYPE_ID = 'custom_style';
+//	function initialize() {
 		// стили 
 /*
 		var featureOpts = [
@@ -226,6 +224,7 @@ $(document).ready(function() {
 		];
 */
 		// Опции карты
+/*
 		var mapOptions = {
 				zoom: 14,
 				center: oz,
@@ -241,7 +240,6 @@ $(document).ready(function() {
 /*		var styledMapOptions = {
 				name: 'Custom Style'
 			};
-*/
 		//var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 		//map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
@@ -252,5 +250,5 @@ $(document).ready(function() {
 				icon : 'wp-content/themes/smart/img/marker.png',
 		});
 		};
-	initialize();
+	initialize();*/
 });

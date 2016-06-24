@@ -12,6 +12,7 @@
 	<meta name="description" content="Smart Realtor – агентство элитной недвижимости г. Астана 
 Более 7000 эксклюзивных объектов недвижимости в городе Астана. Аренда и сдача, продажа и покупка жилой и коммерческой недвижимости. Высококвалифицированный менеджмент и самая большая база объектов делает нас лидерами на рынке.">
 
+	<!--[if IE]> <meta http-equiv="refresh" content="1;https://www.google.ru/chrome/browser/desktop/"> <![endif]-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -29,6 +30,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 	<script src="https://code.angularjs.org/1.5.0/angular-animate.min.js"></script>
+	<script src="<?php echo get_template_directory_uri();?>/js/angular-ymaps.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/controller.js"></script>
 	
 <!-- 	preloader css -->
@@ -467,6 +469,7 @@
 					<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
 					<input name="emailFrom" type="text" placeholder="{{mainObj.form.placeholders.mail}}" required>
 					<input name="emailTo" type="email" style="display:none;" value="main@smartrealtor.kz">
+					<textarea name="message" rows="8" cols="10" placeholder="{{mainObj.form.placeholders.ques}}" required></textarea>
 					<h4 style="display:none;">Преимущества</h4>
 					<button ng-click="feedback.submit('#qual_form');">{{mainObj.form.placeholders.send}}</button>
 				</form>
@@ -566,10 +569,24 @@
 		<h2>{{mainObj.sotrPage.header}}</h2>
 		<div class="container">
 			<div class="first_column">
-				<h3>{{mainObj.sotrPage.subHeader}}</h3>
+				<h3>
+					{{mainObj.sotrPage.subHeader}} <br>
+					{{mainObj.sotrPage.subHeader2}} <br>
+				</h3>
 				<p>{{mainObj.sotrPage.content1}}</p>
-				<p>{{mainObj.sotrPage.content2}}</p>
+				<p>
+					{{mainObj.sotrPage.content2.list1}} <br>
+					{{mainObj.sotrPage.content2.list2}} <br>
+					{{mainObj.sotrPage.content2.list3}} <br>
+					{{mainObj.sotrPage.content2.list4}} <br>
+					{{mainObj.sotrPage.content2.list5}} <br>
+				</p>	
 				<p>{{mainObj.sotrPage.content3}}</p>
+				<p>
+					{{mainObj.sotrPage.content4.list1}} <br>
+					{{mainObj.sotrPage.content4.list2}} <br>
+					{{mainObj.sotrPage.content4.list3}} <br>
+				</p>	
 			</div>
 			<div class="second_column">
 				<div class="wrapper">
@@ -605,7 +622,7 @@
 	
 	<div id="map">
 		<a name="contact"></a>
-		<div id="map_canvas"></div>
+		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=5qBPQHFjmFyZ30jchMZo2eDday06aA7b&width=45%&height=100%&lang=ru_RU&sourceType=constructor&scroll=true"></script>
 		<div class="first_column">
 			<div class="wrap">
 				<h3>{{mainObj.contacts.adress1}} <br> {{mainObj.contacts.adress2}}</h3>
@@ -690,11 +707,13 @@
 							<h4>{{info.author.name}}</h4>
 							<h5>{{info.author.telephone}}</h5>
 						</div>
-					</div>			
+					</div>	
+					<a class="fancybox_map" ng-click="map.open();">Смотреть на карте</a>		
 				</div>
 				<div class="second_column">
 					<h4>{{info.name}}</h4>
 					<ul>
+						<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
 						<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
 						<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
 						<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ (info.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
@@ -742,11 +761,12 @@
 		</div>
 	</div>
 	
-	<div ng-if="auth.check_auth_user" class="slide {{auth.open_res === 0 ? 'close' : 'open'}}">
+	<div class="slide {{auth.open_res === 0 ? 'close' : 'open'}}">
 		<div class="wrap">
+			<div class="closer" ng-click="auth.open_res = 0;"></div>	
 			<div class="woman"></div>	
 			<div class="window">	
-				<form id="resume"  enctype="multipart/form-data" action="<?php  echo get_template_directory_uri();?>/mailWithFile.php" method="POST">
+				<form id="resume" enctype="multipart/form-data" action="<?php echo get_template_directory_uri();?>/mailWithFile.php" method="POST">
 					<h3>Быстрая отправка резюме</h3>
 					<input name="name" type="text" placeholder="ФИО" required></input>
 					<input name="phone" type="number" placeholder="Контактный телефон" required></input>
@@ -759,6 +779,17 @@
 			</div>	
 			<div class="button" ng-click="auth.open_res === 0 ? auth.open_res = 1 : auth.open_res = 0"></div>
 		</div>		
+	</div>	
+	
+	<div ng-if="map.show" class="map_yan modal">
+		<div class="wrap">
+			<div class="window">
+				<div class="closer" ng-click="map.show = false"></div>
+				<yandex-map center="map.center" zoom="map.zoom" style="width: 700px; height: 600px; display: block;">
+					<ymap-marker properties="map.index" coordinates="map.center"></ymap-marker>
+				</yandex-map>	
+			</div>	
+		</div>	
 	</div>	
 	<!--     Пример формы обратной связи          -->
 	<!-- 	<div class="main">
@@ -786,13 +817,44 @@
 
 
 	<!-- with CDN -->
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
+<!-- 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+	
 	<!-- local -->
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/nav/nav.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/common.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/slider.js"></script>
 	<script>window.auth = <?php if ( is_user_logged_in() ){ echo 'true'; } else { echo 'false'; }?></script>
+	<script crossorigin="anonymous" async type="text/javascript" src="//api.pozvonim.com/widget/callback/v3/2b45961021aefe57671c32f5c503cee2/connect" id="check-code-pozvonim" charset="UTF-8"></script>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	    (function (d, w, c) {
+	        (w[c] = w[c] || []).push(function() {
+	            try {
+	                w.yaCounter37059845 = new Ya.Metrika({
+	                    id:37059845,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true,
+	                    webvisor:true
+	                });
+	            } catch(e) { }
+	        });
+
+	        var n = d.getElementsByTagName("script")[0],
+	            s = d.createElement("script"),
+	            f = function () { n.parentNode.insertBefore(s, n); };
+	        s.type = "text/javascript";
+	        s.async = true;
+	        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+	        if (w.opera == "[object Opera]") {
+	            d.addEventListener("DOMContentLoaded", f, false);
+	        } else { f(); }
+	    })(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/37059845" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->		
 </body>
 </html>

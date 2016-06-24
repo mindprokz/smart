@@ -573,6 +573,18 @@ h2
 					border: 1px solid #cccccc
 					&:focus
 						outline: 0
+				textarea 
+					width: 200px
+					display: block
+					margin: auto	
+					margin-top: 9px
+					margin-bottom: 9px
+					padding: 10px 20px 7px 20px	
+					font-size: 17px
+					border-radius: 10px
+					border: 1px solid #cccccc
+					&:focus
+						outline: 0
 				button
 					background: rgba(0, 0, 0, 0)	
 					border: 1px solid #a8cfe0
@@ -849,8 +861,8 @@ h2
 				text-align: center
 				margin-top: 60px	
 				.image_wrap
-					width: 125px	
-					height: 125px	
+					width: 180px	
+					height: 180px	
 					position: relative	
 					top: 0
 					border-radius: 50%
@@ -1004,8 +1016,8 @@ h2
 #map
 	height: 515px
 	position: relative
-	#map_canvas
-		height: 100%
+	ymaps
+		float: right	
 	.first_column
 		position: absolute
 		top: 0	
@@ -1171,6 +1183,23 @@ footer
 							margin-top: 10px	
 						h5 
 							margin-top: 10px
+				.fancybox_map
+					margin-top: 25px
+					cursor: pointer	
+					transition: color .3s ease
+					&:hover
+						color: #479DE0	
+					&:before
+						content: ''
+						background: url('../img/sprite/sprite.png') no-repeat -191px -249px
+						width: 40px	
+						height: 40px	
+						display: block
+						float: left
+						margin-top: -10px	
+						margin-left: 25px
+						margin-right: 10px	
+						margin-bottom: 10px				
 				a[rel="gallery1"]
 					border: 1px solid #e1e1e1
 					width: 95px
@@ -1308,7 +1337,7 @@ footer
 				border: 1px solid #cccccc
 				border-radius: 9px
 				width: 267px
-				padding: 10px 20px
+				padding: 13px 20px
 				display: block
 				margin: 13px auto
 				font-size: 15px
@@ -1421,17 +1450,29 @@ footer
 		width: 900px	
 		.window
 			border-radius: 0		
-			
+
+.map_yan
+	.window
+		width: 700px	
+		height: 600px	
+		padding: 0	!important			
 .slide
 	position: fixed	
 	top: 50%
-	transform: translateY(-50%)
 	width: 650px	
 	height: 540px	
 	background: #fff
 	border-radius: 0 15px 15px 0
 	z-index: 102
-	transition: left .3s ease-in
+	transition: transform .3s ease-in
+	.closer
+		position: absolute	
+		right: 15px
+		top: 15px
+		background: url('../img/sprite/sprite.png') no-repeat -355px -88px
+		width: 30px	
+		height: 30px
+		cursor: pointer	
 	.wrap
 		position: relative	
 		width: 100%	
@@ -1532,11 +1573,8 @@ footer
 			right: -35px
 			transform: translateY(-50%)
 	&.open
-		left: -5%
+		transform: translate(-20%, -50%)
 	&.close
-		left: -34%
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)
-	.slide.close
-		left: -46%		       
+		transform: translate(-100%, -50%)	       
 		
 								

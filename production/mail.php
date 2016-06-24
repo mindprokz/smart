@@ -12,7 +12,7 @@ foreach($sendtoArr as $sendto) {
 	$usermail = $_POST['email']; // сохраняем в переменную данные полученные из поля c адресом электронной почты
 	
 	// Формирование заголовка письма
-	$subject  = $_POST['header'];;
+	$subject  = $_POST['header'];
 	$headers  = "From: " . strip_tags($sendto) . "\r\n";
 	$headers .= "Reply-To: ". strip_tags($usermail) . "\r\n";
 	$headers .= "MIME-Version: 1.0\r\n";

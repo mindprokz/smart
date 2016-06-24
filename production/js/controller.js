@@ -1,4 +1,4 @@
-var app = angular.module('realty_app', ['ui.slider'/*, 'ngAnimate'*/]);
+var app = angular.module('realty_app', ['ui.slider', 'ymaps'/*, 'ngAnimate'*/]);
 
 app.factory('colorpicker', function () {
   function hexFromRGB(r, g, b) {
@@ -56,7 +56,7 @@ app.controller('sliderDemoCtrl', function ($scope, $log, colorpicker) {
   };
 });
 
-app.controller('main', function ($scope, $http) {
+app.controller('main', function ($scope, $http, $timeout) {
 	$scope.preloader = true;
   // Объект с главной информацией
   $scope.mainObj = {
@@ -67,7 +67,7 @@ app.controller('main', function ($scope, $http) {
       menu2: 'Клиенты',
       menu3: 'Каталог',
       menu4: 'Рекомендации',
-      menu5: 'Тех.поддрежка',
+      menu5: 'Тех.поддержка',
       menu6: 'Сотрудничество',
       menu7: 'Бонусы',
       menu8: 'Контакты'
@@ -87,7 +87,8 @@ app.controller('main', function ($scope, $http) {
       floor: 'Комнаты',
       square: 'Площадь',
       price: 'Цена',
-      more: 'Подробнее'
+      more: 'Подробнее',
+      id: 'Идентификатор'
     },
     clientPage: {
       header: 'Наши клиенты',
@@ -156,9 +157,9 @@ app.controller('main', function ($scope, $http) {
       content: 'Дорогие друзья, мы рады приветствовать Вас на сайте нашей компании! Для начала представлюсь - меня зовут Инна Ухналь, я являюсь директором компании "Smart Realtor "! В Казахстане много успешных компаний, потому что у нас в стране живут прекрасные люди. Страна у нас многонациональная, и именно поэтому жить и работать в Казахстане большое счастье. Наша компания предоставляет услуги в сфере элитной недвижимости. Мы понимаем всю важность жилищного вопроса для наших дорогих клиентов и именно поэтому мы строим риэлторскую компанию нового типа — инновационные технологии для поиска и продвижения недвижимости и ответственность за свои действия -  это основные принципы нашей работы, наряду с доброжелательностью и человеческим отношением к каждому клиенту. В этом разделе Вы можете ознакомиться с отзывами наших клиентов, а также задать мне любые интересующие вопросы. Спасибо, что посетили наш сайт, надеюсь, он будет вам полезен.'
     },
     servicePage: {
-      header: 'Тех.поддрежка',
+      header: 'Тех.поддержка',
       subHeader: 'Техническая поддержка компании',
-      listHeader: 'У нас есть инструменты, навыки, и время для тех случайных работ которые Вы планировали сделать.',
+      listHeader: 'У нас есть инструменты, навыки и время для тех случайных работ, которые Вы планировали сделать.',
       listElem1: 'Малярные работы',
       listElem2: 'Сантехнические работы',
       listElem3: 'Услуги плотника',
@@ -175,17 +176,29 @@ app.controller('main', function ($scope, $http) {
       listElem14: 'Установка и ремонт спутникового ТВ',
       listElem15: 'Установка ролл-штор',
       sloganTop: 'Не бывает неважной работы.',
-      sloganBot: 'Позвоните что бы получить бесплатную смету.',
+      sloganBot: 'Позвоните чтобы получить бесплатную смету.',
       wordSlogan1: 'Восстановить.',
       wordSlogan2: 'Построить.',
       wordSlogan3: 'Починить.',
     },
     sotrPage: {
       header: 'Сотрудничество',
-      subHeader: 'О компании',
-      content1: 'Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки форм развития.',
-      content2: 'Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в формировании новых предложений',
-      content3: 'Равным образом дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки систем массового участия.',
+      subHeader: 'ПРИГЛАШАЕМ К СОТРУДНИЧЕСТВУ ВЛАДЕЛЬЦЕВ ЭЛИТНОЙ НЕДВИЖИМОСТИ.',
+      subHeader2: 'ПРОДАЖА & АРЕНДА.',
+      content1: 'Гарантия быстрого закрытия сделки\n',
+      content2: {
+	      list1: '•	Большая база покупателей и арендаторов',
+	      list2: '•	Регулярный спрос на объекты элитной недвижимости',
+	      list3: '•	Наличие долгосрочных контрактов с иностранными компаниями',
+	      list4: '•	Анализ рынка и портрет клиента\n•	Разработка стратегии для продажи и аренды Вашей недвижимости',
+	      list5: '•	Автоматическая публикация вашего объявления на самых эффективных площадках в Интернете'
+      },
+      content3: 'Помощь в выборе недвижимости для инвестиций\n',
+      content4: {
+	      list1: '•	Работа со всеми ведущими застройщиками проектов элитной недвижимости и бизнес-класса',
+	      list2: '•	Помощь в выборе оптимального объекта для инвестиций – ликвидного и максимально удовлетворяющего требованиям клиента',
+	      list3: '•	Экспертиза объекта (аналитика по рынку, качество строительства, юридическая безопасность сделки)'
+      },
       planeHeader1: 'УЗНАЙ СКОЛЬКО СТОИТ ТВОЯ КВАРТИРА ',
       planeHeader2: 'БЕСПЛАТНО',
       planeHeader3: 'И',
@@ -224,7 +237,8 @@ app.controller('main', function ($scope, $http) {
         sname: 'Фамилия',
         register: ' Зарегистрироваться',
         write: 'Описание',
-        textarea_value_sotr: 'Здравствуйте,  хочу (сдать / продать) _______ (квартиру, дом, офис). Краткое описание: Помогите установить правильную стоимость!'
+        textarea_value_sotr: 'Здравствуйте,  хочу (сдать / продать) _______ (квартиру, дом, офис). Краткое описание: Помогите установить правильную стоимость!',
+        ques: 'Задайте свой вопрос профессионалам'
       },
       errors: {
         error: 'Ошибка',
@@ -243,7 +257,7 @@ app.controller('main', function ($scope, $http) {
       number_sergey: '+77015301888'
     }
   };
-  console.log(JSON.stringify($scope.mainObj));
+  //console.log(JSON.stringify($scope.mainObj));
 
   // Массив объектов для раздела спец предложения
   $scope.spec = [];
@@ -265,6 +279,7 @@ app.controller('main', function ($scope, $http) {
           _object.floor = element.custom_fields['wpcf-floor'][0];
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
+          _object.id_floor = element.custom_fields['wpcf-id'][0];
           _object.thumbnail = element.thumbnail_images.medium.url;
           _object.author = {
             name: element.author.first_name,
@@ -291,6 +306,9 @@ app.controller('main', function ($scope, $http) {
             _object.content_view = _object.content_en;
           }
 
+					// Координаты карты квартиры
+					_object.coords = element.custom_fields['wpcf-coords'][0];
+					
           // Помещение объекта в массив
           $scope.spec[index] = _object;
         });
@@ -358,12 +376,11 @@ app.controller('main', function ($scope, $http) {
         var _array = value.data.posts,
             maxS = [],
             maxP = [];
-
-        // Распределяем пришедшие данные
+        // Распределяем пришедший массив в нужный нам массив объектов
         _array.forEach( function (element, index, array) {
           // Промежуточный объект для составления объекта который будет помещен в массив
           var _object = {};
-
+					// Сформированный объект квартиры
           _object.name = element.custom_fields['wpcf-header'][0];
           _object.content = element.custom_fields['wpcf-content'][0];
           _object.name_en = element.custom_fields['wpcf-header_en'][0];
@@ -371,6 +388,7 @@ app.controller('main', function ($scope, $http) {
           _object.floor = element.custom_fields['wpcf-floor'][0];
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
+          _object.id_floor = element.custom_fields['wpcf-id'][0];
           _object.thumbnail = element.thumbnail_images.medium.url;
           _object.author = {
             name: element.author.first_name,
@@ -379,16 +397,20 @@ app.controller('main', function ($scope, $http) {
             image: element.author.description.split(',')[0]
           };
           _object.images = [];
+          
+          // Добавление картинок в объект
           element.attachments.forEach(function (element, index, array) {
             _object.images.push(element.url);
           });
 
+					// Узнаем тип квартиры
           if ( element.custom_fields['wpcf-type_sale'][0] === '1' ){
             _object.type_sale = 'Снять в аренду';
           } else {
             _object.type_sale = 'Купить';
           }
 
+					// В зависимости от языка выбираем нужные нам поля
           if ($scope.lang.language === 'rus') {
             _object.name_view = _object.name;
             _object.content_view = _object.content;
@@ -397,20 +419,25 @@ app.controller('main', function ($scope, $http) {
             _object.content_view = _object.content_en;
           }
 
+					// Координаты карты квартиры
+					_object.coords = element.custom_fields['wpcf-coords'][0];
+					
+					
           // Помещение объекта в массив
           $scope.catalog_search[index] = _object;
 
-          // Максимальное и минимальное значение в фильтре
+          // Помещаем площадь и цену в отдельные массивы для будущего сравнения
           maxS[index] = _object.square;
           maxP[index] = _object.price;
         });
 
-         $scope.sliderExample9[1] = Math.max.apply(null, maxS);
-         $scope.sliderMax = Math.max.apply(null, maxS) + 1;
-         $scope.sliderMaxForReset = Math.max.apply(null, maxS);
+				// получение максимальных значений для вставки в ui и сравнения
+        $scope.sliderExample9[1] = Math.max.apply(null, maxS);
+        $scope.sliderMax = Math.max.apply(null, maxS) + 1;
+        $scope.sliderMaxForReset = Math.max.apply(null, maxS);
          
-         $scope.price[1] = Math.max.apply(null, maxP);
-         $scope.price[2] = Math.max.apply(null, maxP);
+        $scope.price[1] = Math.max.apply(null, maxP);
+        $scope.price[2] = Math.max.apply(null, maxP);
       });    
   };
 
@@ -471,7 +498,7 @@ app.controller('main', function ($scope, $http) {
   };
 
 
-  // Провека языка
+  // Объект языка
   $scope.lang = {
     language: localStorage.getItem('language'), 
     show: false,
@@ -479,10 +506,13 @@ app.controller('main', function ($scope, $http) {
       $scope.lang.show = false;
     },
   };
+  
+  
   // Модальное окно с квартирами
   $scope.info = {
     show: false,
     name: '',
+    id_floor : '',
     floor: '',
     square: '',
     price: '',
@@ -498,10 +528,11 @@ app.controller('main', function ($scope, $http) {
     change: function (index, arr, show) {
       if ($scope.auth.check_auth_user){
 				// Если пользователь авторизирован то мы помещаем информацию
-				// из нажатого массива в наше модальное окно 				 
+				// из нажатого объекта в наше модальное окно 				 
         var _object = arr[index];
 
         this.name = _object.name;
+        this.id_floor = _object.id_floor;
         this.floor = _object.floor;
         this.square = _object.square;
         this.price = _object.price;
@@ -511,7 +542,11 @@ app.controller('main', function ($scope, $http) {
         this.author = _object.author;
 
         if (show) this.show = true;
-      } else {
+        
+        $scope.map.center = _object.coords.split(',');
+        $scope.map.index.balloonContent = _object.name;
+        
+			} else {
         $scope.auth.open();
       }
     },
@@ -576,7 +611,36 @@ app.controller('main', function ($scope, $http) {
     }
   };
   $scope.feedback.submit('#service_form');
+	$scope.submitWithFile = function (e) {
+		e.preventDefault();
+		var form = document.forms.resume;
+    var formData = new FormData(form); 
+    var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://smartrealtor.kz/wp-content/themes/smart/mailWithFile.php");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          if(xhr.status == 200) {
+	          $('#mail')[0].innerHTML = xhr.responseText;
+            $('#mail').removeClass('not_visible_mail');
 
+            setTimeout(function() {
+              $(id).trigger("reset");
+            }, 1000);
+
+            setTimeout(function() {
+              $('#mail')[0].setAttribute('style', 'opacity: 0;');
+              setTimeout(function() {
+                $('#mail').addClass('not_visible_mail');
+              }, 500);
+            }, 5000);
+
+
+          }
+        }
+      };
+    xhr.send(formData);
+	};
+	document.forms.resume.addEventListener('submit', $scope.submitWithFile);
   // value - фильтр который меняет значение dropdowns
   $scope.changeValueFilter = function (value, dropDown) {
     switch (dropDown){
@@ -715,7 +779,6 @@ app.controller('main', function ($scope, $http) {
         $http.get('wp-content/themes/smart/lang/'+ _lang +'.json')
           .then(function (value) {
             $scope.mainObj = value.data;
-            //console.log(JSON.stringify($scope.mainObj));
           });
 
         $scope.lang.show = false;
@@ -727,7 +790,6 @@ app.controller('main', function ($scope, $http) {
   $http.get('http://smartrealtor.kz/?json=get_category_posts&category_slug=bonus&post_type=bonus&count=1')
   	.then(function (value) {
 	  $scope.image_ = value.data.posts[0].thumbnail_images.full.url;
-	  console.log($scope.image_);
   	});
   	
   if ($scope.lang.language) {
@@ -736,6 +798,22 @@ app.controller('main', function ($scope, $http) {
     $scope.lang.show = true;
   }
   
-	$scope.preloader = false;
+// Карта для каждой квартиры
+	$scope.map = {
+		show: false,
+		center: [56.27, 34.33],
+		zoom: 12,
+		index: {
+			balloonContent: ''
+		}	
+	};  
 	
+	$scope.map.open = function () {
+		$scope.map.show = true;
+	};
+
+	$scope.preloader = false;
+	$timeout(function () {
+		$scope.auth.open_res = 1;
+	}, 10000)
 });

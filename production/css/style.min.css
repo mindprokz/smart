@@ -920,6 +920,19 @@ h2 {
         border: 1px solid #cccccc; }
         #qual .container .third_column form input:focus {
           outline: 0; }
+      #qual .container .third_column form textarea {
+        width: 200px;
+        display: block;
+        margin: auto;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        padding: 10px 20px 7px 20px;
+        font-size: 17px;
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        border: 1px solid #cccccc; }
+        #qual .container .third_column form textarea:focus {
+          outline: 0; }
       #qual .container .third_column form button {
         background: transparent;
         border: 1px solid #a8cfe0;
@@ -1218,8 +1231,8 @@ h2 {
         text-align: center;
         margin-top: 60px; }
         #service .info .contact .image_block .image_wrap {
-          width: 125px;
-          height: 125px;
+          width: 180px;
+          height: 180px;
           position: relative;
           top: 0;
           -webkit-border-radius: 50%;
@@ -1391,8 +1404,8 @@ h2 {
 #map {
   height: 515px;
   position: relative; }
-  #map #map_canvas {
-    height: 100%; }
+  #map ymaps {
+    float: right; }
   #map .first_column {
     position: absolute;
     top: 0;
@@ -1585,6 +1598,24 @@ footer {
               margin-top: 10px; }
             .modal .wrap .window .column_first .manager .info h5 {
               margin-top: 10px; }
+        .modal .wrap .window .column_first .fancybox_map {
+          margin-top: 25px;
+          cursor: pointer;
+          -webkit-transition: color 0.3s ease;
+                  transition: color 0.3s ease; }
+          .modal .wrap .window .column_first .fancybox_map:hover {
+            color: #479DE0; }
+          .modal .wrap .window .column_first .fancybox_map:before {
+            content: "";
+            background: url("../img/sprite/sprite.png") no-repeat -191px -249px;
+            width: 40px;
+            height: 40px;
+            display: block;
+            float: left;
+            margin-top: -10px;
+            margin-left: 25px;
+            margin-right: 10px;
+            margin-bottom: 10px; }
         .modal .wrap .window .column_first a[rel="gallery1"] {
           border: 1px solid #e1e1e1;
           width: 95px;
@@ -1725,7 +1756,7 @@ footer {
       -webkit-border-radius: 9px;
               border-radius: 9px;
       width: 267px;
-      padding: 10px 20px;
+      padding: 13px 20px;
       display: block;
       margin: 13px auto;
       font-size: 15px;
@@ -1849,20 +1880,30 @@ footer {
     -webkit-border-radius: 0;
             border-radius: 0; }
 
+.map_yan .window {
+  width: 700px;
+  height: 600px;
+  padding: 0 !important; }
+
 .slide {
   position: fixed;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
   width: 650px;
   height: 540px;
   background: #fff;
   -webkit-border-radius: 0 15px 15px 0;
           border-radius: 0 15px 15px 0;
   z-index: 102;
-  -webkit-transition: left 0.3s ease-in;
-          transition: left 0.3s ease-in; }
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+          transition: transform 0.3s ease-in; }
+  .slide .closer {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: url("../img/sprite/sprite.png") no-repeat -355px -88px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer; }
   .slide .wrap {
     position: relative;
     width: 100%;
@@ -1970,10 +2011,10 @@ footer {
           -ms-transform: translateY(-50%);
               transform: translateY(-50%); }
   .slide.open {
-    left: -5%; }
+    -webkit-transform: translate(-20%, -50%);
+        -ms-transform: translate(-20%, -50%);
+            transform: translate(-20%, -50%); }
   .slide.close {
-    left: -34%; }
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
-  .slide.close {
-    left: -46%; } }
+    -webkit-transform: translate(-100%, -50%);
+        -ms-transform: translate(-100%, -50%);
+            transform: translate(-100%, -50%); }
