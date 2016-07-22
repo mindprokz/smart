@@ -256,7 +256,7 @@
 				</div>
 				<nav>
 					<a href="#main">{{mainObj.header.menu1}}</a>
-					<a href="#clients">{{mainObj.header.menu2}}</a>
+					<a href="#qual">{{mainObj.header.menu2}}</a>
 					<a href="#catalog">{{mainObj.header.menu3}}</a>
 					<a href="#recomend">{{mainObj.header.menu4}}</a>
 					<a href="#service">{{mainObj.header.menu5}}</a>
@@ -270,10 +270,10 @@
 	<section id="main">
 		<a name="main"></a>
 		<video src="<?php echo get_template_directory_uri();?>/video.mp4" loop preload autoplay></video>	
-		<img src="<?php echo get_template_directory_uri();?>/img/UARk_logo.png" alt="UARC_logo">
+		<img src="<?php echo get_template_directory_uri();?>{{uarcLogo}}" alt="UARC_logo">
 		<div class="container">
 			<div class="wrap_button">
-				<a href="https://www.youtube.com/embed/Z82cvIB9U9o?autoplay=1" class="fancybox fancybox.iframe"><div class="button_main button_watch"><span>{{mainObj.mainPage.mainButton}}</span></div></a>
+				<a href="{{mainVid}}" class="fancybox fancybox.iframe"><div class="button_main button_watch"><span>{{mainObj.mainPage.mainButton}}</span></div></a>
 			</div>
 			<h4>{{mainObj.mainPage.header}}</h4>
 			<div class="navigation_button">
@@ -310,105 +310,9 @@
 		</div>
 	</section>
 	
-	<section id="clients">
-		<a name="clients"></a>
-		<h2>{{mainObj.clientPage.header}}</h2>
-		<div class="container">
-			<div class="clients_block">
-				<div ng-repeat="partners in partner" class="clients_elem">
-					<h3>{{partners.name}}</h3>
-					<div class="img_wrap">
-						<img ng-src="{{partners.url}}" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="catalog" ng-controller="sliderDemoCtrl">
-		<a name="catalog"></a>
-		<h2>{{mainObj.catalogPage.header}}</h2>
-		<div class="container">
-			<div class="configure">
-				<div class="left_block">
-					<div class="wrap_1">
-						<div class="drop_down">
-							<header><span>{{dropDown1FilterView}}</span></header>
-							<div class="list_block">
-								<div class="list_elem" ng-click="changeValueFilter('Все', 1)">{{mainObj.catalogPage.menu1_3}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Купить', 1)">{{mainObj.catalogPage.menu1_1}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Снять в аренду', 1)">{{mainObj.catalogPage.menu1_2}}</div>
-							</div>
-						</div>
-					</div>	
-					<div class="wrap_2">
-						<div class="drop_down">
-							<header><span>{{dropDown2FilterView}}</span></header>
-							<div class="list_block">
-								<div class="list_elem" ng-click="changeValueFilter('Все', 2)">{{mainObj.catalogPage.menu1_3}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Квартира', 2)">{{mainObj.catalogPage.menu2_1}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Дом', 2)">{{mainObj.catalogPage.menu2_2}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Офис', 2)">{{mainObj.catalogPage.menu2_3}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Земельный участок', 2)">{{mainObj.catalogPage.menu2_4}}</div>
-							</div>
-						</div>
-					</div>	
-					<div class="wrap_3">
-						<div class="drop_down">
-							<header><span>{{dropDown3FilterView}}</span></header>
-							<div class="list_block">
-								<div class="list_elem" ng-click="changeValueFilter('Все', 3)">{{mainObj.catalogPage.menu3_1}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('2-х комнатные', 3)">{{mainObj.catalogPage.menu3_3}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('3-х комнатные', 3)">{{mainObj.catalogPage.menu3_4}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('4-х комнатные', 3)">{{mainObj.catalogPage.menu3_5}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('5-и и более комнатные', 3)">{{mainObj.catalogPage.menu3_7}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Пентхаус', 3)">{{mainObj.catalogPage.menu3_6}}</div>
-								<div class="list_elem" ng-click="changeValueFilter('Таунхаус', 3)">{{mainObj.catalogPage.menu3_8}}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="right_block">
-					<h5>{{mainObj.specPage.square}}</h5>
-	                <div class="sliderExample">
-	                    <div ui-slider="{range: true}" min="0" max="{{sliderMax}}" step="1" use-decimals ng-model="sliderExample9"></div>
-	                    <input id="sliderFrom" type="text" ng-model="sliderExample9[0]"><input id="sliderTo" type="text" ng-model="sliderExample9[1]" class="second">
-	                </div>
-	                <h5 class="second">{{mainObj.specPage.price}}</h5>
-	                <div class="price">
-	                	<input type="text" placeholder="{{mainObj.catalogPage.from}}" ng-model="price[0]">
-	                	<div class="line"></div>
-	                	<input type="text" placeholder="{{mainObj.catalogPage.to}}" ng-model="price[3]" ng-change="changeFilterPrice();">
-	                	<div id="tenge" class="val active" ng-click="coefChange('#tenge', 1, 'тг')">₸</div>
-	                	<div id="dollar" class="val" ng-click="coefChange('#dollar', coef.coef_dol, '$')">$</div>
-	                </div>
-				</div>
-			</div>
-			<div class="search_result">
-				<header class="main">
-					<div class="search_left"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search.length}} {{mainObj.catalogPage.search_content}}</div>
-					<div class="reset_filter" ng-click="reset_filter();">Сбросить фильтр</div>	
-				</header>
-				<div class="content_seach">
-					<article ng-repeat="stack in catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange">
-						<header>{{stack.name}}</header>
-						<div class="{{stack.length}}"></div>
-						<div class="wrap_img"><img ng-src="{{stack.thumbnail}}"></div>
-						<div class="info">
-							<ul>
-								<li><span>{{mainObj.specPage.floor}}:</span> {{stack.floor}}</li>
-								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
-								<li><span>{{mainObj.specPage.price}}:</span> {{ (stack.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
-							</ul>
-							<button ng-click="info.change($index, catalog_search, true)">{{mainObj.specPage.more}}</button>
-						</div>		
-					</article>
-				</div>
-			</div>
-		</div>
-	</section>
 	
 	<section id="qual">
+		<a name="qual"></a>
 		<h2>{{mainObj.qualityPage.header}}</h2>
 		<div class="container">
 			<div class="first_column">
@@ -477,6 +381,121 @@
 		</div>
 	</section>
 	
+	<section id="catalog" ng-controller="sliderDemoCtrl">
+		<a name="catalog"></a>
+		<h2>{{mainObj.catalogPage.header}}</h2>
+		<div class="container">
+			<div class="configure">
+				<div class="left_block">
+					<div class="wrap_1">
+						<div class="drop_down">
+							<header><span>{{dropDown1FilterView}}</span></header>
+							<div class="list_block">
+								<div class="list_elem" ng-click="changeValueFilter('Все', 1, 'Any')">{{mainObj.catalogPage.menu1_3}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Купить', 1, 'To buy')">{{mainObj.catalogPage.menu1_1}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Снять в аренду', 1, 'To rent')">{{mainObj.catalogPage.menu1_2}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="wrap_2">
+						<div class="drop_down">
+							<header><span>{{dropDown2FilterView}}</span></header>
+							<div class="list_block">
+								<div class="list_elem" ng-click="changeValueFilter('Все', 2, 'Any')">{{mainObj.catalogPage.menu1_3}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Квартира', 2, 'Apartment')">{{mainObj.catalogPage.menu2_1}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Дом', 2, 'House')">{{mainObj.catalogPage.menu2_2}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Офис', 2, 'Office')">{{mainObj.catalogPage.menu2_3}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Земельный участок', 2, 'Land')">{{mainObj.catalogPage.menu2_4}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="wrap_3">
+						<div class="drop_down">
+							<header><span>{{dropDown3FilterView}}</span></header>
+							<div class="list_block">
+								<div class="list_elem" ng-click="changeValueFilter('Все', 3, 'Any')">{{mainObj.catalogPage.menu3_1}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('2-х комнатные', 3, '2')">{{mainObj.catalogPage.menu3_3}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('3-х комнатные', 3, '3')">{{mainObj.catalogPage.menu3_4}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('4-х комнатные', 3, '4')">{{mainObj.catalogPage.menu3_5}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('5-и и более комнатные', 3, '5')">{{mainObj.catalogPage.menu3_7}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Пентхаус', 3, 'Penthouse')">{{mainObj.catalogPage.menu3_6}}</div>
+								<div class="list_elem" ng-click="changeValueFilter('Таунхаус', 3, 'Townhouse')">{{mainObj.catalogPage.menu3_8}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right_block">
+					<h5>{{mainObj.specPage.square}}</h5>
+	                <div class="sliderExample">
+	                    <div ui-slider="{range: true}" min="0" max="{{sliderMax}}" step="1" use-decimals ng-model="sliderExample9"></div>
+	                    <input id="sliderFrom" type="text" ng-model="sliderExample9[0]"><input id="sliderTo" type="text" ng-model="sliderExample9[1]" class="second">
+	                </div>
+	                <h5 class="second">{{mainObj.specPage.price}}</h5>
+	                <div class="price">
+	                	<input type="text" placeholder="{{mainObj.catalogPage.from}}" ng-model="price[0]">
+	                	<div class="line"></div>
+	                	<input type="text" placeholder="{{mainObj.catalogPage.to}}" ng-model="price[3]" ng-change="changeFilterPrice();">
+	                	<div id="tenge" class="val active" ng-click="coefChange('#tenge', 1, 'тг')">₸</div>
+	                	<div id="dollar" class="val" ng-click="coefChange('#dollar', coef.coef_dol, '$')">$</div>
+	                </div>
+				</div>
+			</div>
+			<div class="search_result">
+				<header class="main">
+					<div class="search_left"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search.length}} {{mainObj.catalogPage.search_content}}</div>
+					<div class="reset_filter" ng-click="reset_filter();">{{mainObj.catalogPage.clear}}</div>	
+				</header>
+				<div class="content_seach">
+					<article ng-repeat="stack in catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange">
+						<header>{{stack.name_view}}</header>
+						<div class="{{stack.length}}"></div>
+						<div class="wrap_img"><img ng-src="{{stack.thumbnail}}"></div>
+						<div class="info">
+							<ul>
+								<li><span>{{mainObj.specPage.floor}}:</span> {{stack.floor}}</li>
+								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
+								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+							</ul>
+							<button ng-click="info.change($index, catalog_search, true)">{{mainObj.specPage.more}}</button>
+						</div>		
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- ru -->
+	<section ng-if="lang.language === 'eng'" id="clients">
+		<a name="clients"></a>
+		<h2>{{mainObj.clientPage.header}}</h2>
+		<div class="container">
+			<div class="clients_block">
+				<div ng-repeat="partners in partner_en" class="clients_elem">
+					<h3>{{partners.name}}</h3>
+					<div class="img_wrap">
+						<img ng-src="{{partners.url}}" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<!-- eng -->
+	<section ng-if="lang.language === 'rus'" id="clients">
+		<a name="clients"></a>
+		<h2>{{mainObj.clientPage.header}}</h2>
+		<div class="container">
+			<div class="clients_block">
+				<div ng-repeat="partners in partner_ru" class="clients_elem">
+					<h3>{{partners.name}}</h3>
+					<div class="img_wrap">
+						<img ng-src="{{partners.url}}" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section id="recom">
 		<a name="recomend"></a>
 		<h2>{{mainObj.recomendPage.header}}</h2>
@@ -484,7 +503,7 @@
 			<p class="main">{{mainObj.recomendPage.main_content_part1}} <span>Smart Realtor</span> {{mainObj.recomendPage.main_content_part2}}</p>
 			<div class="first_column">
 				<h3>{{mainObj.recomendPage.header_director}}</h3>
-				<a href="https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1" class="fancybox fancybox.iframe"><div class="wrap_img"><img src="http://smartrealtor.kz/wp-content/uploads/2016/04/Скриншот-2016-04-14-21.37.19.png" alt=""></div></a>
+				<a href="{{obrVid}}" class="fancybox fancybox.iframe"><div class="wrap_img"><img src="http://smartrealtor.kz/wp-content/uploads/2016/04/Скриншот-2016-04-14-21.37.19.png" alt=""></div></a>
 				<h3 class="mini">{{mainObj.recomendPage.header_after_video}}</h3>
 				<p>{{mainObj.recomendPage.content}}</p>
 			</div>
@@ -508,7 +527,7 @@
 		<a name="service"></a>
 		<h2>{{mainObj.servicePage.header}}</h2>
 		<div class="container">
-			<img src="<?php echo get_template_directory_uri();?>/img/background/service.png" alt="background">
+			<img src="<?php echo get_template_directory_uri();?>{{backImage}}" alt="background">
 			<div class="handy">
 				<img src="<?php echo get_template_directory_uri();?>/img/handy_logo.png" alt="">
 				<p>— {{mainObj.servicePage.subHeader}}<span> Smart Realtor</span></p>
@@ -573,7 +592,7 @@
 					{{mainObj.sotrPage.subHeader}} <br>
 					{{mainObj.sotrPage.subHeader2}} <br>
 				</h3>
-				<p>{{mainObj.sotrPage.content1}}</p>
+				<p><strong>{{mainObj.sotrPage.content1}}</strong></p>
 				<p>
 					{{mainObj.sotrPage.content2.list1}} <br>
 					{{mainObj.sotrPage.content2.list2}} <br>
@@ -581,7 +600,7 @@
 					{{mainObj.sotrPage.content2.list4}} <br>
 					{{mainObj.sotrPage.content2.list5}} <br>
 				</p>	
-				<p>{{mainObj.sotrPage.content3}}</p>
+				<p><strong>{{mainObj.sotrPage.content3}}</strong></p>
 				<p>
 					{{mainObj.sotrPage.content4.list1}} <br>
 					{{mainObj.sotrPage.content4.list2}} <br>
@@ -607,7 +626,7 @@
 		<h2>{{mainObj.bonus.header}}</h2>
 		<div class="container">
 			<div class="first_column">
-				<p class="text">{{mainObj.bonus.content1}}</p>
+				<p class="text">{{mainObj.bonus.content1}} <img src="http://smartrealtor.kz/wp-content/uploads/2016/07/1.png" style="width: 105px;vertical-align: middle;"></p>
 				<p class="text">{{mainObj.bonus.content2}}</p>
 				<img src="<?php echo get_template_directory_uri();?>/img/confetti.png" alt="confeti">
 				<p class="label" ng-click="feedback.open(mainObj.form.headers.header4, false)"><span  class="second">{{mainObj.bonus.button1}} <br></span> <span  class="third">{{mainObj.bonus.button2}}</span></p>
@@ -653,7 +672,7 @@
 		<div class="wrap" ng-if="!auth.registration_show">
 			<div class="window">
 				<div class="closer" ng-click="auth.close()"></div>
-				<h3>Авторизация</h3>
+				<h3>{{mainObj.modal.auth}}</h3>
 				<?php author_log(); ?>
 			</div>
 		</div>
@@ -662,7 +681,7 @@
 				<div class="closer" ng-click="auth.close_reg()"></div>
 				<h3>{{mainObj.form.headers.header5}}</h3>
 				<?php custom_registration_function(); ?>
-				<a href="" ng-click="auth.return_auth();">← Назад</a>	
+				<a href="" ng-click="auth.return_auth();">← {{mainObj.modal.back}}</a>	
 			</div>
 		</div>
 	</div>
@@ -708,7 +727,7 @@
 							<h5>{{info.author.telephone}}</h5>
 						</div>
 					</div>	
-					<a class="fancybox_map" ng-click="map.open();">Смотреть на карте</a>		
+					<a class="fancybox_map" ng-click="map.open();">{{mainObj.modal.viewMap}}</a>		
 				</div>
 				<div class="second_column">
 					<h4>{{info.name}}</h4>
@@ -716,11 +735,11 @@
 						<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
 						<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
 						<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
-						<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ (info.price / coef.active).toFixed() + ' ' + coef.cur}}</li>
+						<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 					</ul>
-					<p>{{info.content}}</p>
+					<p>{{info.content_view}}</p>
 					<form id="catalog_form" method="POST">
-						<h5>Обратная связь</h5>
+						<h5>{{mainObj.modal.feedback}}</h5>
 						<div class="column_first">
 							<input name="name"  type="text" placeholder="{{mainObj.form.placeholders.name}}" required>
 							<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
@@ -761,7 +780,7 @@
 		</div>
 	</div>
 	
-	<div class="slide {{auth.open_res === 0 ? 'close' : 'open'}}">
+	<div ng-show="lang.language === 'rus'" class="slide {{auth.open_res === 0 ? 'close' : 'open'}}">
 		<div class="wrap">
 			<div class="closer" ng-click="auth.open_res = 0;"></div>	
 			<div class="woman"></div>	
@@ -786,7 +805,7 @@
 			<div class="window">
 				<div class="closer" ng-click="map.show = false"></div>
 				<yandex-map center="map.center" zoom="map.zoom" style="width: 700px; height: 600px; display: block;">
-					<ymap-marker properties="map.index" coordinates="map.center"></ymap-marker>
+					<ymap-marker properties="map.index" coordinates="map.marker"></ymap-marker>
 				</yandex-map>	
 			</div>	
 		</div>	

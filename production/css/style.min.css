@@ -151,7 +151,7 @@
       padding: 20px 10px 9px 10px;
       color: #fff;
       font-weight: 300;
-      font-size: 13pt;
+      font-size: 12pt;
       text-transform: uppercase;
       border-bottom: 4px solid transparent;
       -webkit-transition: color 0.2s linear, padding 0.3s ease;
@@ -1641,7 +1641,7 @@ footer {
                 -ms-transform: translate(-50%, -50%);
                     transform: translate(-50%, -50%);
             min-width: 100%;
-            min-height: 100%; }
+            max-width: 100%; }
       .modal .wrap .window .second_column {
         float: left;
         width: 500px;

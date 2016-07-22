@@ -59,6 +59,22 @@ app.controller('sliderDemoCtrl', function ($scope, $log, colorpicker) {
 app.controller('main', function ($scope, $http, $timeout) {
 	$scope.preloader = true;
   // Объект с главной информацией
+  
+    // Объект языка
+  $scope.lang = {
+    language: localStorage.getItem('language'), 
+    show: false,
+    close: function () {
+      $scope.lang.show = false;
+    },
+  };
+  
+  $scope.backImage = $scope.lang.language === 'rus' ? '/img/background/service.png' : '/img/background/service.png';
+  $scope.obrVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1' : 'https://www.youtube.com/embed/N6KFC94Zs-U?autoplay=1';
+  $scope.mainVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/Z82cvIB9U9o?autoplay=1' : 'https://www.youtube.com/embed/YFjJOfofxwU?autoplay=1';
+  $scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : 'img/UARk_logo_en.png';
+  
+  
   $scope.mainObj = {
     header: {
       slogan: 'АГЕНТСТВО ЭЛИТНОЙ НЕДВИЖИМОСТИ В АСТАНЕ',
@@ -280,7 +296,7 @@ app.controller('main', function ($scope, $http, $timeout) {
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
           _object.id_floor = element.custom_fields['wpcf-id'][0];
-          _object.thumbnail = element.thumbnail_images.medium.url;
+          _object.thumbnail = element.thumbnail_images.full.url;
           _object.author = {
             name: element.author.first_name,
             telephone: element.author.last_name,
@@ -315,8 +331,8 @@ app.controller('main', function ($scope, $http, $timeout) {
       });
   }   
 
-  // Иконки в партнерах
-  $scope.partner = [
+  // Иконки в партнерах rus
+  $scope.partner_ru = [
     {
       name: 'Посольство Чешской Республики',
       url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/chehia.gif'
@@ -367,6 +383,59 @@ app.controller('main', function ($scope, $http, $timeout) {
     },
   ];
 
+  // Иконки в партнерах eng
+  $scope.partner_en = [
+    {
+      name: 'Embassy of the Czech Republic',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/chehia.gif'
+    },
+    {
+      name: 'Embassy of Pakistan',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Pakistan.jpg'
+    },
+    {
+      name: 'Embassy of Slovakia',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/slovackiy.gif'
+    },
+    {
+      name: 'Embassy of the French Republic',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/франция.png'
+    },
+    {
+      name: 'Embassy of Belgium',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/бельгия.jpg'
+    },
+    {
+      name: 'Embassy of Switzerland',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/прав-флаг-швейцарии.png'
+    },
+    {
+      name: 'The British Embassy',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/velikobritaniia_enl.jpg'
+    },
+    {
+      name: 'Embassy of the United States of America',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/usa-flag.jpg'
+    },
+    {
+      name: '«Total» Company',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/logo-total.png'
+    },
+    {
+      name: '«Dow» Company',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/DOW-logo.jpg'
+    },
+    {
+      name: 'Hockey Players of "Barys"',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Логотип_ХК_«Барыс».svg_.png'
+    },
+    {
+      name: '«Thales» Company',
+      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/full_174.jpg'
+    },
+  ];
+  
+  
   // Массив объектов для каталога квартир, каждый объект отдельная квартира
   $scope.catalog_search = [];
   // Запрос на файл квартир
@@ -389,7 +458,8 @@ app.controller('main', function ($scope, $http, $timeout) {
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
           _object.id_floor = element.custom_fields['wpcf-id'][0];
-          _object.thumbnail = element.thumbnail_images.medium.url;
+          _object.thumbnail = element.thumbnail_images.full.url;
+          _object.type = element.custom_fields['wpcf-type'][0];
           _object.author = {
             name: element.author.first_name,
             telephone: element.author.last_name,
@@ -442,9 +512,9 @@ app.controller('main', function ($scope, $http, $timeout) {
   };
 
   // Переменные для отображения в меню квартир, обрезаются в функции changeValueFilter если больше 7 символов
-  $scope.dropDown1FilterView = 'Все';
-  $scope.dropDown2FilterView = 'Все';
-  $scope.dropDown3FilterView = 'Любой комнатности';
+  $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+  $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+  $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : 'Any';
 
   // Переменный для фильтрации квартир
   $scope.dropDown1Filter = 'Все';
@@ -496,16 +566,6 @@ app.controller('main', function ($scope, $http, $timeout) {
       localStorage.removeItem('reg');   
     }
   };
-
-
-  // Объект языка
-  $scope.lang = {
-    language: localStorage.getItem('language'), 
-    show: false,
-    close: function () {
-      $scope.lang.show = false;
-    },
-  };
   
   
   // Модальное окно с квартирами
@@ -531,7 +591,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 				// из нажатого объекта в наше модальное окно 				 
         var _object = arr[index];
 
-        this.name = _object.name;
+        this.name = _object.name_view;
         this.id_floor = _object.id_floor;
         this.floor = _object.floor;
         this.square = _object.square;
@@ -544,6 +604,7 @@ app.controller('main', function ($scope, $http, $timeout) {
         if (show) this.show = true;
         
         $scope.map.center = _object.coords.split(',');
+        $scope.map.marker = _object.coords.split(',');
         $scope.map.index.balloonContent = _object.name;
         
 			} else {
@@ -575,11 +636,11 @@ app.controller('main', function ($scope, $http, $timeout) {
         $(id).submit(function(e) {
           e.preventDefault();
           var data = {
-           name: document.querySelector( id + ' input[name="name"]').value,
-           email: document.querySelector( id + ' input[name="emailFrom"]').value,
-           emailTo: document.querySelector( id + ' input[name="emailTo"]').value,
-           phone: document.querySelector( id + ' input[name="phone"]').value,
-           header: document.querySelector( id + ' h4').textContent
+          	name: document.querySelector( id + ' input[name="name"]').value,
+						email: document.querySelector( id + ' input[name="emailFrom"]').value,
+						emailTo: document.querySelector( id + ' input[name="emailTo"]').value,
+						phone: document.querySelector( id + ' input[name="phone"]').value,
+						header: document.querySelector( id + ' h4').textContent
           }
           
           if (document.querySelector( id + ' textarea[name="message"]')) {
@@ -587,23 +648,25 @@ app.controller('main', function ($scope, $http, $timeout) {
           }
           
           $.ajax({
-           type: "POST",
-           url: "http://smartrealtor.kz/wp-content/themes/smart/mail.php",
-           data: data,
+          	type: "POST",
+						url: "http://smartrealtor.kz/wp-content/themes/smart/mail.php",
+						data: data,
           }).done(function( value ) {
-           $('#mail')[0].innerHTML = value;
-           $('#mail').removeClass('not_visible_mail');
+          	$('#mail')[0].innerHTML = value;
+						$('#mail').removeClass('not_visible_mail');
+            $('#mail')[0].removeAttribute('style');
 
-           setTimeout(function() {
-             $(id).trigger("reset");
-           }, 1000);
+						setTimeout(function() {
+            	$(id).trigger("reset");
+						}, 1000);
 
-           setTimeout(function() {
-             $('#mail')[0].setAttribute('style', 'opacity: 0;');
-             setTimeout(function() {
-               $('#mail').addClass('not_visible_mail');
-             }, 500);
-           }, 5000);
+						setTimeout(function() {
+            	$('#mail')[0].setAttribute('style', 'opacity: 0;');
+							setTimeout(function() {
+              	$('#mail').addClass('not_visible_mail');
+								$('#mail')[0].innerHTML = ' ';
+								}, 500);
+						}, 5000);
 
           });
           return false;
@@ -622,6 +685,7 @@ app.controller('main', function ($scope, $http, $timeout) {
           if(xhr.status == 200) {
 	          $('#mail')[0].innerHTML = xhr.responseText;
             $('#mail').removeClass('not_visible_mail');
+            $('#mail')[0].removeAttribute('style');
 
             setTimeout(function() {
               $(id).trigger("reset");
@@ -631,6 +695,7 @@ app.controller('main', function ($scope, $http, $timeout) {
               $('#mail')[0].setAttribute('style', 'opacity: 0;');
               setTimeout(function() {
                 $('#mail').addClass('not_visible_mail');
+								$('#mail')[0].innerHTML = ' ';
               }, 500);
             }, 5000);
 
@@ -642,12 +707,12 @@ app.controller('main', function ($scope, $http, $timeout) {
 	};
 	document.forms.resume.addEventListener('submit', $scope.submitWithFile);
   // value - фильтр который меняет значение dropdowns
-  $scope.changeValueFilter = function (value, dropDown) {
+  $scope.changeValueFilter = function (value, dropDown, eng_value) {
     switch (dropDown){
 
       case 1: 
         if (value.length < 7) {
-          $scope.dropDown1FilterView = value;
+          $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown1Filter = value;
         } else {
           $scope.dropDown1FilterView = value.slice(0,5)+ '..';
@@ -657,7 +722,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 
       case 2: 
         if (value.length < 7) {
-          $scope.dropDown2FilterView = value;
+          $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown2Filter = value;
         } else {
           $scope.dropDown2FilterView = value.slice(0,6)+ '..';
@@ -667,24 +732,24 @@ app.controller('main', function ($scope, $http, $timeout) {
 
       case 3: 
         if (value === 'Все') {
-          $scope.dropDown3FilterView = 'Любой комнатности';
+          $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : eng_value;
           $scope.dropDown3Filter = value;
         } else if (value === 'Пентхаус') {
-          $scope.dropDown3FilterView = value;
+          $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown3Filter = 6;
         } else if (value === 'Таунхаус') {
-          $scope.dropDown3FilterView = value;
+          $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown3Filter = 7;
         } else {
-          $scope.dropDown3FilterView = value;
+          $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown3Filter = value[0];
         }
         break;
 
       default:  
-        $scope.dropDown1FilterView = 'Все';
-        $scope.dropDown2FilterView = 'Все';
-        $scope.dropDown3FilterView = 'Любой комнатности';
+        $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+        $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+        $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : 'Any';
         $scope.dropDown1Filter = 'Все';
         $scope.dropDown2Filter = 'Все';
         $scope.dropDown3Filter = 'Любой комнатности';
@@ -693,9 +758,9 @@ app.controller('main', function ($scope, $http, $timeout) {
   }
 
 	$scope.reset_filter = function () {
-		$scope.changeValueFilter('Все', 1);
-		$scope.changeValueFilter('Все', 2);
-		$scope.changeValueFilter('Все', 3);
+		$scope.changeValueFilter('Все', 1, 'Any');
+		$scope.changeValueFilter('Все', 2, 'Any');
+		$scope.changeValueFilter('Все', 3, 'Any');
 		
 		//$scope.sliderExample9[0] = 10;
 		//$scope.sliderExample9[1] = $scope.sliderMaxForReset;
@@ -783,6 +848,9 @@ app.controller('main', function ($scope, $http, $timeout) {
 
         $scope.lang.show = false;
         changeLangIcon(arg);
+        $scope.backImage = $scope.lang.language === 'rus' ? '/img/background/service.png' : '/img/background/service_eng.png';
+				$scope.obrVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1' : 'https://www.youtube.com/embed/N6KFC94Zs-U?autoplay=1';
+				$scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : '/img/UARk_logo_en.png';
   };
 
 // 	Картинка из раздела бонусы
@@ -803,6 +871,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 		show: false,
 		center: [56.27, 34.33],
 		zoom: 12,
+		marker: [56.27, 34.33],
 		index: {
 			balloonContent: ''
 		}	
@@ -813,6 +882,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 	};
 
 	$scope.preloader = false;
+	
 	$timeout(function () {
 		$scope.auth.open_res = 1;
 	}, 10000)

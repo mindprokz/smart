@@ -151,9 +151,9 @@ function author_log() { ?>
             <form id="auth" action="<?php echo wp_login_url(get_permalink()); ?>" method="POST">
                 <input id="username" name="log" type="text" placeholder="{{mainObj.form.placeholders.mail}}"  value="<?php echo wp_specialchars(stripslashes($user_login), 1) ?>">
                 <input id="password" name="pwd" type="password" placeholder="{{mainObj.form.placeholders.password}}">
-                <button name="submit" type="submit">ВОЙТИ</button>
-                <div class="reg" ng-click="auth.open_reg();">Регистрация</div>
-                <h4>Для получения доступа вам необходимо авторизоватся</h4>
+                <button name="submit" type="submit">{{mainObj.modal.signin}}</button>
+                <div class="reg" ng-click="auth.open_reg();">{{mainObj.modal.registration}}</div>
+                <h4>{{mainObj.modal.foot}}</h4>
             </form>
     <? else: ?>
         <h3 class="succes">Вы уже вошли</h3>        

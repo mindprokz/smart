@@ -38,10 +38,9 @@ foreach($sendtoArr as $sendto) {
 	// отправка сообщения
 	if($send) {
 		echo '<div class="message">
-				<img src="http://smartrealtor.kz/wp-content/themes/smart/img/ok.png" alt="">
+				<img src="http://smartrealtor.kz/wp-content/uploads/2016/04/sergey.jpg" style="width: 100px; height: 100px;">
 				<div class="message_text">
-					<h3>Спасибо, что обратились к нам, <br> '.$_POST['name'].'</h3>
-					<p>менеджер обязательно свяжется с вами в ближайшее время.</p> 
+					<p>-Спасибо что воспользовались электронной службой технической поддержки компании Smart Realtor. Технический менеджер свяжется с вами в ближайшее время! </p> 
 				</div>
 			</div>';
 	} else {
@@ -49,7 +48,7 @@ foreach($sendtoArr as $sendto) {
 				<img src="http://smartrealtor.kz/wp-content/themes/smart/img/ok.png" alt="">
 				<div class="message_text">
 					<h3>Ошибка отправления</h3>
-					<p>Сообщение не было доставлено</p>
+					<p>-Спасибо что воспользовались электронной службой технической поддержки компании Smart Realtor. Технический менеджер свяжется с вами в ближайшее время!</p>
 				</div>
 			</div>';
 	}
