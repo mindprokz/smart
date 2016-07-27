@@ -8,16 +8,16 @@ const gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	rename = require('gulp-rename'),
     bs = require("browser-sync").create(),
-    babel = require('gulp-babel'); 
+    babel = require('gulp-babel');
 
-gulp.task('Server Start', function(){
-	bs.init({
-	    server : './production/'
-	})
-	bs.watch('production/*.html').on('change', bs.reload);
-	bs.watch('production/css/style.min.css').on('change', bs.reload);
-	bs.watch('production/js/*.js').on('change', bs.reload);
-});
+// gulp.task('Server Start', function(){
+// 	bs.init({
+// 	    server : './production/'
+// 	})
+// 	bs.watch('production/*.html').on('change', bs.reload);
+// 	bs.watch('production/css/style.min.css').on('change', bs.reload);
+// 	bs.watch('production/js/*.js').on('change', bs.reload);
+// });
 
 // task for change html
 gulp.task('html',function(){
@@ -32,7 +32,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('production/css'));
 });
 
-// task for JS 
+// task for JS
 gulp.task('js', function() {
   return gulp.src('production/js/nav.js')
     .pipe(uglify())
@@ -40,7 +40,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('production/js/'));
 });
 
-/* 
+/*
 gulp.task('ecma2015', function() {
   return gulp.src('production/js/controller.js')
     .pipe(babel({presets: ['es2015']}))
@@ -58,4 +58,4 @@ gulp.task('watch', function(){
 });
 
 // default task
-gulp.task('default', ['html', 'sass', 'js', 'watch', 'Server Start']);
+gulp.task('default', ['html', 'sass', 'js', 'watch', /*'Server Start'*/]);

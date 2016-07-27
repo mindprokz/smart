@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 
 	<title>Smart Realtor – агентство элитной недвижимости</title>
-	<meta name="description" content="Smart Realtor – агентство элитной недвижимости г. Астана 
+	<meta name="description" content="Smart Realtor – агентство элитной недвижимости г. Астана
 Более 7000 эксклюзивных объектов недвижимости в городе Астана. Аренда и сдача, продажа и покупка жилой и коммерческой недвижимости. Высококвалифицированный менеджмент и самая большая база объектов делает нас лидерами на рынке.">
 
 	<!--[if IE]> <meta http-equiv="refresh" content="1;https://www.google.ru/chrome/browser/desktop/"> <![endif]-->
@@ -32,7 +32,7 @@
 	<script src="https://code.angularjs.org/1.5.0/angular-animate.min.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/angular-ymaps.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/controller.js"></script>
-	
+
 <!-- 	preloader css -->
 	<style>
 		.preloader{
@@ -56,7 +56,7 @@
 				width: 97px;
 				z-index: 5000;
 		}
-		
+
 		.cssload-cssload-loader-line-wrap-wrap {
 				animation: cssload-spin 2300ms cubic-bezier(.175, .885, .32, 1.275) infinite;
 				-o-animation: cssload-spin 2300ms cubic-bezier(.175, .885, .32, 1.275) infinite;
@@ -125,7 +125,7 @@
 				-ms-animation-delay: -287.5ms;
 				-webkit-animation-delay: -287.5ms;
 				-moz-animation-delay: -287.5ms; }
-		
+
 		.cssload-cssload-loader-line-wrap-wrap:nth-child(1) .cssload-loader-line-wrap {
 				border-color: rgb(234,71,71);
 				height: 88px;
@@ -156,10 +156,10 @@
 				width: 33px;
 				top: 34px;
 		}
-		
-		
-		
-		
+
+
+
+
 		@keyframes cssload-spin {
 				0%, 15% {
 				transform: rotate(0);
@@ -170,7 +170,7 @@
 				transform: rotate(360deg);
 			}
 		}
-		
+
 		@-o-keyframes cssload-spin {
 				0%, 15% {
 				-o-transform: rotate(0);
@@ -181,7 +181,7 @@
 				transform: rotate(360deg);
 			}
 		}
-		
+
 		@-ms-keyframes cssload-spin {
 				0%, 15% {
 				-ms-transform: rotate(0);
@@ -192,7 +192,7 @@
 				transform: rotate(360deg);
 			}
 		}
-		
+
 		@-webkit-keyframes cssload-spin {
 				0%, 15% {
 				-webkit-transform: rotate(0);
@@ -203,7 +203,7 @@
 				transform: rotate(360deg);
 			}
 		}
-		
+
 		@-moz-keyframes cssload-spin {
 				0%, 15% {
 				-moz-transform: rotate(0);
@@ -214,7 +214,7 @@
 				transform: rotate(360deg);
 			}
 		}
-	</style>	
+	</style>
 </head>
 
 <body ng-app="realty_app" ng-controller="main">
@@ -235,8 +235,8 @@
 			<div class="cssload-cssload-loader-line-wrap-wrap">
 				<div class="cssload-loader-line-wrap"></div>
 			</div>
-		</div>	
-</div>		
+		</div>
+</div>
 	<!-- Здесь пишем код -->
 
 <div class="content">
@@ -266,10 +266,10 @@
 				</nav>
 		</div>
 	</div>
-	
+
 	<section id="main">
 		<a name="main"></a>
-		<video src="<?php echo get_template_directory_uri();?>/video.mp4" loop preload autoplay></video>	
+		<video src="<?php echo get_template_directory_uri();?>/video.mp4" loop preload autoplay></video>
 		<img src="<?php echo get_template_directory_uri();?>{{uarcLogo}}" alt="UARC_logo">
 		<div class="container">
 			<div class="wrap_button">
@@ -284,7 +284,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="spec">
 		<header><h2>{{mainObj.specPage.header}}</h2></header>
 		<div class="container">
@@ -309,8 +309,7 @@
 			</div>
 		</div>
 	</section>
-	
-	
+
 	<section id="qual">
 		<a name="qual"></a>
 		<h2>{{mainObj.qualityPage.header}}</h2>
@@ -380,7 +379,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="catalog" ng-controller="sliderDemoCtrl">
 		<a name="catalog"></a>
 		<h2>{{mainObj.catalogPage.header}}</h2>
@@ -396,7 +395,7 @@
 								<div class="list_elem" ng-click="changeValueFilter('Снять в аренду', 1, 'To rent')">{{mainObj.catalogPage.menu1_2}}</div>
 							</div>
 						</div>
-					</div>	
+					</div>
 					<div class="wrap_2">
 						<div class="drop_down">
 							<header><span>{{dropDown2FilterView}}</span></header>
@@ -408,7 +407,7 @@
 								<div class="list_elem" ng-click="changeValueFilter('Земельный участок', 2, 'Land')">{{mainObj.catalogPage.menu2_4}}</div>
 							</div>
 						</div>
-					</div>	
+					</div>
 					<div class="wrap_3">
 						<div class="drop_down">
 							<header><span>{{dropDown3FilterView}}</span></header>
@@ -443,7 +442,7 @@
 			<div class="search_result">
 				<header class="main">
 					<div class="search_left"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search.length}} {{mainObj.catalogPage.search_content}}</div>
-					<div class="reset_filter" ng-click="reset_filter();">{{mainObj.catalogPage.clear}}</div>	
+					<div class="reset_filter" ng-click="reset_filter();">{{mainObj.catalogPage.clear}}</div>
 				</header>
 				<div class="content_seach">
 					<article ng-repeat="stack in catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange">
@@ -457,7 +456,7 @@
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
 							<button ng-click="info.change($index, catalog_search, true)">{{mainObj.specPage.more}}</button>
-						</div>		
+						</div>
 					</article>
 				</div>
 			</div>
@@ -479,7 +478,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 <!-- eng -->
 	<section ng-if="lang.language === 'rus'" id="clients">
 		<a name="clients"></a>
@@ -495,7 +494,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="recom">
 		<a name="recomend"></a>
 		<h2>{{mainObj.recomendPage.header}}</h2>
@@ -522,7 +521,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="service">
 		<a name="service"></a>
 		<h2>{{mainObj.servicePage.header}}</h2>
@@ -559,15 +558,16 @@
 				<div class="contact">
 					<div class="image_block">
 						<div class="image_wrap">
-							<img src="http://smartrealtor.kz/wp-content/uploads/2016/04/sergey.jpg">	
-						</div>	
-					</div>	
-					<div class="number">{{mainObj.modal.number_sergey}}</div>	
-					<div class="mail"><span>handyman@smartrealtor.kz</span></div>	
-				</div>	
+							<img src="http://smartrealtor.kz/wp-content/uploads/2016/04/sergey.jpg">
+						</div>
+					</div>
+					<div class="number">{{mainObj.modal.number_sergey}}</div>
+					<div class="mail"><span>handyman@smartrealtor.kz</span></div>
+				</div>
 				<form id="service_form" method="POST">
 					<h3>{{mainObj.form.headers.header3}}</h3>
 					<input name="name" type="text" placeholder="{{mainObj.form.placeholders.name}}" required>
+					<input name="theme" type="text" required value="tech" style="display: none;">
 					<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
 					<input name="emailFrom" type="email" placeholder="{{mainObj.form.placeholders.mail}}" required>
 					<textarea name="message" rows="4" cols="10" placeholder="{{mainObj.form.placeholders.write}}" required></textarea>
@@ -576,13 +576,14 @@
 					<button ng-click="feedback.submit('#service_form');">{{mainObj.form.placeholders.send}}</button>
 				</form>
 				<h4 class="slogan">
-					{{mainObj.servicePage.wordSlogan1}}<br> 
-					{{mainObj.servicePage.wordSlogan2}} <br> 
+					{{mainObj.servicePage.wordSlogan1}}<br>
+					{{mainObj.servicePage.wordSlogan2}} <br>
 					<span>{{mainObj.servicePage.wordSlogan3}}</span>
-				</h4>			</div>
+				</h4>
+			</div>
 		</div>
 	</section>
-	
+
 	<section id="sotr">
 		<a name="sotr"></a>
 		<h2>{{mainObj.sotrPage.header}}</h2>
@@ -599,19 +600,19 @@
 					{{mainObj.sotrPage.content2.list3}} <br>
 					{{mainObj.sotrPage.content2.list4}} <br>
 					{{mainObj.sotrPage.content2.list5}} <br>
-				</p>	
+				</p>
 				<p><strong>{{mainObj.sotrPage.content3}}</strong></p>
 				<p>
 					{{mainObj.sotrPage.content4.list1}} <br>
 					{{mainObj.sotrPage.content4.list2}} <br>
 					{{mainObj.sotrPage.content4.list3}} <br>
-				</p>	
+				</p>
 			</div>
 			<div class="second_column">
 				<div class="wrapper">
-					<h4>{{mainObj.sotrPage.planeHeader1}} <br> 
-						<span class="bold">{{mainObj.sotrPage.planeHeader2}}</span> 
-						<span class="and">{{mainObj.sotrPage.planeHeader3}}</span> 
+					<h4>{{mainObj.sotrPage.planeHeader1}} <br>
+						<span class="bold">{{mainObj.sotrPage.planeHeader2}}</span>
+						<span class="and">{{mainObj.sotrPage.planeHeader3}}</span>
 						<span class="thin" >{{mainObj.sotrPage.planeHeader4}}</span>
 					</h4>
 					<div class="icon"></div>
@@ -620,7 +621,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="advise">
 		<a name="advise"></a>
 		<h2>{{mainObj.bonus.header}}</h2>
@@ -638,7 +639,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<div id="map">
 		<a name="contact"></a>
 		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=5qBPQHFjmFyZ30jchMZo2eDday06aA7b&width=45%&height=100%&lang=ru_RU&sourceType=constructor&scroll=true"></script>
@@ -649,23 +650,23 @@
 				<h5><span>+7 (7172) 782-784 <br>office@smartrealtor.kz</span></h5>
 				<button ng-click="feedback.open(mainObj.form.headers.header3, true)">{{mainObj.contacts.button}}</button>
 				<div class="social">
-					<a href="https://www.facebook.com/SmartRealtorAstana/?fref=ts" target="_blank"><div class="icon_social icon_social_1"></div></a>	
-					<a href="https://www.instagram.com/smart_realtor_astana/" target="_blank"><div class="icon_social icon_social_2"></div></a>	
+					<a href="https://www.facebook.com/SmartRealtorAstana/?fref=ts" target="_blank"><div class="icon_social icon_social_1"></div></a>
+					<a href="https://www.instagram.com/smart_realtor_astana/" target="_blank"><div class="icon_social icon_social_2"></div></a>
 					<div class="icon_social icon_social_3"></div>
 					<div class="icon_social icon_social_4"></div>
-					<a href="https://vk.com/id273055816" target="_blank"><div class="icon_social icon_social_5"></div></a>	
+					<a href="https://vk.com/id273055816" target="_blank"><div class="icon_social icon_social_5"></div></a>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	
+
 	<footer>
 		<div class="container">
 			<h3>© «Smart Realtor» — 2016</h3>
 			<img src="<?php echo get_template_directory_uri();?>/img/mind_logo.png" alt="">
 		</div>
 	</footer>
-	
+
 	<!-- Модальные окна -->
 
 	<div ng-if="auth.show" class="auth modal">
@@ -681,11 +682,11 @@
 				<div class="closer" ng-click="auth.close_reg()"></div>
 				<h3>{{mainObj.form.headers.header5}}</h3>
 				<?php custom_registration_function(); ?>
-				<a href="" ng-click="auth.return_auth();">← {{mainObj.modal.back}}</a>	
+				<a href="" ng-click="auth.return_auth();">← {{mainObj.modal.back}}</a>
 			</div>
 		</div>
 	</div>
-	
+
 	<div ng-if="lang.show" class="lang modal">
 		<div class="wrap">
 			<div class="window">
@@ -703,7 +704,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div ng-if="info.show" class="info modal">
 		<div class="wrap">
 			<div class="window">
@@ -716,7 +717,7 @@
 						<a ng-repeat="image in info.images" class="fancybox {{ $index == 2 ? 'last' : ''}}" rel="gallery1" href="{{info.images[$index]}}" >
 							<img ng-src="{{info.images[$index]}}">
 						</a>
-					</div>	
+					</div>
 					<div class="manager">
 						<h3>{{mainObj.modal.manager}}</h3>
 						<div class="photo_wrap">
@@ -726,8 +727,8 @@
 							<h4>{{info.author.name}}</h4>
 							<h5>{{info.author.telephone}}</h5>
 						</div>
-					</div>	
-					<a class="fancybox_map" ng-click="map.open();">{{mainObj.modal.viewMap}}</a>		
+					</div>
+					<a class="fancybox_map" ng-click="map.open();">{{mainObj.modal.viewMap}}</a>
 				</div>
 				<div class="second_column">
 					<h4>{{info.name}}</h4>
@@ -760,7 +761,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div ng-if="feedback.show" class="auth modal feedback">
 		<div class="wrap">
 			<div class="window">
@@ -779,50 +780,37 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div ng-show="lang.language === 'rus'" class="slide {{auth.open_res === 0 ? 'close' : 'open'}}">
 		<div class="wrap">
-			<div class="closer" ng-click="auth.open_res = 0;"></div>	
-			<div class="woman"></div>	
-			<div class="window">	
+			<div class="closer" ng-click="auth.open_res = 0;"></div>
+			<div class="woman"></div>
+			<div class="window">
 				<form id="resume" enctype="multipart/form-data" action="<?php echo get_template_directory_uri();?>/mailWithFile.php" method="POST">
 					<h3>Быстрая отправка резюме</h3>
 					<input name="name" type="text" placeholder="ФИО" required></input>
 					<input name="phone" type="number" placeholder="Контактный телефон" required></input>
-					<input name="filename" type="text" style="display: none"></input>	
-					<label><span>Загрузить резюме</span><input name="resume" type="file" style="display: none"></input></label>	
+					<input name="filename" type="text" style="display: none"></input>
+					<label><span>Загрузить резюме</span><input name="resume" type="file" style="display: none"></input></label>
 					<h5 id="sost"></h5>
-					<button>{{mainObj.form.placeholders.send}}</button>	
-					<h4>Наш специалист свяжется с Вами и ответит на все вопросы</h4>	
-				</form>	
-			</div>	
+					<button>{{mainObj.form.placeholders.send}}</button>
+					<h4>Наш специалист свяжется с Вами и ответит на все вопросы</h4>
+				</form>
+			</div>
 			<div class="button" ng-click="auth.open_res === 0 ? auth.open_res = 1 : auth.open_res = 0"></div>
-		</div>		
-	</div>	
-	
+		</div>
+	</div>
+
 	<div ng-if="map.show" class="map_yan modal">
 		<div class="wrap">
 			<div class="window">
 				<div class="closer" ng-click="map.show = false"></div>
 				<yandex-map center="map.center" zoom="map.zoom" style="width: 700px; height: 600px; display: block;">
 					<ymap-marker properties="map.index" coordinates="map.marker"></ymap-marker>
-				</yandex-map>	
-			</div>	
-		</div>	
-	</div>	
-	<!--     Пример формы обратной связи          -->
-	<!-- 	<div class="main">
-	      <h3>Внимание</h3>
-	      <p>Оставьте ваши контактные данные и наш консультант<br/>свяжется с вами в течении 30 секунд</p>
-	
-			<form id="application" action="mail.php" method="POST" name=" application ">
-				<input name="name" id="applicationName" maxlength="20" placeholder="Введите ваше имя" required />
-				<input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Введите ваш E-mail" required/>
-				<input name="telephone" type="Tel" id="applicationTelephone" maxlength="20" placeholder="Введите ваш телефон" required />
-				<input type="submit">
-				<div id="app"> Отправить </div>
-			</form>
-		</div> -->
+				</yandex-map>
+			</div>
+		</div>
+	</div>
 	<div id="mail" class="not_visible_mail"></div>
 </div>
 
@@ -836,9 +824,8 @@
 
 
 	<!-- with CDN -->
-<!-- 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-	
+
 	<!-- local -->
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/nav/nav.js"></script>
@@ -874,6 +861,6 @@
 	    })(document, window, "yandex_metrika_callbacks");
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/37059845" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->		
+	<!-- /Yandex.Metrika counter -->
 </body>
 </html>

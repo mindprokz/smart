@@ -73,11 +73,11 @@
 .top_style {
   height: 140px;
   -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease; }
+  transition: all 0.3s ease; }
   .top_style img[alt="logotype"] {
     height: 141px;
     -webkit-transition: all 0.3s ease;
-            transition: all 0.3s ease; }
+    transition: all 0.3s ease; }
   .top_style h1 {
     color: #ffffff;
     position: absolute;
@@ -89,13 +89,13 @@
     line-height: 26pt;
     text-transform: uppercase;
     -webkit-transition: left 0.3s ease, font-size 0.01s ease-in;
-            transition: left 0.3s ease, font-size 0.01s ease-in; }
+    transition: left 0.3s ease, font-size 0.01s ease-in; }
   .top_style .lang {
     position: absolute;
     top: 12px;
     left: 740px;
     -webkit-transition: left 0.3s ease;
-            transition: left 0.3s ease; }
+    transition: left 0.3s ease; }
     .top_style .lang .lang_wrap {
       position: relative; }
     .top_style .lang .lang_elem {
@@ -115,19 +115,19 @@
     top: 37px;
     left: 0;
     -webkit-transition: top 0.3s ease, left 0.3s ease;
-            transition: top 0.3s ease, left 0.3s ease; }
+    transition: top 0.3s ease, left 0.3s ease; }
   .top_style .numbers {
     position: absolute;
     top: 12px;
     right: 22px;
     -webkit-transition: top 0.3s ease, right 0.3s ease;
-            transition: top 0.3s ease, right 0.3s ease; }
+    transition: top 0.3s ease, right 0.3s ease; }
     .top_style .numbers h3 {
       font-size: 15pt;
       color: #fff;
       font-weight: 300;
       -webkit-transition: font-size 0.3s ease;
-              transition: font-size 0.3s ease; }
+      transition: font-size 0.3s ease; }
       .top_style .numbers h3 span {
         font-weight: 700; }
     .top_style .numbers h4 {
@@ -137,7 +137,7 @@
       line-height: 22pt;
       cursor: pointer;
       -webkit-transition: font-size 0.3s ease, line-height 0.3s ease;
-              transition: font-size 0.3s ease, line-height 0.3s ease; }
+      transition: font-size 0.3s ease, line-height 0.3s ease; }
       .top_style .numbers h4 span {
         border-bottom: 1px dotted #fff; }
   .top_style nav {
@@ -145,7 +145,7 @@
     bottom: 0;
     left: 220px;
     -webkit-transition: left 0.3s ease;
-            transition: left 0.3s ease; }
+    transition: left 0.3s ease; }
     .top_style nav a {
       float: left;
       padding: 20px 10px 9px 10px;
@@ -155,7 +155,7 @@
       text-transform: uppercase;
       border-bottom: 4px solid transparent;
       -webkit-transition: color 0.2s linear, padding 0.3s ease;
-              transition: color 0.2s linear, padding 0.3s ease; }
+      transition: color 0.2s linear, padding 0.3s ease; }
       .top_style nav a:hover {
         color: #0a5292;
         border-bottom: 4px solid #fff; }
@@ -205,7 +205,7 @@
   font-size: 15px;
   overflow: hidden;
   -webkit-transition: max-height 0.5s ease;
-          transition: max-height 0.5s ease; }
+  transition: max-height 0.5s ease; }
   .drop_down:after {
     content: ".";
     display: table;
@@ -220,8 +220,10 @@
     display: inline-block;
     margin-bottom: 15px;
     cursor: pointer;
-    -webkit-transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, -webkit-border-radius 0.1s ease 0.5s, background 0.1s ease 0.5s;
-            transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, border-radius 0.1s ease 0.5s, background 0.1s ease 0.5s; }
+    -webkit-transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, background 0.1s ease 0.5s, -webkit-border-radius 0.1s ease 0.5s;
+    transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, background 0.1s ease 0.5s, -webkit-border-radius 0.1s ease 0.5s;
+    transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, border-radius 0.1s ease 0.5s, background 0.1s ease 0.5s;
+    transition: margin-bottom 0.1s ease 0.5s, border 0.1s ease 0.5s, border-radius 0.1s ease 0.5s, background 0.1s ease 0.5s, -webkit-border-radius 0.1s ease 0.5s; }
     .drop_down header span {
       margin-right: 15px; }
     .drop_down header:after {
@@ -243,7 +245,7 @@
       padding: 10px 10px 10px 20px;
       cursor: pointer;
       -webkit-transition: background 0.3s ease;
-              transition: background 0.3s ease; }
+      transition: background 0.3s ease; }
       .drop_down .list_block .list_elem:hover {
         background: #71b1cc; }
 
@@ -257,7 +259,7 @@
     margin-bottom: 0px;
     border-bottom: 15px solid #4d9dbf;
     -webkit-transition: none;
-            transition: none; }
+    transition: none; }
     .drop_down:hover header:after {
       background: url(../img/sprite/sprite.png) no-repeat -304px -23px; }
 
@@ -273,7 +275,7 @@
   font-weight: 300;
   cursor: pointer;
   -webkit-transition: background 0.3s ease;
-          transition: background 0.3s ease; }
+  transition: background 0.3s ease; }
   .button_main:hover {
     background-color: #07a3e4; }
 
@@ -417,7 +419,7 @@ h2 {
       -webkit-border-radius: 21px;
               border-radius: 21px;
       -webkit-transition: background 0.3s ease;
-              transition: background 0.3s ease; }
+      transition: background 0.3s ease; }
       #main .navigation_button a:hover {
         background: #0073a3; }
 
@@ -574,7 +576,7 @@ h2 {
         -webkit-border-radius: 16px;
                 border-radius: 16px;
         -webkit-transition: all 0.3s ease;
-                transition: all 0.3s ease; }
+        transition: all 0.3s ease; }
         #spec .spec_block .spec_block_mod .read_more:hover {
           color: #fff;
           background: #0073a3; }
@@ -865,7 +867,7 @@ h2 {
                     border-radius: 10px;
             cursor: pointer;
             -webkit-transition: all 0.3s ease;
-                    transition: all 0.3s ease; }
+            transition: all 0.3s ease; }
             #catalog .search_result .content_seach article .info button:hover {
               color: #1a81ac;
               border: 1px solid #1a81ac; }
@@ -950,7 +952,7 @@ h2 {
         margin: auto;
         margin-top: 25px;
         -webkit-transition: all 0.3s ease;
-                transition: all 0.3s ease; }
+        transition: all 0.3s ease; }
         #qual .container .third_column form button:hover {
           color: #fff;
           background: #0073a3; }
@@ -1210,7 +1212,7 @@ h2 {
         margin-top: 13px;
         font-size: 17px;
         -webkit-transition: all 0.3s ease;
-                transition: all 0.3s ease; }
+        transition: all 0.3s ease; }
         #service .info form button:hover {
           background: #0073a3;
           color: #fff; }
@@ -1368,7 +1370,7 @@ h2 {
       margin-right: 50px;
       cursor: pointer;
       -webkit-transition: background 0.3s ease;
-              transition: background 0.3s ease; }
+      transition: background 0.3s ease; }
       #advise .first_column p.label:hover {
         background: #F1485D; }
       #advise .first_column p.label span.first {
@@ -1453,7 +1455,7 @@ h2 {
                 border-radius: 25px;
         cursor: pointer;
         -webkit-transition: color 0.3s ease, background 0.3s ease;
-                transition: color 0.3s ease, background 0.3s ease; }
+        transition: color 0.3s ease, background 0.3s ease; }
         #map .first_column .wrap button:hover {
           color: #fff;
           background: #4f4f4f; }
@@ -1513,19 +1515,19 @@ footer {
   .modal.ng-enter {
     opacity: 0;
     -webkit-transition: opacity 0.5s ease;
-            transition: opacity 0.5s ease; }
+    transition: opacity 0.5s ease; }
   .modal.ng-enter-active {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease;
-            transition: opacity 0.5s ease; }
+    transition: opacity 0.5s ease; }
   .modal.ng-leave {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease;
-            transition: opacity 0.5s ease; }
+    transition: opacity 0.5s ease; }
   .modal.ng-leave-active {
     opacity: 0;
     -webkit-transition: opacity 0.5s ease;
-            transition: opacity 0.5s ease; }
+    transition: opacity 0.5s ease; }
   .modal .wrap {
     position: absolute;
     top: 50%;
@@ -1602,7 +1604,7 @@ footer {
           margin-top: 25px;
           cursor: pointer;
           -webkit-transition: color 0.3s ease;
-                  transition: color 0.3s ease; }
+          transition: color 0.3s ease; }
           .modal .wrap .window .column_first .fancybox_map:hover {
             color: #479DE0; }
           .modal .wrap .window .column_first .fancybox_map:before {
@@ -1790,7 +1792,7 @@ footer {
       cursor: pointer;
       margin-top: 20px;
       -webkit-transition: all 0.3s ease;
-              transition: all 0.3s ease; }
+      transition: all 0.3s ease; }
       .modal .wrap form button:hover {
         background: #0073a3;
         color: #fff; }
@@ -1811,7 +1813,7 @@ footer {
       cursor: pointer;
       margin-top: 20px;
       -webkit-transition: all 0.3s ease;
-              transition: all 0.3s ease; }
+      transition: all 0.3s ease; }
       .modal .wrap form input[type="submit"]:hover {
         background: #0073a3;
         color: #fff; }
@@ -1855,7 +1857,7 @@ footer {
         padding-bottom: 8px;
         border-bottom: 1px solid;
         -webkit-transition: color 0.3s ease;
-                transition: color 0.3s ease; }
+        transition: color 0.3s ease; }
       .modal .wrap .language .rus {
         float: left;
         margin-left: 40px;
@@ -1895,7 +1897,9 @@ footer {
           border-radius: 0 15px 15px 0;
   z-index: 102;
   -webkit-transition: -webkit-transform 0.3s ease-in;
-          transition: transform 0.3s ease-in; }
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in; }
   .slide .closer {
     position: absolute;
     right: 15px;
@@ -1986,7 +1990,7 @@ footer {
         cursor: pointer;
         margin-top: 20px;
         -webkit-transition: all 0.3s ease;
-                transition: all 0.3s ease; }
+        transition: all 0.3s ease; }
         .slide .wrap form button:hover {
           background: #0073a3;
           color: #fff; }

@@ -59,22 +59,22 @@ app.controller('sliderDemoCtrl', function ($scope, $log, colorpicker) {
 app.controller('main', function ($scope, $http, $timeout) {
 	$scope.preloader = true;
   // Объект с главной информацией
-  
+
     // Объект языка
   $scope.lang = {
-    language: localStorage.getItem('language'), 
+    language: localStorage.getItem('language'),
     show: false,
     close: function () {
       $scope.lang.show = false;
     },
   };
-  
+
   $scope.backImage = $scope.lang.language === 'rus' ? '/img/background/service.png' : '/img/background/service.png';
   $scope.obrVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1' : 'https://www.youtube.com/embed/N6KFC94Zs-U?autoplay=1';
   $scope.mainVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/Z82cvIB9U9o?autoplay=1' : 'https://www.youtube.com/embed/YFjJOfofxwU?autoplay=1';
   $scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : 'img/UARk_logo_en.png';
-  
-  
+
+
   $scope.mainObj = {
     header: {
       slogan: 'АГЕНТСТВО ЭЛИТНОЙ НЕДВИЖИМОСТИ В АСТАНЕ',
@@ -137,31 +137,31 @@ app.controller('main', function ($scope, $http, $timeout) {
       icons1: {
         header: 'Мультиязычные менеджеры',
         content: 'Английский, немецкий, испанский язык',
-      }, 
+      },
       icons2: {
         header: 'База квартир',
         content: 'Более 5000 вариантов в базе квартир'
-      }, 
+      },
       icons3: {
         header: 'Help-line оператор',
         content: 'Англоговорящий администратор Информация о любых товарах и услугах г.Астаны'
-      }, 
+      },
       icons4: {
         header: 'Юридическая чистота',
         content: '— Скрининг документов ',
         content2: '— Полный пакет документов',
         content3: '— Решение правовых вопросов с арендаторами'
-      }, 
+      },
       icons5: {
         header: 'Ознакомительные программы',
         content: '— Знакомство с городом',
         content2: '— Культурные и социальные экскурсии'
-      }, 
+      },
       icons6: {
         header: 'Сервис служба',
         content: '— Решение бытовых проблем',
         content2: '— Оплата ком.услуг',
-      }, 
+      },
     },
     recomendPage: {
       header: 'Рекомендации',
@@ -231,7 +231,7 @@ app.controller('main', function ($scope, $http, $timeout) {
     contacts: {
       adress1: 'Астана',
       adress2: 'пр. Кабанбай Батыра, 7/2',
-      button: 'Написать нам' 
+      button: 'Написать нам'
     },
     form: {
       headers: {
@@ -324,12 +324,12 @@ app.controller('main', function ($scope, $http, $timeout) {
 
 					// Координаты карты квартиры
 					_object.coords = element.custom_fields['wpcf-coords'][0];
-					
+
           // Помещение объекта в массив
           $scope.spec[index] = _object;
         });
       });
-  }   
+  }
 
   // Иконки в партнерах rus
   $scope.partner_ru = [
@@ -434,8 +434,8 @@ app.controller('main', function ($scope, $http, $timeout) {
       url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/full_174.jpg'
     },
   ];
-  
-  
+
+
   // Массив объектов для каталога квартир, каждый объект отдельная квартира
   $scope.catalog_search = [];
   // Запрос на файл квартир
@@ -467,7 +467,7 @@ app.controller('main', function ($scope, $http, $timeout) {
             image: element.author.description.split(',')[0]
           };
           _object.images = [];
-          
+
           // Добавление картинок в объект
           element.attachments.forEach(function (element, index, array) {
             _object.images.push(element.url);
@@ -491,8 +491,8 @@ app.controller('main', function ($scope, $http, $timeout) {
 
 					// Координаты карты квартиры
 					_object.coords = element.custom_fields['wpcf-coords'][0];
-					
-					
+
+
           // Помещение объекта в массив
           $scope.catalog_search[index] = _object;
 
@@ -505,10 +505,10 @@ app.controller('main', function ($scope, $http, $timeout) {
         $scope.sliderExample9[1] = Math.max.apply(null, maxS);
         $scope.sliderMax = Math.max.apply(null, maxS) + 1;
         $scope.sliderMaxForReset = Math.max.apply(null, maxS);
-         
+
         $scope.price[1] = Math.max.apply(null, maxP);
         $scope.price[2] = Math.max.apply(null, maxP);
-      });    
+      });
   };
 
   // Переменные для отображения в меню квартир, обрезаются в функции changeValueFilter если больше 7 символов
@@ -526,7 +526,7 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.sliderValues = [0, $scope.sliderMax];
 
   $scope.price = [0];
-  $scope.price[3] = '' 
+  $scope.price[3] = ''
 
   // Коэффициент для пересчета валюты
   $scope.coef = {
@@ -559,15 +559,15 @@ app.controller('main', function ($scope, $http, $timeout) {
     },
     close_reg: function () {
       $scope.auth.show = false;
-      localStorage.removeItem('reg');  
+      localStorage.removeItem('reg');
     },
     return_auth: function () {
-			$scope.auth.registration_show = false;	 
-      localStorage.removeItem('reg');   
+			$scope.auth.registration_show = false;
+      localStorage.removeItem('reg');
     }
   };
-  
-  
+
+
   // Модальное окно с квартирами
   $scope.info = {
     show: false,
@@ -588,7 +588,7 @@ app.controller('main', function ($scope, $http, $timeout) {
     change: function (index, arr, show) {
       if ($scope.auth.check_auth_user){
 				// Если пользователь авторизирован то мы помещаем информацию
-				// из нажатого объекта в наше модальное окно 				 
+				// из нажатого объекта в наше модальное окно
         var _object = arr[index];
 
         this.name = _object.name_view;
@@ -602,11 +602,11 @@ app.controller('main', function ($scope, $http, $timeout) {
         this.author = _object.author;
 
         if (show) this.show = true;
-        
+
         $scope.map.center = _object.coords.split(',');
         $scope.map.marker = _object.coords.split(',');
         $scope.map.index.balloonContent = _object.name;
-        
+
 			} else {
         $scope.auth.open();
       }
@@ -637,16 +637,17 @@ app.controller('main', function ($scope, $http, $timeout) {
           e.preventDefault();
           var data = {
           	name: document.querySelector( id + ' input[name="name"]').value,
+            theme: document.querySelector( id + ' input[name="theme"]') ? document.querySelector( id + ' input[name="theme"]').value : 'null',
 						email: document.querySelector( id + ' input[name="emailFrom"]').value,
 						emailTo: document.querySelector( id + ' input[name="emailTo"]').value,
 						phone: document.querySelector( id + ' input[name="phone"]').value,
 						header: document.querySelector( id + ' h4').textContent
           }
-          
+
           if (document.querySelector( id + ' textarea[name="message"]')) {
 	        	data.message = document.querySelector( id + ' textarea[name="message"]').value;
           }
-          
+
           $.ajax({
           	type: "POST",
 						url: "http://smartrealtor.kz/wp-content/themes/smart/mail.php",
@@ -677,7 +678,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 	$scope.submitWithFile = function (e) {
 		e.preventDefault();
 		var form = document.forms.resume;
-    var formData = new FormData(form); 
+    var formData = new FormData(form);
     var xhr = new XMLHttpRequest();
       xhr.open("POST", "http://smartrealtor.kz/wp-content/themes/smart/mailWithFile.php");
       xhr.onreadystatechange = function() {
@@ -710,27 +711,27 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.changeValueFilter = function (value, dropDown, eng_value) {
     switch (dropDown){
 
-      case 1: 
+      case 1:
         if (value.length < 7) {
           $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown1Filter = value;
         } else {
           $scope.dropDown1FilterView = value.slice(0,5)+ '..';
           $scope.dropDown1Filter = value;
-        }  
+        }
         break;
 
-      case 2: 
+      case 2:
         if (value.length < 7) {
           $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? value : eng_value;
           $scope.dropDown2Filter = value;
         } else {
           $scope.dropDown2FilterView = value.slice(0,6)+ '..';
           $scope.dropDown2Filter = value;
-        }  
+        }
         break;
 
-      case 3: 
+      case 3:
         if (value === 'Все') {
           $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : eng_value;
           $scope.dropDown3Filter = value;
@@ -746,28 +747,28 @@ app.controller('main', function ($scope, $http, $timeout) {
         }
         break;
 
-      default:  
+      default:
         $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
         $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
         $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : 'Any';
         $scope.dropDown1Filter = 'Все';
         $scope.dropDown2Filter = 'Все';
         $scope.dropDown3Filter = 'Любой комнатности';
-        break; 
-    }     
+        break;
+    }
   }
 
 	$scope.reset_filter = function () {
 		$scope.changeValueFilter('Все', 1, 'Any');
 		$scope.changeValueFilter('Все', 2, 'Any');
 		$scope.changeValueFilter('Все', 3, 'Any');
-		
+
 		//$scope.sliderExample9[0] = 10;
 		//$scope.sliderExample9[1] = $scope.sliderMaxForReset;
-		
+
 		$scope.price[3] = '';
 		$scope.changeFilterPrice();
-		$scope.price[0] = 0;	
+		$scope.price[0] = 0;
 	}
 
   // Фильтры для фильтрации в каталоге
@@ -791,21 +792,21 @@ app.controller('main', function ($scope, $http, $timeout) {
     if ($scope.dropDown3Filter === elem.floor.toString()) return true;
 
     return false;
-  } 
+  }
   $scope.squareRange = function (elem) {
     $scope.sliderValues[0] = document.querySelector('#sliderFrom').value;
     $scope.sliderValues[1] = document.querySelector('#sliderTo').value;
-    if (+elem.square >= $scope.sliderValues[0] && +elem.square <= $scope.sliderValues[1]){       
+    if (+elem.square >= $scope.sliderValues[0] && +elem.square <= $scope.sliderValues[1]){
       return true;
-    }  
+    }
     return false;
-  }  
+  }
   $scope.priceRange = function (elem) {
 	  if (+elem.price >= $scope.price[0] && +elem.price <= +$scope.price[1]) {
 		  return true;
-		}  
+		}
 		  return false;
-  } 
+  }
   $scope.coefChange = function (elemId, coef, cur) {
     document.querySelector('#catalog .configure .price .val.active').classList.remove('active');
     document.querySelector(elemId).classList.add('active');
@@ -820,15 +821,15 @@ app.controller('main', function ($scope, $http, $timeout) {
 		}
 	}
 
-  // переключатель для языков в меню 
+  // переключатель для языков в меню
   var changeLangIcon = function (argum) {
     if (argum === 'rus'){
       document.querySelector('.lang_wrap .ru').classList.add('active');
-      document.querySelector('.lang_wrap .en').classList.remove('active'); 
+      document.querySelector('.lang_wrap .en').classList.remove('active');
     } else if (argum === 'eng') {
-      document.querySelector('.lang_wrap .en').classList.add('active'); 
+      document.querySelector('.lang_wrap .en').classList.add('active');
       document.querySelector('.lang_wrap .ru').classList.remove('active');
-    }  
+    }
   };
 
   $scope.lang.setLang = function (arg) {
@@ -859,13 +860,13 @@ app.controller('main', function ($scope, $http, $timeout) {
   	.then(function (value) {
 	  $scope.image_ = value.data.posts[0].thumbnail_images.full.url;
   	});
-  	
+
   if ($scope.lang.language) {
-    $scope.lang.setLang($scope.lang.language); 
+    $scope.lang.setLang($scope.lang.language);
   } else {
     $scope.lang.show = true;
   }
-  
+
 // Карта для каждой квартиры
 	$scope.map = {
 		show: false,
@@ -874,15 +875,15 @@ app.controller('main', function ($scope, $http, $timeout) {
 		marker: [56.27, 34.33],
 		index: {
 			balloonContent: ''
-		}	
-	};  
-	
+		}
+	};
+
 	$scope.map.open = function () {
 		$scope.map.show = true;
 	};
 
 	$scope.preloader = false;
-	
+
 	$timeout(function () {
 		$scope.auth.open_res = 1;
 	}, 10000)
