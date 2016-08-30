@@ -75,206 +75,6 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : 'img/UARk_logo_en.png';
 
 
-  $scope.mainObj = {
-    header: {
-      slogan: 'АГЕНТСТВО ЭЛИТНОЙ НЕДВИЖИМОСТИ В АСТАНЕ',
-      number: 'Заказать звонок',
-      menu1: 'Главная',
-      menu2: 'Клиенты',
-      menu3: 'Каталог',
-      menu4: 'Рекомендации',
-      menu5: 'Тех.поддержка',
-      menu6: 'Сотрудничество',
-      menu7: 'Бонусы',
-      menu8: 'Контакты'
-    },
-    mainPage: {
-      mainButton: 'ПОСМОТРИТЕ ВИДЕО',
-      header: 'Я хочу',
-      button1: 'Купить',
-      button2: 'Арендовать',
-      button3: 'Продать',
-      button4: 'Сдать'
-    },
-    specPage: {
-      header: 'СПЕЦПРЕДЛОЖЕНИЯ',
-      arend: 'Аренда',
-      sale: 'Продажа',
-      floor: 'Комнаты',
-      square: 'Площадь',
-      price: 'Цена',
-      more: 'Подробнее',
-      id: 'Идентификатор'
-    },
-    clientPage: {
-      header: 'Наши клиенты',
-    },
-    catalogPage: {
-      header: 'Каталог квартир',
-      menu1_1: 'Купить',
-      menu1_2: 'Снять в аренду',
-      menu1_3: 'Все',
-      menu2_1: 'Квартиру',
-      menu2_2: 'Дом',
-      menu2_3: 'Офис',
-      menu2_4: 'Земельный участок',
-      menu3_1: 'Любой комнатности',
-      menu3_2: '1-а комнатные',
-      menu3_3: '2-х комнатные',
-      menu3_4: '3-х комнатные',
-      menu3_5: '4-х комнатные',
-      menu3_6: 'Пентхаус',
-      menu3_7: '5-и и более комнатные',
-      menu3_8: 'Таунхаус',
-      search: 'Найдено',
-      search_content: 'объекта недвижимости',
-      search_content_none: 'ничего не найдено',
-      from: 'от',
-      to: 'до'
-    },
-    qualityPage: {
-      header: 'Преимущества',
-      icons1: {
-        header: 'Мультиязычные менеджеры',
-        content: 'Английский, немецкий, испанский язык',
-      },
-      icons2: {
-        header: 'База квартир',
-        content: 'Более 5000 вариантов в базе квартир'
-      },
-      icons3: {
-        header: 'Help-line оператор',
-        content: 'Англоговорящий администратор Информация о любых товарах и услугах г.Астаны'
-      },
-      icons4: {
-        header: 'Юридическая чистота',
-        content: '— Скрининг документов ',
-        content2: '— Полный пакет документов',
-        content3: '— Решение правовых вопросов с арендаторами'
-      },
-      icons5: {
-        header: 'Ознакомительные программы',
-        content: '— Знакомство с городом',
-        content2: '— Культурные и социальные экскурсии'
-      },
-      icons6: {
-        header: 'Сервис служба',
-        content: '— Решение бытовых проблем',
-        content2: '— Оплата ком.услуг',
-      },
-    },
-    recomendPage: {
-      header: 'Рекомендации',
-      header_director: 'Обращение директора',
-      header_clients: 'Отзывы клиентов',
-      main_content_part1: 'С помощью',
-      main_content_part2: 'более 30 посольств и иностранных компаний нашли уютный и безопасный дом в Астане для своих сотрудников.',
-      header_after_video: 'Инна Ухналь, Директор ТОО «Smart Realtor»',
-      content: 'Дорогие друзья, мы рады приветствовать Вас на сайте нашей компании! Для начала представлюсь - меня зовут Инна Ухналь, я являюсь директором компании "Smart Realtor "! В Казахстане много успешных компаний, потому что у нас в стране живут прекрасные люди. Страна у нас многонациональная, и именно поэтому жить и работать в Казахстане большое счастье. Наша компания предоставляет услуги в сфере элитной недвижимости. Мы понимаем всю важность жилищного вопроса для наших дорогих клиентов и именно поэтому мы строим риэлторскую компанию нового типа — инновационные технологии для поиска и продвижения недвижимости и ответственность за свои действия -  это основные принципы нашей работы, наряду с доброжелательностью и человеческим отношением к каждому клиенту. В этом разделе Вы можете ознакомиться с отзывами наших клиентов, а также задать мне любые интересующие вопросы. Спасибо, что посетили наш сайт, надеюсь, он будет вам полезен.'
-    },
-    servicePage: {
-      header: 'Тех.поддержка',
-      subHeader: 'Техническая поддержка компании',
-      listHeader: 'У нас есть инструменты, навыки и время для тех случайных работ, которые Вы планировали сделать.',
-      listElem1: 'Малярные работы',
-      listElem2: 'Сантехнические работы',
-      listElem3: 'Услуги плотника',
-      listElem4: 'Услуги электрика',
-      listElem5: 'Химчистка ковров и мягкой мебели',
-      listElem6: 'Оплата ком. услуг',
-      listElem7: 'Устранение плесени',
-      listElem8: 'Замена лампочек',
-      listElem9: 'Ремонт бытовой техники',
-      listElem10: 'Ремонт окон',
-      listElem11: 'Услуги садовника',
-      listElem12: 'Сборка мебели',
-      listElem13: 'Установка и настройка интернета',
-      listElem14: 'Установка и ремонт спутникового ТВ',
-      listElem15: 'Установка ролл-штор',
-      sloganTop: 'Не бывает неважной работы.',
-      sloganBot: 'Позвоните чтобы получить бесплатную смету.',
-      wordSlogan1: 'Восстановить.',
-      wordSlogan2: 'Построить.',
-      wordSlogan3: 'Починить.',
-    },
-    sotrPage: {
-      header: 'Сотрудничество',
-      subHeader: 'ПРИГЛАШАЕМ К СОТРУДНИЧЕСТВУ ВЛАДЕЛЬЦЕВ ЭЛИТНОЙ НЕДВИЖИМОСТИ.',
-      subHeader2: 'ПРОДАЖА & АРЕНДА.',
-      content1: 'Гарантия быстрого закрытия сделки\n',
-      content2: {
-	      list1: '•	Большая база покупателей и арендаторов',
-	      list2: '•	Регулярный спрос на объекты элитной недвижимости',
-	      list3: '•	Наличие долгосрочных контрактов с иностранными компаниями',
-	      list4: '•	Анализ рынка и портрет клиента\n•	Разработка стратегии для продажи и аренды Вашей недвижимости',
-	      list5: '•	Автоматическая публикация вашего объявления на самых эффективных площадках в Интернете'
-      },
-      content3: 'Помощь в выборе недвижимости для инвестиций\n',
-      content4: {
-	      list1: '•	Работа со всеми ведущими застройщиками проектов элитной недвижимости и бизнес-класса',
-	      list2: '•	Помощь в выборе оптимального объекта для инвестиций – ликвидного и максимально удовлетворяющего требованиям клиента',
-	      list3: '•	Экспертиза объекта (аналитика по рынку, качество строительства, юридическая безопасность сделки)'
-      },
-      planeHeader1: 'УЗНАЙ СКОЛЬКО СТОИТ ТВОЯ КВАРТИРА ',
-      planeHeader2: 'БЕСПЛАТНО',
-      planeHeader3: 'И',
-      planeHeader4: 'БЫСТРО',
-      button: 'УЗНАТЬ СТОИМОСТЬ',
-    },
-    bonus: {
-      header: 'Бонусы',
-      content1: '— Мы готовы предоставить вам любую полезную информацию, касающуюся проживания в г.Астана и Казахстане.',
-      content2: '— Правовая, экономическая и информационная помощь для наших клиентов.',
-      button1: 'ПОЛУЧИТЬ',
-      button2: 'БОНУС!'
-    },
-    contacts: {
-      adress1: 'Астана',
-      adress2: 'пр. Кабанбай Батыра, 7/2',
-      button: 'Написать нам'
-    },
-    form: {
-      headers: {
-        header1: 'Получить бесплатную',
-        header2: 'консультацию',
-        header3: 'ОСТАВИТЬ ЗАЯВКУ',
-        header4: 'Получить бонус',
-        header5: 'Регистрация'
-      },
-      placeholders: {
-        name: 'Имя',
-        password: 'Пароль',
-        mail: 'Email',
-        send: 'Отправить',
-        comment: 'Комментарий',
-        telephone: 'Телефон',
-        feed: 'Все ваши данные в безопасности',
-        login: 'Логин',
-        sname: 'Фамилия',
-        register: ' Зарегистрироваться',
-        write: 'Описание',
-        textarea_value_sotr: 'Здравствуйте,  хочу (сдать / продать) _______ (квартиру, дом, офис). Краткое описание: Помогите установить правильную стоимость!',
-        ques: 'Задайте свой вопрос профессионалам'
-      },
-      errors: {
-        error: 'Ошибка',
-        error1: 'Обязательные поля пропущены',
-        error2: 'Username слишком короткий.',
-        error3: 'Извините, но пользователь с таким именем уже есть!',
-        error4: 'Поле пользователь введено не корректно!',
-        error5: 'Минимальная длина пароля 5 символов.',
-        error6: 'Некорректный email',
-        error7: 'Email уже используется',
-        error8: 'Некорректный номер телефона',
-      }
-    },
-    modal : {
-      manager: ' Менеджер',
-      number_sergey: '+77015301888'
-    }
-  };
-  //console.log(JSON.stringify($scope.mainObj));
-
   // Массив объектов для раздела спец предложения
   $scope.spec = [];
   // Запрос на получение спецпредложений
@@ -295,7 +95,7 @@ app.controller('main', function ($scope, $http, $timeout) {
           _object.floor = element.custom_fields['wpcf-floor'][0];
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
-          _object.id_floor = element.custom_fields['wpcf-id'][0];
+          _object.id_floor = element.id;
           _object.thumbnail = element.thumbnail_images.full.url;
           _object.author = {
             name: element.author.first_name,
@@ -440,7 +240,7 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.catalog_search = [];
   // Запрос на файл квартир
   $scope.catalog_get = function () {
-    $http.get('http://smartrealtor.kz/?json=get_category_posts&category_slug=catalog&post_type=catalog')
+    $http.get('http://smartrealtor.kz/?json=get_category_posts&category_slug=catalog&post_type=catalog&count=-1')
       .then(function (value) {
         var _array = value.data.posts,
             maxS = [],
@@ -457,7 +257,7 @@ app.controller('main', function ($scope, $http, $timeout) {
           _object.floor = element.custom_fields['wpcf-floor'][0];
           _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
-          _object.id_floor = element.custom_fields['wpcf-id'][0];
+          _object.id_floor = element.id;
           _object.thumbnail = element.thumbnail_images.full.url;
           _object.type = element.custom_fields['wpcf-type'][0];
           _object.author = {
@@ -543,28 +343,25 @@ app.controller('main', function ($scope, $http, $timeout) {
 
   // Модальное окно авторизации
   $scope.auth = {
-    check_auth_user : window.auth,
+    check_auth_user : window.localStorage.getItem('submit') == 1 ? true : false,
     open_res: 0,
-    show: localStorage.getItem('reg') == 1 ? true : false,
-    open: function () {
-      $scope.auth.show = true;
-    },
-    close: function () {
-      $scope.auth.show = false;
-    },
-    registration_show: localStorage.getItem('reg') == 1 ? true : false,
-    open_reg: function () {
-      $scope.auth.registration_show = true;
-      localStorage.setItem('reg', '1');
-    },
-    close_reg: function () {
-      $scope.auth.show = false;
-      localStorage.removeItem('reg');
-    },
+    show: window.localStorage.getItem('reg') == 1 && window.localStorage.getItem('lastTime') != 1? true : false,
     return_auth: function () {
-			$scope.auth.registration_show = false;
-      localStorage.removeItem('reg');
-    }
+      window.localStorage.removeItem('reg')
+      $scope.auth.show = window.localStorage.getItem('reg') == 1 ? true : false;
+      window.localStorage.setItem('submit', 1);
+      $scope.auth.check_auth_user = window.localStorage.getItem('submit') == 1 ? true : false;
+    },
+    submit : function () {
+      window.localStorage.setItem('submit', 1);
+    },
+    return_main: function () {
+      window.localStorage.removeItem('reg')
+      $scope.auth.show = window.localStorage.getItem('reg') == 1 ? true : false;
+      window.localStorage.setItem('submit', 1);
+      $scope.auth.check_auth_user = window.localStorage.getItem('submit') == 1 ? true : false;
+      window.localStorage.setItem('lastTime', 1);
+    },
   };
 
 
@@ -586,30 +383,27 @@ app.controller('main', function ($scope, $http, $timeout) {
       image: '',
     },
     change: function (index, arr, show) {
-      if ($scope.auth.check_auth_user){
-				// Если пользователь авторизирован то мы помещаем информацию
-				// из нажатого объекта в наше модальное окно
-        var _object = arr[index];
-
-        this.name = _object.name_view;
-        this.id_floor = _object.id_floor;
-        this.floor = _object.floor;
-        this.square = _object.square;
-        this.price = _object.price;
-        this.content = _object.content;
-        this.thumbnail = _object.thumbnail;
-        this.images = _object.images;
-        this.author = _object.author;
-
-        if (show) this.show = true;
-
-        $scope.map.center = _object.coords.split(',');
-        $scope.map.marker = _object.coords.split(',');
-        $scope.map.index.balloonContent = _object.name;
-
-			} else {
-        $scope.auth.open();
+      if (!$scope.auth.check_auth_user){
+        window.localStorage.setItem('reg', 1);
+        $scope.auth.show = window.localStorage.getItem('reg') == 1 ? true : false;
       }
+
+      var _object = arr[index];
+
+      this.name = _object.name_view;
+      this.id_floor = _object.id_floor;
+      this.floor = _object.floor;
+      this.square = _object.square;
+      this.price = _object.price;
+      this.content = _object.content;
+      this.thumbnail = _object.thumbnail;
+      this.images = _object.images;
+      this.author = _object.author;
+
+      if (show) this.show = true;
+      $scope.map.center = _object.coords.split(',');
+      $scope.map.marker = _object.coords.split(',');
+      $scope.map.index.balloonContent = _object.name;
     },
     close: function () {
       $scope.info.show = false;
@@ -620,7 +414,7 @@ app.controller('main', function ($scope, $http, $timeout) {
   // Модальное окно обратной связи
   $scope.feedback = {
     show: false,
-    header: $scope.mainObj.form.headers.header3,
+    header: ' ',
     input_header: '',
     textarea_show: false,
     close: function () {
@@ -834,24 +628,30 @@ app.controller('main', function ($scope, $http, $timeout) {
 
   $scope.lang.setLang = function (arg) {
     var _lang = arg === 'rus' ? 'ru' : arg === 'eng' ? 'en' : '';
-        window.localStorage.setItem('language', arg);
-        $scope.lang.language = localStorage.getItem('language');
 
-        // формируем спецпредложения
-        $scope.get_spec();
-        // Формируем каталог квартир
-        $scope.catalog_get();
+    window.localStorage.setItem('language', arg);
+    $scope.lang.language = localStorage.getItem('language');
 
-        $http.get('wp-content/themes/smart/lang/'+ _lang +'.json')
+    // формируем спецпредложения
+    $scope.get_spec();
+    // Формируем каталог квартир
+    $scope.catalog_get();
+
+    $http.get('wp-content/themes/smart/lang/'+ _lang +'.json')
           .then(function (value) {
             $scope.mainObj = value.data;
+            $scope.feedback.header = $scope.mainObj.form.headers.header3
           });
 
-        $scope.lang.show = false;
-        changeLangIcon(arg);
-        $scope.backImage = $scope.lang.language === 'rus' ? '/img/background/service.png' : '/img/background/service_eng.png';
-				$scope.obrVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1' : 'https://www.youtube.com/embed/N6KFC94Zs-U?autoplay=1';
-				$scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : '/img/UARk_logo_en.png';
+    $scope.lang.show = false;
+    changeLangIcon(arg);
+    $scope.backImage = $scope.lang.language === 'rus' ? '/img/background/service.png' : '/img/background/service_eng.png';
+		$scope.obrVid = $scope.lang.language === 'rus' ? 'https://www.youtube.com/embed/0xx8PpNBeD8?autoplay=1' : 'https://www.youtube.com/embed/N6KFC94Zs-U?autoplay=1';
+		$scope.uarcLogo =  $scope.lang.language === 'rus' ? '/img/UARk_logo.png' : '/img/UARk_logo_en.png';
+
+    $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+    $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
+    $scope.dropDown3FilterView = $scope.lang.language === 'rus' ? 'Любой комнатности' : 'Any';
   };
 
 // 	Картинка из раздела бонусы

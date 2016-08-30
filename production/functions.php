@@ -10,6 +10,8 @@
  */
 
 function custom_registration_function() {
+  $reg = false;
+
     if (isset($_POST['submit'])) {
         registration_validation(
         $_POST['username'],
@@ -21,7 +23,7 @@ function custom_registration_function() {
         $_POST['nickname'],
         $_POST['bio']
         );
-        
+
         // sanitize user form input
         global $username, $password, $email, $website, $first_name, $last_name, $nickname, $bio;
         $username   =   sanitize_user($_POST['username']);
@@ -35,7 +37,7 @@ function custom_registration_function() {
 
         // call @function complete_registration to create the user
         // only when no WP_error is found
-        complete_registration(
+        $reg = complete_registration(
         $username,
         $password,
         $email,
@@ -47,30 +49,32 @@ function custom_registration_function() {
         );
     }
 
-    registration_form(
-        $username,
-        $password,
-        $email,
-        $website,
-        $first_name,
-        $last_name,
-        $nickname,
-        $bio
-        );
+    if (!$reg) {
+      registration_form(
+          $username,
+          $password,
+          $email,
+          $website,
+          $first_name,
+          $last_name,
+          $nickname,
+          $bio
+          );
+    }
 }
 
 function registration_form( $username, $password, $email, $website, $first_name, $last_name, $nickname, $bio ) {
     echo '
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
         <input type="text" style="display: none" placeholder="{{mainObj.form.placeholders.login}}" name="username" ng-model="auth_login" required>
+        <input type="text" placeholder="{{mainObj.form.placeholders.name}}" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '" required>
         <input type="email" placeholder="{{mainObj.form.placeholders.mail}}" name="email" ng-model="auth_login" required>
-        <input type="password" placeholder="{{mainObj.form.placeholders.password}}" name="password" value="' . (isset($_POST['password']) ? $password : null) . '" required>
+        <input type="password" style="display: none;" name="password" value="Abc123" required>
         <input type="text" style="display: none;" name="website" value="' . (isset($_POST['website']) ? $website : null) . '">
-        <input type="text" placeholder="{{mainObj.form.placeholders.name}} {{mainObj.form.placeholders.sname}}" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '" required>
         <input type="text" style="display: none;"  placeholder="{{mainObj.form.placeholders.sname}}" name="lname" value="' . (isset($_POST['lname']) ? $last_name : null) . '">
-        <input name="bio"  placeholder="{{mainObj.form.placeholders.telephone}}" value="' . (isset($_POST['bio']) ? $bio : null) . '" required>
-        <input type="submit" name="submit" value="{{mainObj.form.placeholders.register}}">
+        <input type="submit" name="submit" value="{{mainObj.form.placeholders.register}}" ng-click="auth.submit();">
     </form>
+    <a href="" ng-click="auth.return_auth();">{{mainObj.modal.back}}</a>
     ';
 }
 
@@ -131,7 +135,10 @@ function complete_registration() {
         'description'   =>  $bio,
         );
         $user = wp_insert_user( $userdata );
-        echo 'Регистрация выполнена, теперь вы можете войти!';   
+        echo 'Подписка оформлена, спасибо!<br>';
+        echo '<a href="" ng-click="auth.return_main();">{{mainObj.modal.close}}</a>';
+        echo '<script>localStorage.setItem("afterReg", 1)</script>';
+        return true;
     }
 }
 
@@ -153,10 +160,9 @@ function author_log() { ?>
                 <input id="password" name="pwd" type="password" placeholder="{{mainObj.form.placeholders.password}}">
                 <button name="submit" type="submit">{{mainObj.modal.signin}}</button>
                 <div class="reg" ng-click="auth.open_reg();">{{mainObj.modal.registration}}</div>
-                <h4>{{mainObj.modal.foot}}</h4>
             </form>
     <? else: ?>
-        <h3 class="succes">Вы уже вошли</h3>        
+        <h3 class="succes">Вы уже вошли</h3>
     <? endif?>
 <?php
 }
@@ -175,9 +181,9 @@ function remove_menus(){
         __('Appearance'),
         __('Tools'),
         //__('Users'),
-        __('Settings'),
+        //__('Settings'),
         __('Comments'),
-        __('Plugins')
+        //__('Plugins')
     );
     end ($menu);
     while (prev($menu)){
@@ -189,3 +195,25 @@ function remove_menus(){
 }
 add_action('admin_menu', 'remove_menus');
 
+if (is_admin()) {
+  // колонка "ID" для таксономий (рубрик, меток и т.д.) в админке
+  foreach (get_taxonomies() as $taxonomy) {
+    add_action("manage_edit-${taxonomy}_columns", 'tax_add_col');
+    add_filter("manage_edit-${taxonomy}_sortable_columns", 'tax_add_col');
+    add_filter("manage_${taxonomy}_custom_column", 'tax_show_id', 10, 3);
+  }
+  add_action('admin_print_styles-edit-tags.php', 'tax_id_style');
+  function tax_add_col($columns) {return $columns + array ('tax_id' => 'ID');}
+  function tax_show_id($v, $name, $id) {return 'tax_id' === $name ? $id : $v;}
+  function tax_id_style() {print '<style>#tax_id{width:4em}</style>';}
+
+  // колонка "ID" для постов и страниц в админке
+  add_filter('manage_posts_columns', 'posts_add_col', 5);
+  add_action('manage_posts_custom_column', 'posts_show_id', 5, 2);
+  add_filter('manage_pages_columns', 'posts_add_col', 5);
+  add_action('manage_pages_custom_column', 'posts_show_id', 5, 2);
+  add_action('admin_print_styles-edit.php', 'posts_id_style');
+  function posts_add_col($defaults) {$defaults['wps_post_id'] = __('ID'); return $defaults;}
+  function posts_show_id($column_name, $id) {if ($column_name === 'wps_post_id') echo $id;}
+  function posts_id_style() {print '<style>#wps_post_id{width:4em}</style>';}
+}

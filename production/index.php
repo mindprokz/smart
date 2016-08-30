@@ -26,6 +26,10 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/bower_components/fancybox/source/jquery.fancybox.css">
 
 
+
+
+	<!-- with CDN -->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
@@ -642,7 +646,9 @@
 
 	<div id="map">
 		<a name="contact"></a>
-		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=5qBPQHFjmFyZ30jchMZo2eDday06aA7b&width=45%&height=100%&lang=ru_RU&sourceType=constructor&scroll=true"></script>
+		<yandex-map center="[51.143884,71.415955]" zoom="16" style="width: 700px; height: 600px; display: block;">
+			<ymap-marker properties="map.index" coordinates="[51.143884,71.415955]"></ymap-marker>
+		</yandex-map>
 		<div class="first_column">
 			<div class="wrap">
 				<h3>{{mainObj.contacts.adress1}} <br> {{mainObj.contacts.adress2}}</h3>
@@ -670,19 +676,17 @@
 	<!-- Модальные окна -->
 
 	<div ng-if="auth.show" class="auth modal">
-		<div class="wrap" ng-if="!auth.registration_show">
+		<!-- <div class="wrap" ng-if="!auth.registration_show">
 			<div class="window">
 				<div class="closer" ng-click="auth.close()"></div>
 				<h3>{{mainObj.modal.auth}}</h3>
 				<?php author_log(); ?>
 			</div>
-		</div>
-		<div class="wrap" ng-if="auth.registration_show">
+		</div> -->
+		<div class="wrap">
 			<div class="window">
-				<div class="closer" ng-click="auth.close_reg()"></div>
 				<h3>{{mainObj.form.headers.header5}}</h3>
 				<?php custom_registration_function(); ?>
-				<a href="" ng-click="auth.return_auth();">← {{mainObj.modal.back}}</a>
 			</div>
 		</div>
 	</div>
@@ -748,7 +752,7 @@
 							<input name="emailTo" type="email" style="display:none;" ng-model="info.author.email">
 							<h4 style="display:none;">Заявка с каталога</h4>
 						</div>
-						<textarea name="message" cols="30" rows="5" placeholder="Сообщение" required></textarea>
+						<textarea name="message" cols="30" rows="5" placeholder="{{mainObj.form.placeholders.comment}}" required></textarea>
 						<button ng-click="feedback.submit('#catalog_form');">{{mainObj.form.placeholders.send}}</button>
 					</form>
 				</div>
@@ -811,6 +815,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="mail" class="not_visible_mail"></div>
 </div>
 
@@ -823,15 +828,11 @@
 	<![endif]-->
 
 
-	<!-- with CDN -->
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-
 	<!-- local -->
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/nav/nav.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/common.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/slider.js"></script>
-	<script>window.auth = <?php if ( is_user_logged_in() ){ echo 'true'; } else { echo 'false'; }?></script>
 	<script crossorigin="anonymous" async type="text/javascript" src="//api.pozvonim.com/widget/callback/v3/2b45961021aefe57671c32f5c503cee2/connect" id="check-code-pozvonim" charset="UTF-8"></script>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript">

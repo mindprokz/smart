@@ -5,10 +5,10 @@ $(document).ready(function() {
 	});
 	$(".fancybox").fancybox({
 		maxWidth	: 700,
-		maxHeight	: 500,		
+		maxHeight	: 500,
 		openEffect	: 'none',
 		closeEffect	: 'none'
-	});	
+	});
 
 	//Chrome Smooth Scroll
 	try {
@@ -23,8 +23,8 @@ $(document).ready(function() {
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
 	// Инициализация плавающего меню
-	new FloatMenu({ 
-		elem : document.querySelector('.nav'), 
+	new FloatMenu({
+		elem : document.querySelector('.nav'),
 		height : 200,
 		first_class : 'top_style',
 		second_class : 'margin_style'
@@ -36,4 +36,9 @@ $(document).ready(function() {
 		document.forms.resume.filename.value = _sost;
 	});
 
+	window.addEventListener("beforeunload", function (e) {
+		if (window.localStorage.getItem('afterReg') != 1) {
+			window.localStorage.removeItem('submit');
+		}
+	});
 });

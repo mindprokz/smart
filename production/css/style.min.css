@@ -1405,8 +1405,9 @@ h2 {
 
 #map {
   height: 515px;
-  position: relative; }
-  #map ymaps {
+  position: relative;
+  overflow: hidden; }
+  #map ymaps, #map yandex-map {
     float: right; }
   #map .first_column {
     position: absolute;
@@ -1504,6 +1505,8 @@ footer {
   left: 0;
   background: rgba(0, 126, 178, 0.7);
   z-index: 102; }
+  .modal.auth {
+    z-index: 103; }
   .modal.feedback .wrap .window form button {
     width: 170px;
     height: 45px;
