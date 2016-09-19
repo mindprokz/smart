@@ -2025,3 +2025,14 @@ footer {
     -webkit-transform: translate(-100%, -50%);
         -ms-transform: translate(-100%, -50%);
             transform: translate(-100%, -50%); }
+
+.list_info_column:after {
+  content: ".";
+  display: table;
+  clear: both;
+  visibility: hidden; }
+.list_info_column ul {
+  float: left;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }

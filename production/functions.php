@@ -67,7 +67,7 @@ function registration_form( $username, $password, $email, $website, $first_name,
     echo '
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
         <input type="text" style="display: none" placeholder="{{mainObj.form.placeholders.login}}" name="username" ng-model="auth_login" required>
-        <input type="text" placeholder="{{mainObj.form.placeholders.name}}" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '" required>
+        <input type="text" style="display: none" placeholder="{{mainObj.form.placeholders.name}}" name="fname" value="Подписчик" required>
         <input type="email" placeholder="{{mainObj.form.placeholders.mail}}" name="email" ng-model="auth_login" required>
         <input type="password" style="display: none;" name="password" value="Abc123" required>
         <input type="text" style="display: none;" name="website" value="' . (isset($_POST['website']) ? $website : null) . '">

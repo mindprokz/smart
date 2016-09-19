@@ -7,7 +7,9 @@ $(document).ready(function() {
 		maxWidth	: 700,
 		maxHeight	: 500,
 		openEffect	: 'none',
-		closeEffect	: 'none'
+		closeEffect	: 'none',
+		nextEffect: 'fade',
+		prevEffect: 'fade'
 	});
 
 	//Chrome Smooth Scroll

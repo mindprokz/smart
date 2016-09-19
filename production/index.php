@@ -445,7 +445,7 @@
 			</div>
 			<div class="search_result">
 				<header class="main">
-					<div class="search_left"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search.length}} {{mainObj.catalogPage.search_content}}</div>
+					<div class="search_left"><span>{{mainObj.catalogPage.search}}:</span> {{catalog_search | filter:typeView | filter:type | filter:quantityRoom | filter:squareRange | filter:priceRange | length_arr}} {{mainObj.catalogPage.search_content}}</div>
 					<div class="reset_filter" ng-click="reset_filter();">{{mainObj.catalogPage.clear}}</div>
 				</header>
 				<div class="content_seach">
@@ -454,12 +454,27 @@
 						<div class="{{stack.length}}"></div>
 						<div class="wrap_img"><img ng-src="{{stack.thumbnail}}"></div>
 						<div class="info">
-							<ul>
+							<ul ng-if="stack.type == 'Квартира'">
 								<li><span>{{mainObj.specPage.floor}}:</span> {{stack.floor}}</li>
 								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
-							<button ng-click="info.change($index, catalog_search, true)">{{mainObj.specPage.more}}</button>
+							<ul ng-if="stack.type == 'Дом'">
+								<li><span>Год постройки:</span> {{stack.year}}</li>
+								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
+								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+							</ul>
+							<ul ng-if="stack.type == 'Офис'">
+								<li><span>Тип офиса:</span> {{stack.type_office}}</li>
+								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
+								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+							</ul>
+							<ul ng-if="stack.type == 'Земельный участок'">
+								<li><span>Район:</span> {{stack.raion}}</li>
+								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} га</li>
+								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+							</ul>
+							<button ng-click="info.change(stack.count, catalog_search, true)">{{mainObj.specPage.more}}</button>
 						</div>
 					</article>
 				</div>
@@ -562,7 +577,7 @@
 				<div class="contact">
 					<div class="image_block">
 						<div class="image_wrap">
-							<img src="http://smartrealtor.kz/wp-content/uploads/2016/04/sergey.jpg">
+							<img src="http://smartrealtor.kz/wp-content/themes/smart/img/sergey.jpg">
 						</div>
 					</div>
 					<div class="number">{{mainObj.modal.number_sergey}}</div>
@@ -631,7 +646,7 @@
 		<h2>{{mainObj.bonus.header}}</h2>
 		<div class="container">
 			<div class="first_column">
-				<p class="text">{{mainObj.bonus.content1}} <img src="http://smartrealtor.kz/wp-content/uploads/2016/07/1.png" style="width: 105px;vertical-align: middle;"></p>
+				<p class="text">{{mainObj.bonus.content1}} <img src="http://smartrealtor.kz//wp-content/themes/smart/img/1.png" style="width: 105px;vertical-align: middle;"></p>
 				<p class="text">{{mainObj.bonus.content2}}</p>
 				<img src="<?php echo get_template_directory_uri();?>/img/confetti.png" alt="confeti">
 				<p class="label" ng-click="feedback.open(mainObj.form.headers.header4, false)"><span  class="second">{{mainObj.bonus.button1}} <br></span> <span  class="third">{{mainObj.bonus.button2}}</span></p>
@@ -736,12 +751,70 @@
 				</div>
 				<div class="second_column">
 					<h4>{{info.name}}</h4>
-					<ul>
-						<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
-						<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
-						<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
-						<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
-					</ul>
+					<div ng-if="info.type == 'Квартира'" class="list_info_column">
+						<ul>
+							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
+							<li><span>Район:</span> {{info.raion}}</li>
+							<li><span>Год постройки:</span> {{info.year}}</li>
+							<li><span>Этажность:</span> {{info.etazh}}</li>
+							<li><span>С/у:</span> {{info.su_kom}}</li>
+							<li><span>Мебель:</span> {{info.mebel}}</li>
+							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+						</ul>
+						<ul>
+							<li><span>Ремонт:</span> {{info.repair}}</li>
+							<li><span>Паркинг:</span> {{info.parking}}</li>
+							<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
+							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
+						</ul>
+					</div>
+					<div ng-if="info.type == 'Дом'" class="list_info_column">
+						<ul>
+							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
+							<li><span>Район:</span> {{info.raion}}</li>
+							<li><span>Год постройки:</span> {{info.year}}</li>
+							<li><span>Этажность:</span> {{info.etazh}}</li>
+							<li><span>Кол-во спален:</span> {{info.kol_spal}}</li>
+							<li><span>Кол-во С/у:</span> {{info.san_uzel_kol}}</li>
+							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+						</ul>
+						<ul>
+							<li><span>Бассейн:</span> {{info.bassein}}</li>
+							<li><span>Водоснабжение:</span> {{info.haswater}}</li>
+							<li><span>Отопление:</span> {{info.otoplenie}}</li>
+							<li><span>Гараж:</span> {{info.garage}}</li>
+							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
+							<li><span>Площадь участка:</span> {{info.square_mesto}} м<sup>2</sup></li>
+						</ul>
+					</div>
+					<div ng-if="info.type == 'Офис'" class="list_info_column">
+						<ul>
+							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
+							<li><span>Район:</span> {{info.raion}}</li>
+							<li><span>Тип офиса:</span> {{info.type_office}}</li>
+							<li><span>Этажность:</span> {{info.etazh}}</li>
+							<li><span>Входная группа:</span> {{info.enter_group}}</li>
+							<li><span>Планировка:</span> {{info.plans}}</li>
+							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+						</ul>
+						<ul>
+							<li><span>Ремонт:</span> {{info.repair}}</li>
+							<li><span>Мебель:</span> {{info.mebel}}</li>
+							<li><span>С/у:</span> {{info.su_kom}}</li>
+							<li><span>Телефония:</span> {{info.telephonia}}</li>
+							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
+							<li><span>Паркинг:</span> {{info.parking}}</li>
+						</ul>
+					</div>
+					<div ng-if="info.type == 'Земельный участок'" class="list_info_column">
+						<ul>
+							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
+							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} га</li>
+							<li><span>Коммуникация:</span> {{info.communication}}</li>
+							<li><span>Целевое назначения:</span> {{info.chel_naz}}</li>
+							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
+						</ul>
+					</div>
 					<p>{{info.content_view}}</p>
 					<form id="catalog_form" method="POST">
 						<h5>{{mainObj.modal.feedback}}</h5>
@@ -853,7 +926,7 @@
 	            s = d.createElement("script"),
 	            f = function () { n.parentNode.insertBefore(s, n); };
 	        s.type = "text/javascript";
-	        s.async = true;
+	        s.async = false;
 	        s.src = "https://mc.yandex.ru/metrika/watch.js";
 
 	        if (w.opera == "[object Opera]") {

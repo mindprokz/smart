@@ -1,5 +1,11 @@
 var app = angular.module('realty_app', ['ui.slider', 'ymaps'/*, 'ngAnimate'*/]);
 
+app.filter('length_arr', function () {
+  return function (items) {
+    return items.length;
+  };
+});
+
 app.factory('colorpicker', function () {
   function hexFromRGB(r, g, b) {
     var hex = [r.toString(16), g.toString(16), b.toString(16)];
@@ -135,51 +141,51 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.partner_ru = [
     {
       name: 'Посольство Чешской Республики',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/chehia.gif'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/chehia.gif'
     },
     {
       name: 'Посольство Пакистана',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Pakistan.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/Pakistan.jpg'
     },
     {
       name: 'Посольство Словакии',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/slovackiy.gif'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/slovackiy.gif'
     },
     {
       name: 'Посольство Французской Республики',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/франция.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/franc.jpg'
     },
     {
       name: 'Посольство Бельгии',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/бельгия.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/belg.jpg'
     },
     {
       name: 'Посольство Швейцарии',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/прав-флаг-швейцарии.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/shec.jpg'
     },
     {
       name: 'Посольство Великобритании',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/velikobritaniia_enl.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/velikobritaniia_enl.jpg'
     },
     {
       name: 'Посольство Америки',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/usa-flag.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/usa-flag.jpg'
     },
     {
       name: 'Компания «Total»',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/logo-total.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/logo-total.png'
     },
     {
       name: 'Компания «Dow»',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/DOW-logo.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/DOW-logo.jpg'
     },
     {
       name: 'Хоккеисты ХК "Барыс"',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Логотип_ХК_«Барыс».svg_.png'
+      url: 'https://upload.wikimedia.org/wikipedia/ru/thumb/f/fd/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%A5%D0%9A_%C2%AB%D0%91%D0%B0%D1%80%D1%8B%D1%81%C2%BB.svg/1280px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%A5%D0%9A_%C2%AB%D0%91%D0%B0%D1%80%D1%8B%D1%81%C2%BB.svg.png'
     },
     {
       name: 'Компания «Thales»',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/full_174.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/full_174.jpg'
     },
   ];
 
@@ -187,51 +193,51 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.partner_en = [
     {
       name: 'Embassy of the Czech Republic',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/chehia.gif'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/chehia.gif'
     },
     {
       name: 'Embassy of Pakistan',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Pakistan.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/Pakistan.jpg'
     },
     {
       name: 'Embassy of Slovakia',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/slovackiy.gif'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/slovackiy.gif'
     },
     {
       name: 'Embassy of the French Republic',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/франция.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/franc.jpg'
     },
     {
       name: 'Embassy of Belgium',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/бельгия.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/belg.jpg'
     },
     {
       name: 'Embassy of Switzerland',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/прав-флаг-швейцарии.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/shec.jpg'
     },
     {
       name: 'The British Embassy',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/velikobritaniia_enl.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/velikobritaniia_enl.jpg'
     },
     {
       name: 'Embassy of the United States of America',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/usa-flag.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/usa-flag.jpg'
     },
     {
       name: '«Total» Company',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/logo-total.png'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/logo-total.png'
     },
     {
       name: '«Dow» Company',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/DOW-logo.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/DOW-logo.jpg'
     },
     {
       name: 'Hockey Players of "Barys"',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/Логотип_ХК_«Барыс».svg_.png'
+      url: 'https://upload.wikimedia.org/wikipedia/ru/thumb/f/fd/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%A5%D0%9A_%C2%AB%D0%91%D0%B0%D1%80%D1%8B%D1%81%C2%BB.svg/1280px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%A5%D0%9A_%C2%AB%D0%91%D0%B0%D1%80%D1%8B%D1%81%C2%BB.svg.png'
     },
     {
       name: '«Thales» Company',
-      url: 'http://smartrealtor.kz/wp-content/uploads/2016/04/full_174.jpg'
+      url: 'http://smartrealtor.kz/wp-content/themes/smart/img/full_174.jpg'
     },
   ];
 
@@ -248,18 +254,19 @@ app.controller('main', function ($scope, $http, $timeout) {
         // Распределяем пришедший массив в нужный нам массив объектов
         _array.forEach( function (element, index, array) {
           // Промежуточный объект для составления объекта который будет помещен в массив
+          console.log(element);
           var _object = {};
 					// Сформированный объект квартиры
+          _object.count = index;
           _object.name = element.custom_fields['wpcf-header'][0];
           _object.content = element.custom_fields['wpcf-content'][0];
           _object.name_en = element.custom_fields['wpcf-header_en'][0];
           _object.content_en = element.custom_fields['wpcf-content_en'][0];
-          _object.floor = element.custom_fields['wpcf-floor'][0];
-          _object.square = element.custom_fields['wpcf-square'][0];
           _object.price = element.custom_fields['wpcf-price'][0];
           _object.id_floor = element.id;
           _object.thumbnail = element.thumbnail_images.full.url;
           _object.type = element.custom_fields['wpcf-type'][0];
+          _object.square = element.custom_fields['wpcf-square'][0];
           _object.author = {
             name: element.author.first_name,
             telephone: element.author.last_name,
@@ -269,15 +276,57 @@ app.controller('main', function ($scope, $http, $timeout) {
           _object.images = [];
 
           // Добавление картинок в объект
-          element.attachments.forEach(function (element, index, array) {
-            _object.images.push(element.url);
-          });
+          if ('wpcf-photo_object' in element.custom_fields) {
+            _object.images = element.custom_fields['wpcf-photo_object']
+          } else {
+            element.attachments.forEach(function (element, index, array) {
+              _object.images.push(element.url);
+            });
+          }
 
-					// Узнаем тип квартиры
+					// Узнаем тип сдачи квартиры
           if ( element.custom_fields['wpcf-type_sale'][0] === '1' ){
             _object.type_sale = 'Снять в аренду';
           } else {
             _object.type_sale = 'Купить';
+          }
+
+          // формируем объект для определенного типа
+          if (_object.type == 'Квартира') {
+            _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+            _object.year = element.custom_fields['wpcf-year_build'][0];
+            _object.floor = element.custom_fields['wpcf-floor'][0];
+            _object.etazh = element.custom_fields['wpcf-etazh'][0];
+            _object.su_kom = element.custom_fields['wpcf-su_kom'][0];
+            _object.mebel = element.custom_fields['wpcf-mebel'][0];
+            _object.repair = element.custom_fields['wpcf-repair'][0];
+            _object.parking = element.custom_fields['wpcf-parking'][0];
+          } else if (_object.type == 'Дом') {
+            _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+            _object.year = element.custom_fields['wpcf-year_build'][0];
+            _object.square_mesto = element.custom_fields['wpcf-square_mesto'][0];
+            _object.etazh = element.custom_fields['wpcf-etazh'][0];
+            _object.kol_spal = element.custom_fields['wpcf-kol_spal'][0];
+            _object.san_uzel_kol = element.custom_fields['wpcf-san_uzel_kol'][0];
+            _object.bassein = element.custom_fields['wpcf-bassein'][0];
+            _object.garage = element.custom_fields['wpcf-garage'][0];
+            _object.otoplenie = element.custom_fields['wpcf-otoplenie'][0];
+            _object.haswater = element.custom_fields['wpcf-haswater'][0];
+          } else if (_object.type == 'Офис') {
+            _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+            _object.type_office = element.custom_fields['wpcf-type_office'][0];
+            _object.enter_group = element.custom_fields['wpcf-enter_group'][0];
+            _object.etazh = element.custom_fields['wpcf-etazh'][0];
+            _object.plans = element.custom_fields['wpcf-plans'][0];
+            _object.repair = element.custom_fields['wpcf-repair'][0];
+            _object.mebel = element.custom_fields['wpcf-mebel'][0];
+            _object.su_kom = element.custom_fields['wpcf-su_kom'][0];
+            _object.telephonia = element.custom_fields['wpcf-telephonia'][0];
+            _object.parking = element.custom_fields['wpcf-parking'][0];
+          } else if (_object.type == 'Земельный участок') {
+            _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+            _object.communication = element.custom_fields['wpcf-communication'][0];
+            _object.chel_naz = element.custom_fields['wpcf-chel_naz'][0];
           }
 
 					// В зависимости от языка выбираем нужные нам поля
@@ -297,14 +346,14 @@ app.controller('main', function ($scope, $http, $timeout) {
           $scope.catalog_search[index] = _object;
 
           // Помещаем площадь и цену в отдельные массивы для будущего сравнения
-          maxS[index] = _object.square;
-          maxP[index] = _object.price;
+            maxS[maxS.length] = _object.square;
+            maxP[maxP.length] = _object.price;
         });
 
 				// получение максимальных значений для вставки в ui и сравнения
         $scope.sliderExample9[1] = Math.max.apply(null, maxS);
-        $scope.sliderMax = Math.max.apply(null, maxS) + 1;
-        $scope.sliderMaxForReset = Math.max.apply(null, maxS);
+        $scope.sliderMax = Math.max.apply(null, maxS) + 3;
+        $scope.sliderMaxForReset = Math.max.apply(null, maxS) + 3;
 
         $scope.price[1] = Math.max.apply(null, maxP);
         $scope.price[2] = Math.max.apply(null, maxP);
@@ -399,6 +448,47 @@ app.controller('main', function ($scope, $http, $timeout) {
       this.thumbnail = _object.thumbnail;
       this.images = _object.images;
       this.author = _object.author;
+      this.type = _object.type;
+
+      if (this.type == 'Квартира') {
+        this.raion = _object.raion;
+        this.year = _object.year;
+        this.floor = _object.floor;
+        this.square = _object.square;
+        this.etazh = _object.etazh;
+        this.su_kom = _object.su_kom;
+        this.mebel = _object.mebel;
+        this.repair = _object.repair;
+        this.parking = _object.parking;
+      } else if (_object.type == 'Дом') {
+        this.raion = _object.raion;
+        this.year = _object.year;
+        this.square = _object.square;
+        this.square_mesto = _object.square_mesto;
+        this.etazh = _object.etazh;
+        this.kol_spal = _object.kol_spal;
+        this.san_uzel_kol = _object.san_uzel_kol;
+        this.bassein = _object.bassein;
+        this.garage = _object.garage;
+        this.otoplenie = _object.otoplenie;
+        this.haswater = _object.haswater;
+      } else if (_object.type == 'Офис') {
+        this.raion = _object.raion;
+        this.type_office = _object.type_office;
+        this.square = _object.square;
+        this.enter_group = _object.enter_group;
+        this.etazh = _object.etazh;
+        this.plans = _object.plans;
+        this.repair = _object.repair;
+        this.mebel = _object.mebel;
+        this.su_kom = _object.su_kom;
+        this.telephonia = _object.telephonia;
+        this.parking = _object.parking;
+      } else if (_object.type == 'Земельный участок') {
+        this.raion = _object.raion;
+        this.communication = _object.communication;
+        this.chel_naz = _object.chel_naz;
+      }
 
       if (show) this.show = true;
       $scope.map.center = _object.coords.split(',');
@@ -581,6 +671,8 @@ app.controller('main', function ($scope, $http, $timeout) {
     return false;
   }
   $scope.quantityRoom = function (elem) {
+    if (elem.type == 'Дом' || elem.type == 'Офис') return true;
+
     if ($scope.dropDown3Filter === 'Все') return true;
 
     if ($scope.dropDown3Filter === elem.floor.toString()) return true;
@@ -588,12 +680,15 @@ app.controller('main', function ($scope, $http, $timeout) {
     return false;
   }
   $scope.squareRange = function (elem) {
+
+
     $scope.sliderValues[0] = document.querySelector('#sliderFrom').value;
     $scope.sliderValues[1] = document.querySelector('#sliderTo').value;
+
     if (+elem.square >= $scope.sliderValues[0] && +elem.square <= $scope.sliderValues[1]){
       return true;
     }
-    return false;
+      return false;
   }
   $scope.priceRange = function (elem) {
 	  if (+elem.price >= $scope.price[0] && +elem.price <= +$scope.price[1]) {
@@ -683,6 +778,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 	};
 
 	$scope.preloader = false;
+
 
 	$timeout(function () {
 		$scope.auth.open_res = 1;
