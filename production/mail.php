@@ -1,10 +1,11 @@
 
 <?php
-$sendtoArr = array("inna@smartrealtor.kz", "office@smartrealtor.kz");
-//$sendto = "inna@smartrealtor.kz, office@smartrealtor.kz"; // почта, на которую будет приходить письмо
+$sendtoArr = array("inna@smartrealtor.kz", "office@smartrealtor.kz"); // почта, на которую будет приходить письмо
+
 if ($_POST['emailTo']) {
 	$sendtoArr[2] = $_POST['emailTo'];
 }
+
 foreach($sendtoArr as $sendto) {
 	$send = true;
 	$username = $_POST['name'];   // сохраняем в переменную данные полученные из поля c именем

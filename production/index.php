@@ -374,7 +374,7 @@
 					<h4>{{mainObj.form.headers.header1}} <br> <span>{{mainObj.form.headers.header2}}</span></h4>
 					<input name="name" type="text" placeholder="{{mainObj.form.placeholders.name}}" required>
 					<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
-					<input name="emailFrom" type="text" placeholder="{{mainObj.form.placeholders.mail}}" required>
+					<input name="emailFrom" type="email" placeholder="{{mainObj.form.placeholders.mail}}" required>
 					<input name="emailTo" type="email" style="display:none;" value="main@smartrealtor.kz">
 					<textarea name="message" rows="8" cols="10" placeholder="{{mainObj.form.placeholders.ques}}" required></textarea>
 					<h4 style="display:none;">Преимущества</h4>
@@ -460,17 +460,17 @@
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
 							<ul ng-if="stack.type == 'Дом'">
-								<li><span>Год постройки:</span> {{stack.year}}</li>
+								<li><span>{{mainObj.specPage.yead_build}}:</span> {{stack.year}}</li>
 								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
 							<ul ng-if="stack.type == 'Офис'">
-								<li><span>Тип офиса:</span> {{stack.type_office}}</li>
+								<li><span>{{mainObj.specPage.type_off}}:</span> {{stack.type_office}}</li>
 								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} м<sup>2</sup></li>
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
 							<ul ng-if="stack.type == 'Земельный участок'">
-								<li><span>Район:</span> {{stack.raion}}</li>
+								<li><span>{{mainObj.specPage.raion}}:</span> {{stack.raion}}</li>
 								<li><span>{{mainObj.specPage.square}}:</span> {{stack.square}} га</li>
 								<li><span>{{mainObj.specPage.price}}:</span> {{ ((stack.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 							</ul>
@@ -661,14 +661,14 @@
 
 	<div id="map">
 		<a name="contact"></a>
-		<yandex-map center="[51.143884,71.415955]" zoom="16" style="width: 700px; height: 600px; display: block;">
-			<ymap-marker properties="map.index" coordinates="[51.143884,71.415955]"></ymap-marker>
+		<yandex-map center="[51.130101, 71.425607]" zoom="16" style="width: 700px; height: 600px; display: block;">
+			<ymap-marker properties="map.index" coordinates="[51.130101, 71.425607]"></ymap-marker>
 		</yandex-map>
 		<div class="first_column">
 			<div class="wrap">
 				<h3>{{mainObj.contacts.adress1}} <br> {{mainObj.contacts.adress2}}</h3>
 				<h4><span>+7 (701) 530-78-88</span></h4>
-				<h5><span>+7 (7172) 782-784 <br>office@smartrealtor.kz</span></h5>
+				<h5><span>+7 (7172) 689-777 <br>office@smartrealtor.kz</span></h5>
 				<button ng-click="feedback.open(mainObj.form.headers.header3, true)">{{mainObj.contacts.button}}</button>
 				<div class="social">
 					<a href="https://www.facebook.com/SmartRealtorAstana/?fref=ts" target="_blank"><div class="icon_social icon_social_1"></div></a>
@@ -754,16 +754,16 @@
 					<div ng-if="info.type == 'Квартира'" class="list_info_column">
 						<ul>
 							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
-							<li><span>Район:</span> {{info.raion}}</li>
-							<li><span>Год постройки:</span> {{info.year}}</li>
-							<li><span>Этажность:</span> {{info.etazh}}</li>
-							<li><span>С/у:</span> {{info.su_kom}}</li>
-							<li><span>Мебель:</span> {{info.mebel}}</li>
+							<li><span>{{mainObj.specPage.raion}}:</span> {{info.raion}}</li>
+							<li><span>{{mainObj.specPage.yead_build}}:</span> {{info.year}}</li>
+							<li><span>{{mainObj.specPage.floors}}:</span> {{info.etazh}}</li>
+							<li><span>{{mainObj.specPage.bathrooms}}:</span> {{info.su_kom}}</li>
+							<li><span>{{mainObj.specPage.furniture}}:</span> {{info.mebel}}</li>
 							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 						</ul>
 						<ul>
-							<li><span>Ремонт:</span> {{info.repair}}</li>
-							<li><span>Паркинг:</span> {{info.parking}}</li>
+							<li><span>{{mainObj.specPage.repair}}:</span> {{info.repair}}</li>
+							<li><span>{{mainObj.specPage.parking}}:</span> {{info.parking}}</li>
 							<li><span>{{mainObj.specPage.floor}}:</span> {{info.floor}}</li>
 							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
 						</ul>
@@ -771,47 +771,47 @@
 					<div ng-if="info.type == 'Дом'" class="list_info_column">
 						<ul>
 							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
-							<li><span>Район:</span> {{info.raion}}</li>
-							<li><span>Год постройки:</span> {{info.year}}</li>
-							<li><span>Этажность:</span> {{info.etazh}}</li>
-							<li><span>Кол-во спален:</span> {{info.kol_spal}}</li>
-							<li><span>Кол-во С/у:</span> {{info.san_uzel_kol}}</li>
+							<li><span>{{mainObj.specPage.raion}}:</span> {{info.raion}}</li>
+							<li><span>{{mainObj.specPage.yead_build}}:</span> {{info.year}}</li>
+							<li><span>{{mainObj.specPage.floors}}:</span> {{info.etazh}}</li>
+							<li><span>{{mainObj.specPage.bedrooms_count}}:</span> {{info.kol_spal}}</li>
+							<li><span>{{mainObj.specPage.bathrooms_count}}:</span> {{info.san_uzel_kol}}</li>
 							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 						</ul>
 						<ul>
-							<li><span>Бассейн:</span> {{info.bassein}}</li>
-							<li><span>Водоснабжение:</span> {{info.haswater}}</li>
-							<li><span>Отопление:</span> {{info.otoplenie}}</li>
-							<li><span>Гараж:</span> {{info.garage}}</li>
+							<li><span>{{mainObj.specPage.pool}}:</span> {{info.bassein}}</li>
+							<li><span>{{mainObj.specPage.furniture}}:</span> {{info.haswater}}</li>
+							<li><span>{{mainObj.specPage.heating}}:</span> {{info.otoplenie}}</li>
+							<li><span>{{mainObj.specPage.garage}}:</span> {{info.garage}}</li>
 							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
-							<li><span>Площадь участка:</span> {{info.square_mesto}} м<sup>2</sup></li>
+							<li><span>{{mainObj.specPage.land_area}}:</span> {{info.square_mesto}} м<sup>2</sup></li>
 						</ul>
 					</div>
 					<div ng-if="info.type == 'Офис'" class="list_info_column">
 						<ul>
 							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
-							<li><span>Район:</span> {{info.raion}}</li>
-							<li><span>Тип офиса:</span> {{info.type_office}}</li>
-							<li><span>Этажность:</span> {{info.etazh}}</li>
-							<li><span>Входная группа:</span> {{info.enter_group}}</li>
-							<li><span>Планировка:</span> {{info.plans}}</li>
+							<li><span>{{mainObj.specPage.raion}}:</span> {{info.raion}}</li>
+							<li><span>{{mainObj.specPage.type_off}}:</span> {{info.type_office}}</li>
+							<li><span>{{mainObj.specPage.floors}}:</span> {{info.etazh}}</li>
+							<li><span>{{mainObj.specPage.entrance}}:</span> {{info.enter_group}}</li>
+							<li><span>{{mainObj.specPage.layout}}:</span> {{info.plans}}</li>
 							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 						</ul>
 						<ul>
-							<li><span>Ремонт:</span> {{info.repair}}</li>
-							<li><span>Мебель:</span> {{info.mebel}}</li>
-							<li><span>С/у:</span> {{info.su_kom}}</li>
-							<li><span>Телефония:</span> {{info.telephonia}}</li>
+							<li><span>{{mainObj.specPage.repair}}:</span> {{info.repair}}</li>
+							<li><span>{{mainObj.specPage.furniture}}:</span> {{info.mebel}}</li>
+							<li><span>{{mainObj.specPage.bathrooms}}:</span> {{info.su_kom}}</li>
+							<li><span>{{mainObj.specPage.telephone}}:</span> {{info.telephonia}}</li>
 							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} м<sup>2</sup></li>
-							<li><span>Паркинг:</span> {{info.parking}}</li>
+							<li><span>{{mainObj.specPage.parking}}:</span> {{info.parking}}</li>
 						</ul>
 					</div>
 					<div ng-if="info.type == 'Земельный участок'" class="list_info_column">
 						<ul>
 							<li><span>{{mainObj.specPage.id}}:</span> {{info.id_floor}}</li>
 							<li><span>{{mainObj.specPage.square}}:</span> {{info.square}} га</li>
-							<li><span>Коммуникация:</span> {{info.communication}}</li>
-							<li><span>Целевое назначения:</span> {{info.chel_naz}}</li>
+							<li><span>{{mainObj.specPage.utility}}:</span> {{info.communication}}</li>
+							<li><span>{{mainObj.specPage.designation}}:</span> {{info.chel_naz}}</li>
 							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 						</ul>
 					</div>
@@ -821,7 +821,7 @@
 						<div class="column_first">
 							<input name="name"  type="text" placeholder="{{mainObj.form.placeholders.name}}" required>
 							<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
-							<input name="emailFrom" type="text" placeholder="{{mainObj.form.placeholders.mail}}" required>
+							<input name="emailFrom" type="email" placeholder="{{mainObj.form.placeholders.mail}}" required>
 							<input name="emailTo" type="email" style="display:none;" ng-model="info.author.email">
 							<h4 style="display:none;">Заявка с каталога</h4>
 						</div>
@@ -847,7 +847,7 @@
 				<form id="feedback" method="POST">
 					<input name="name" type="text" placeholder="{{mainObj.form.placeholders.name}}" required>
 					<input name="phone" type="number" placeholder="{{mainObj.form.placeholders.telephone}}" required>
-					<input name="emailFrom" type="text" placeholder="{{mainObj.form.placeholders.mail}}" required>
+					<input name="emailFrom" type="email" placeholder="{{mainObj.form.placeholders.mail}}" required>
 					<input name="emailTo" type="email" style="display:none;" value="main@smartrealtor.kz">
 					<textarea ng-if="feedback.textarea_show" name="message" rows="8" cols="10" placeholder="{{mainObj.form.placeholders.write}}" required>{{feedback.header === mainObj.sotrPage.header ? mainObj.form.placeholders.textarea_value_sotr : ''}}</textarea>
 					<h4 style="display:none;">{{feedback.input_header}}</h4>

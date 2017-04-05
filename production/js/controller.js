@@ -527,6 +527,7 @@ app.controller('main', function ($scope, $http, $timeout) {
 						phone: document.querySelector( id + ' input[name="phone"]').value,
 						header: document.querySelector( id + ' h4').textContent
           }
+          console.log(data);
 
           if (document.querySelector( id + ' textarea[name="message"]')) {
 	        	data.message = document.querySelector( id + ' textarea[name="message"]').value;
