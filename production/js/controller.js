@@ -85,57 +85,97 @@ app.controller('main', function ($scope, $http, $timeout) {
   $scope.spec = [];
   // Запрос на получение спецпредложений
   $scope.get_spec = function () {
-    $http.get('http://smartrealtor.kz/?json=get_category_posts&category_slug=spec&post_type=spec&count=4')
-      .then(function (value) {
-        var _array = value.data.posts;
+    $http.get('http://smartrealtor.kz/?json=get_category_posts&category_slug=spec&post_type=catalog&count=4')
+    .then(function (value) {
+      var _array = value.data.posts;
+      // Распределяем пришедший массив в нужный нам массив объектов
+      _array.forEach( function (element, index, array) {
+        // Промежуточный объект для составления объекта который будет помещен в массив
+        var _object = {};
+        // Сформированный объект квартиры
+        _object.count = index;
+        _object.name = element.custom_fields['wpcf-header'][0];
+        _object.content = element.custom_fields['wpcf-content'][0];
+        _object.name_en = element.custom_fields['wpcf-header_en'][0];
+        _object.content_en = element.custom_fields['wpcf-content_en'][0];
+        _object.price = element.custom_fields['wpcf-price'][0];
+        _object.id_floor = element.id;
+        _object.thumbnail = element.thumbnail_images.full.url;
+        _object.type = element.custom_fields['wpcf-type'][0];
+        _object.square = element.custom_fields['wpcf-square'][0];
+        _object.author = {
+          name: element.author.first_name,
+          telephone: element.author.last_name,
+          email: element.author.description.split(',')[1],
+          image: element.author.description.split(',')[0]
+        };
+        _object.images = [];
 
-        // Распределяем пришедшие данные
-        _array.forEach( function (element, index, array) {
-          // Промежуточный объект для составления объекта который будет помещен в массив
-          var _object = {};
-
-          _object.name = element.custom_fields['wpcf-header'][0];
-          _object.content = element.custom_fields['wpcf-content'][0];
-          _object.name_en = element.custom_fields['wpcf-header_en'][0];
-          _object.content_en = element.custom_fields['wpcf-content_en'][0];
-          _object.floor = element.custom_fields['wpcf-floor'][0];
-          _object.square = element.custom_fields['wpcf-square'][0];
-          _object.price = element.custom_fields['wpcf-price'][0];
-          _object.id_floor = element.id;
-          _object.thumbnail = element.thumbnail_images.full.url;
-          _object.author = {
-            name: element.author.first_name,
-            telephone: element.author.last_name,
-            email: element.author.description.split(',')[1],
-            image: element.author.description.split(',')[0]
-          };
-          _object.images = [];
+        // Добавление картинок в объект
+        if ('wpcf-photo_object' in element.custom_fields) {
+          _object.images = element.custom_fields['wpcf-photo_object']
+        } else {
           element.attachments.forEach(function (element, index, array) {
             _object.images.push(element.url);
           });
+        }
 
-          if ( element.custom_fields['wpcf-type_sale'][0] === '1' ){
-            _object.type_sale = 'Аренда';
-          } else {
-            _object.type_sale = 'Продажа';
-          }
+        // формируем объект для определенного типа
+        if (_object.type == 'Квартира') {
+          _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+          _object.year = element.custom_fields['wpcf-year_build'][0];
+          _object.floor = element.custom_fields['wpcf-floor'][0];
+          _object.etazh = element.custom_fields['wpcf-etazh'][0];
+          _object.su_kom = element.custom_fields['wpcf-su_kom'][0];
+          _object.mebel = element.custom_fields['wpcf-mebel'][0];
+          _object.repair = element.custom_fields['wpcf-repair'][0];
+          _object.parking = element.custom_fields['wpcf-parking'][0];
+        } else if (_object.type == 'Дом') {
+          _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+          _object.year = element.custom_fields['wpcf-year_build'][0];
+          _object.square_mesto = element.custom_fields['wpcf-square_mesto'][0];
+          _object.etazh = element.custom_fields['wpcf-etazh'][0];
+          _object.kol_spal = element.custom_fields['wpcf-kol_spal'][0];
+          _object.san_uzel_kol = element.custom_fields['wpcf-san_uzel_kol'][0];
+          _object.bassein = element.custom_fields['wpcf-bassein'][0];
+          _object.garage = element.custom_fields['wpcf-garage'][0];
+          _object.otoplenie = element.custom_fields['wpcf-otoplenie'][0];
+          _object.haswater = element.custom_fields['wpcf-haswater'][0];
+        } else if (_object.type == 'Офис') {
+          _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+          _object.type_office = element.custom_fields['wpcf-type_office'][0];
+          _object.enter_group = element.custom_fields['wpcf-enter_group'][0];
+          _object.etazh = element.custom_fields['wpcf-etazh'][0];
+          _object.plans = element.custom_fields['wpcf-plans'][0];
+          _object.repair = element.custom_fields['wpcf-repair'][0];
+          _object.mebel = element.custom_fields['wpcf-mebel'][0];
+          _object.su_kom = element.custom_fields['wpcf-su_kom'][0];
+          _object.telephonia = element.custom_fields['wpcf-telephonia'][0];
+          _object.parking = element.custom_fields['wpcf-parking'][0];
+        } else if (_object.type == 'Земельный участок') {
+          _object.raion = element.custom_fields['wpcf-raion_cat'][0];
+          _object.communication = element.custom_fields['wpcf-communication'][0];
+          _object.chel_naz = element.custom_fields['wpcf-chel_naz'][0];
+        }
 
-          if ($scope.lang.language === 'rus') {
-            _object.name_view = _object.name;
-            _object.content_view = _object.content;
-          } else if ($scope.lang.language === 'eng') {
-            _object.name_view = _object.name_en;
-            _object.content_view = _object.content_en;
-          }
+        // В зависимости от языка выбираем нужные нам поля
+        if ($scope.lang.language === 'rus') {
+          _object.name_view = _object.name;
+          _object.content_view = _object.content;
+        } else if ($scope.lang.language === 'eng') {
+          _object.name_view = _object.name_en;
+          _object.content_view = _object.content_en;
+        }
 
-					// Координаты карты квартиры
-					_object.coords = element.custom_fields['wpcf-coords'][0];
+        // Координаты карты квартиры
+        _object.coords = element.custom_fields['wpcf-coords'][0];
 
-          // Помещение объекта в массив
-          $scope.spec[index] = _object;
-        });
+
+        // Помещение объекта в массив
+        $scope.spec[index] = _object;
       });
-  }
+    });
+}
 
   // Иконки в партнерах rus
   $scope.partner_ru = [
@@ -254,7 +294,6 @@ app.controller('main', function ($scope, $http, $timeout) {
         // Распределяем пришедший массив в нужный нам массив объектов
         _array.forEach( function (element, index, array) {
           // Промежуточный объект для составления объекта который будет помещен в массив
-          console.log(element);
           var _object = {};
 					// Сформированный объект квартиры
           _object.count = index;
@@ -438,13 +477,12 @@ app.controller('main', function ($scope, $http, $timeout) {
       }
 
       var _object = arr[index];
-
       this.name = _object.name_view;
       this.id_floor = _object.id_floor;
       this.floor = _object.floor;
       this.square = _object.square;
       this.price = _object.price;
-      this.content = _object.content;
+      this.content = _object.content_view;
       this.thumbnail = _object.thumbnail;
       this.images = _object.images;
       this.author = _object.author;
@@ -527,7 +565,6 @@ app.controller('main', function ($scope, $http, $timeout) {
 						phone: document.querySelector( id + ' input[name="phone"]').value,
 						header: document.querySelector( id + ' h4').textContent
           }
-          console.log(data);
 
           if (document.querySelector( id + ' textarea[name="message"]')) {
 	        	data.message = document.querySelector( id + ' textarea[name="message"]').value;
@@ -631,7 +668,6 @@ app.controller('main', function ($scope, $http, $timeout) {
           $scope.dropDown3Filter = value[0];
         }
         break;
-
       default:
         $scope.dropDown1FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
         $scope.dropDown2FilterView = $scope.lang.language === 'rus' ? 'Все' : 'Any';
@@ -672,11 +708,10 @@ app.controller('main', function ($scope, $http, $timeout) {
     return false;
   }
   $scope.quantityRoom = function (elem) {
-    if (elem.type == 'Дом' || elem.type == 'Офис') return true;
-
+    if (elem.type == 'Дом' /*|| elem.type == 'Офис'*/) return true;
+    if (elem.type == 'Офис') return false;
     if ($scope.dropDown3Filter === 'Все') return true;
-
-    if ($scope.dropDown3Filter === elem.floor.toString()) return true;
+    if ($scope.dropDown3Filter.toString() === elem.floor) return true;
 
     return false;
   }

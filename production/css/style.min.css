@@ -1674,6 +1674,8 @@ footer {
           color: #2d2c2c;
           font-size: 16px;
           line-height: 28px;
+          max-height: 150px;
+          overflow-y: scroll;
           padding-top: 0px; }
         .modal .wrap .window .second_column form {
           padding-top: 10px; }
@@ -1715,7 +1717,7 @@ footer {
       .modal .wrap .window .share_button {
         float: left;
         width: 100%;
-        margin-top: 25px; }
+        margin-top: -35px; }
         .modal .wrap .window .share_button .facebook {
           background: url("../img/sprite/sprite.png") no-repeat -10px -287px;
           height: 18px;

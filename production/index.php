@@ -302,7 +302,7 @@
 					</div>
 					<div class="wrap_thumb"><img ng-src="{{specs.thumbnail}}" alt=""></div>
 					<h3>{{specs.name_view}}</h3>
-					<p>{{specs.content_view}}</p>
+					<!-- <p>{{specs.content_view}}</p> -->
 					<ul>
 						<li><span>{{mainObj.specPage.floor}}:</span> {{specs.floor}}</li>
 						<li><span>{{mainObj.specPage.square}}:</span> {{specs.square}}м<sup>2</sup></li>
@@ -815,7 +815,7 @@
 							<li class="last"><span>{{mainObj.specPage.price}}:</span> {{ ((info.price / coef.active).toFixed()) | currency : " " : 0}} {{coef.cur}}</li>
 						</ul>
 					</div>
-					<p>{{info.content_view}}</p>
+					<p>{{info.content}}</p>
 					<form id="catalog_form" method="POST">
 						<h5>{{mainObj.modal.feedback}}</h5>
 						<div class="column_first">
@@ -906,7 +906,7 @@
 	<script src="<?php echo get_template_directory_uri();?>/bower_components/nav/nav.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/common.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/slider.js"></script>
-	<script crossorigin="anonymous" async type="text/javascript" src="//api.pozvonim.com/widget/callback/v3/2b45961021aefe57671c32f5c503cee2/connect" id="check-code-pozvonim" charset="UTF-8"></script>
+  <script type="text/javascript" src="https://one.callback.pw/widget/5011a5a5-d72b-4931-a7e9-89d2e2f37c18"></script>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript">
 	    (function (d, w, c) {
